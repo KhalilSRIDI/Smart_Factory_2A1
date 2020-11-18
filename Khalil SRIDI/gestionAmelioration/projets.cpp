@@ -18,6 +18,15 @@ bool projets::ajouter()
     return query.exec();
 }
 
+bool projets::supprimer(int idprojet)
+{
+    QSqlQuery qry;
+    QString id = QString::number(idprojet);
+    qry.prepare("Delete from PROJETS where IDPROJET = :IDPROJET");
+    qry.bindValue(":IDPROJET",id);
+    return qry.exec();
+}
+
 
 
 QSqlQueryModel *projets::afficher()

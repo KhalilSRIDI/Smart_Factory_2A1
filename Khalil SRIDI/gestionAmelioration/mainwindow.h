@@ -2,7 +2,14 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include"projets.h"
+#include "projets.h"
+#include <QItemSelectionModel>
+#include <QStandardItemModel>
+
+
+
+
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -17,6 +24,8 @@ public:
 
 private slots:
     void on_pushButtonAjouter_clicked();
+
+    void on_pushButtonSupprimer_clicked();
 
 private:
     Ui::MainWindow *ui;

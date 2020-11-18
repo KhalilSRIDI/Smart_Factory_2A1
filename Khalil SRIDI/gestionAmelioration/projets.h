@@ -32,6 +32,7 @@ public:
 
     //fonctions
     bool ajouter();
+    bool supprimer(int idprojet);
     QSqlQueryModel *afficher();
 
 private:

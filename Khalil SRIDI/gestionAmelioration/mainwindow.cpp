@@ -2,13 +2,14 @@
 #include "ui_mainwindow.h"
 #include "projets.h"
 
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     ui->tableViewDB->setModel(tmp_projet.afficher());
+    ui->tableViewDB->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->tableViewDB->setSelectionMode(QAbstractItemView::SingleSelection);
 
 }
 
@@ -28,8 +29,18 @@ void MainWindow::on_pushButtonAjouter_clicked()
     QString REVENUS_PROJETES=ui->lineEditRevenues->text();
 
     projets projet(NOM, DEPARTEMENT, TEAM_LEADER, DATE_LANCEMENT, COUTS_PREVUS, REVENUS_PROJETES);
-projet.ajouter();
+    projet.ajouter();
     ui->tableViewDB->setModel(tmp_projet.afficher());
+}
 
+void MainWindow::on_pushButtonSupprimer_clicked()
+{
+    QItemSelectionModel *select = ui->tableViewDB->selectionModel();
+    int idprojet =select->selectedRows(0).value(0).data().toInt();
+    if(tmp_projet.supprimer(idprojet))
+    {
+        ui->tableViewDB->setModel(tmp_projet.afficher());
+        ui->statusbar->showMessage("SUPPRESSION : SUCCESS");
+    }
 
 }
