@@ -44,3 +44,18 @@ void MainWindow::on_pushButtonSupprimer_clicked()
     }
 
 }
+
+void MainWindow::on_pushButtonModifier_clicked()
+{
+
+    if(ui->pushButtonModifier->isChecked())
+    {
+        QSqlTableModel *tableModel= new QSqlTableModel();
+        tableModel->setTable("PROJETS");
+        tableModel->select();
+        ui->tableViewDB->setModel(tableModel);
+        ui->pushButtonModifier->setText("Tableau Modifiable");
+
+    }
+
+}

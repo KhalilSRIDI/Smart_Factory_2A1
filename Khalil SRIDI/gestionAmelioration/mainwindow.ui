@@ -345,6 +345,9 @@
        <property name="text">
         <string>Modifier</string>
        </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
       </widget>
       <widget class="QPushButton" name="pushButtonSupprimer">
        <property name="geometry">

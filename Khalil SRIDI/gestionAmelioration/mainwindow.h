@@ -5,6 +5,7 @@
 #include "projets.h"
 #include <QItemSelectionModel>
 #include <QStandardItemModel>
+#include<QSqlTableModel>
 
 
 
@@ -26,6 +27,8 @@ private slots:
     void on_pushButtonAjouter_clicked();
 
     void on_pushButtonSupprimer_clicked();
+
+    void on_pushButtonModifier_clicked();
 
 private:
     Ui::MainWindow *ui;
