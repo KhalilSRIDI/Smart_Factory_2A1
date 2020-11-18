@@ -6,6 +6,7 @@
 #include<QSqlQuery>
 #include<QVariant>
 #include<QSqlQueryModel>
+
 class projets {
 public:
     projets();

@@ -29,7 +29,7 @@ void MainWindow::on_pushButtonAjouter_clicked()
     bool test=projet.ajouter();
     if(test)
     {
-   //     ui->tableViewDB->setModel(tmp_projet.afficher());
+        ui->tableViewDB->setModel(tmp_projet.afficher());
     }
 
 }

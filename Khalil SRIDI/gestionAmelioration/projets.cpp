@@ -24,7 +24,7 @@ bool projets::ajouter()
 QSqlQueryModel *projets::afficher()
 {
     QSqlQueryModel *model= new QSqlQueryModel();
-    model->setQuery("SELECT * FORM PROJETS");
+    model->setQuery("SELECT * FROM PROJETS");
     model->setHeaderData(2,Qt::Horizontal,QObject::tr("NOM"));
     model->setHeaderData(3,Qt::Horizontal,QObject::tr("DEPARTEMENT"));
     model->setHeaderData(4,Qt::Horizontal,QObject::tr("TEAM_LEADER"));
