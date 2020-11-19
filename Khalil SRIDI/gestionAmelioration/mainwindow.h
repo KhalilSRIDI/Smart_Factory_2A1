@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "projets.h"
+#include "ui_mainwindow.h"
 #include <QItemSelectionModel>
 #include <QStandardItemModel>
 #include<QSqlTableModel>
