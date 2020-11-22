@@ -13,12 +13,14 @@ CONFIG += console
 
 SOURCES += \
     connection.cpp \
+    formation.cpp \
     main.cpp \
     mainwindow.cpp \
     projets.cpp
 
 HEADERS += \
     connection.h \
+    formation.h \
     mainwindow.h \
     projets.h
 

@@ -63,7 +63,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Projet">
      <attribute name="title">
@@ -146,7 +146,7 @@
         <string>Revenues projetés</string>
        </property>
       </widget>
-      <widget class="QDateEdit" name="dateEditLancement">
+      <widget class="QDateEdit" name="dateEditLancementP">
        <property name="geometry">
         <rect>
          <x>220</x>
@@ -156,7 +156,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEditNom">
+      <widget class="QLineEdit" name="lineEditNomP">
        <property name="geometry">
         <rect>
          <x>220</x>
@@ -166,7 +166,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEditDepartement">
+      <widget class="QLineEdit" name="lineEditDepartementP">
        <property name="geometry">
         <rect>
          <x>220</x>
@@ -176,7 +176,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEditTeamLeader">
+      <widget class="QLineEdit" name="lineEditTeamLeaderP">
        <property name="geometry">
         <rect>
          <x>220</x>
@@ -186,7 +186,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEditCout">
+      <widget class="QLineEdit" name="lineEditCoutP">
        <property name="geometry">
         <rect>
          <x>220</x>
@@ -196,7 +196,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEditRevenues">
+      <widget class="QLineEdit" name="lineEditRevenuesP">
        <property name="geometry">
         <rect>
          <x>220</x>
@@ -414,12 +414,12 @@
         <string>Statistiques</string>
        </property>
       </widget>
-      <widget class="QTableView" name="tableViewDB">
+      <widget class="QTableView" name="tableViewP">
        <property name="geometry">
         <rect>
-         <x>25</x>
+         <x>15</x>
          <y>161</y>
-         <width>711</width>
+         <width>721</width>
          <height>351</height>
         </rect>
        </property>
@@ -530,124 +530,7 @@
         <string>Durée</string>
        </property>
       </widget>
-      <widget class="QTableWidget" name="tableWidgetProjet_2">
-       <property name="geometry">
-        <rect>
-         <x>35</x>
-         <y>160</y>
-         <width>701</width>
-         <height>341</height>
-        </rect>
-       </property>
-       <property name="selectionBehavior">
-        <enum>QAbstractItemView::SelectRows</enum>
-       </property>
-       <property name="sortingEnabled">
-        <bool>true</bool>
-       </property>
-       <row>
-        <property name="text">
-         <string>1</string>
-        </property>
-       </row>
-       <column>
-        <property name="text">
-         <string>Nom</string>
-        </property>
-        <property name="font">
-         <font>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Projet</string>
-        </property>
-        <property name="font">
-         <font>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Formateur</string>
-        </property>
-        <property name="font">
-         <font>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Date de lancement prévue</string>
-        </property>
-        <property name="font">
-         <font>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Durée</string>
-        </property>
-        <property name="font">
-         <font>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Cout de formation</string>
-        </property>
-        <property name="font">
-         <font>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-       </column>
-       <item row="0" column="0">
-        <property name="text">
-         <string>Angular</string>
-        </property>
-       </item>
-       <item row="0" column="1">
-        <property name="text">
-         <string>App CIP</string>
-        </property>
-       </item>
-       <item row="0" column="2">
-        <property name="text">
-         <string>Chebeh A.</string>
-        </property>
-       </item>
-       <item row="0" column="3">
-        <property name="text">
-         <string>07/08/2020</string>
-        </property>
-       </item>
-       <item row="0" column="4">
-        <property name="text">
-         <string>6 Jours</string>
-        </property>
-       </item>
-       <item row="0" column="5">
-        <property name="text">
-         <string>1000 euros</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QPushButton" name="pushButtonModifier_2">
+      <widget class="QPushButton" name="pushButtonModifierF">
        <property name="geometry">
         <rect>
          <x>270</x>
@@ -659,8 +542,11 @@
        <property name="text">
         <string>Modifier</string>
        </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
       </widget>
-      <widget class="QPushButton" name="pushButtonSupprimer_2">
+      <widget class="QPushButton" name="pushButtonSupprimerF">
        <property name="geometry">
         <rect>
          <x>420</x>
@@ -723,6 +609,19 @@
        </property>
        <property name="text">
         <string>Statistiques</string>
+       </property>
+      </widget>
+      <widget class="QTableView" name="tableViewF">
+       <property name="geometry">
+        <rect>
+         <x>15</x>
+         <y>161</y>
+         <width>721</width>
+         <height>351</height>
+        </rect>
+       </property>
+       <property name="selectionBehavior">
+        <enum>QAbstractItemView::SelectItems</enum>
        </property>
       </widget>
      </widget>
@@ -803,7 +702,7 @@
         <string>Cout de formation</string>
        </property>
       </widget>
-      <widget class="QDateEdit" name="dateEditLancement_2">
+      <widget class="QDateEdit" name="dateEditDateF">
        <property name="geometry">
         <rect>
          <x>220</x>
@@ -813,7 +712,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEditNom_2">
+      <widget class="QLineEdit" name="lineEditNomF">
        <property name="geometry">
         <rect>
          <x>220</x>
@@ -823,7 +722,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEditDepartement_2">
+      <widget class="QLineEdit" name="lineEditProjet">
        <property name="geometry">
         <rect>
          <x>220</x>
@@ -833,7 +732,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEditTeamLeader_2">
+      <widget class="QLineEdit" name="lineEditFormateur">
        <property name="geometry">
         <rect>
          <x>220</x>
@@ -843,7 +742,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEditCout_2">
+      <widget class="QLineEdit" name="lineEditDureeF">
        <property name="geometry">
         <rect>
          <x>220</x>
@@ -853,7 +752,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEditRevenues_2">
+      <widget class="QLineEdit" name="lineEditCoutF">
        <property name="geometry">
         <rect>
          <x>220</x>
@@ -876,7 +775,7 @@
         <string>Durée de formation</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButtonAjouter_2">
+      <widget class="QPushButton" name="pushButtonAjouterF">
        <property name="geometry">
         <rect>
          <x>280</x>
