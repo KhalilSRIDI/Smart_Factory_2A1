@@ -245,7 +245,7 @@
       <property name="title">
        <string>Consulter Projet</string>
       </property>
-      <widget class="QLineEdit" name="lineEdit">
+      <widget class="QLineEdit" name="lineEditRP">
        <property name="geometry">
         <rect>
          <x>40</x>
@@ -255,7 +255,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButtonRecherche">
+      <widget class="QPushButton" name="pushButtonRechercheP">
        <property name="geometry">
         <rect>
          <x>330</x>
@@ -442,7 +442,7 @@
       <property name="title">
        <string>Consulter Formation</string>
       </property>
-      <widget class="QLineEdit" name="lineEdit_2">
+      <widget class="QLineEdit" name="lineEditRF">
        <property name="geometry">
         <rect>
          <x>40</x>
@@ -452,7 +452,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButtonRecherche_2">
+      <widget class="QPushButton" name="pushButtonRechercheF">
        <property name="geometry">
         <rect>
          <x>330</x>
@@ -464,13 +464,16 @@
        <property name="text">
         <string>Rechercher</string>
        </property>
+       <property name="checkable">
+        <bool>false</bool>
+       </property>
       </widget>
-      <widget class="QRadioButton" name="radioButtonNom_2">
+      <widget class="QRadioButton" name="radioButtonNomF">
        <property name="geometry">
         <rect>
-         <x>40</x>
+         <x>90</x>
          <y>100</y>
-         <width>97</width>
+         <width>50</width>
          <height>22</height>
         </rect>
        </property>
@@ -478,12 +481,12 @@
         <string>Nom</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButtonTeamLeader_2">
+      <widget class="QRadioButton" name="radioButtonFormateurF">
        <property name="geometry">
         <rect>
-         <x>170</x>
+         <x>220</x>
          <y>100</y>
-         <width>97</width>
+         <width>90</width>
          <height>22</height>
         </rect>
        </property>
@@ -491,12 +494,12 @@
         <string>Formateur</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButtonDepartement_2">
+      <widget class="QRadioButton" name="radioButtonProjetF">
        <property name="geometry">
         <rect>
-         <x>100</x>
+         <x>150</x>
          <y>100</y>
-         <width>97</width>
+         <width>60</width>
          <height>22</height>
         </rect>
        </property>
@@ -504,23 +507,23 @@
         <string>Projet</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButton_3">
+      <widget class="QRadioButton" name="radioButtonDateF">
        <property name="geometry">
         <rect>
-         <x>270</x>
+         <x>320</x>
          <y>100</y>
-         <width>140</width>
-         <height>22</height>
+         <width>110</width>
+         <height>20</height>
         </rect>
        </property>
        <property name="text">
-        <string>Date de lancement</string>
+        <string>Date de debut</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButtonStatut_2">
+      <widget class="QRadioButton" name="radioButtonDureeF">
        <property name="geometry">
         <rect>
-         <x>420</x>
+         <x>440</x>
          <y>100</y>
          <width>70</width>
          <height>22</height>
@@ -624,6 +627,32 @@
         <enum>QAbstractItemView::SelectItems</enum>
        </property>
       </widget>
+      <widget class="QRadioButton" name="radioButtonCoutF">
+       <property name="geometry">
+        <rect>
+         <x>510</x>
+         <y>100</y>
+         <width>60</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Cout</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="radioButtonIDF">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>100</y>
+         <width>40</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>ID</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QGroupBox" name="groupBoxAjouterP_2">
       <property name="geometry">
@@ -722,16 +751,6 @@
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEditProjet">
-       <property name="geometry">
-        <rect>
-         <x>220</x>
-         <y>80</y>
-         <width>150</width>
-         <height>20</height>
-        </rect>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="lineEditFormateur">
        <property name="geometry">
         <rect>
@@ -786,6 +805,16 @@
        </property>
        <property name="text">
         <string>Ajouter</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEditProjet">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>80</y>
+         <width>150</width>
+         <height>20</height>
+        </rect>
        </property>
       </widget>
      </widget>

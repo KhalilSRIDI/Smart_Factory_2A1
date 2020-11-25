@@ -8,6 +8,8 @@
 #include <QItemSelectionModel>
 #include <QStandardItemModel>
 #include <QSqlTableModel>
+#include <QSqlQuery>
+#include <QMessageBox>
 
 
 
@@ -36,11 +38,9 @@ private slots:
 
     void on_pushButtonSupprimerF_clicked();
 
-    void on_pushButtonModifier_2_clicked();
-
     void on_pushButtonModifierF_clicked();
 
-    void on_comboBox_activated(const QString &arg1);
+    void on_pushButtonRechercheF_clicked();
 
 private:
     Ui::MainWindow *ui;

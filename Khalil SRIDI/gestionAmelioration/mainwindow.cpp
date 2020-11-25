@@ -67,16 +67,16 @@ void MainWindow::on_pushButtonModifier_clicked()
 //formations UI
 void MainWindow::on_pushButtonAjouterF_clicked()
 {
-        QString NOM=ui->lineEditNomF->text();
-        int PROJET=ui->lineEditProjet->text().toInt();
-        QString FORMATEUR=ui->lineEditFormateur->text();
-        QString DATEDEBUT=ui->dateEditDateF->date().toString("dd/MM/yyyy");
-        QString DUREE=ui->lineEditDureeF->text();
-        QString COUT=ui->lineEditCoutF->text();
+    QString NOM=ui->lineEditNomF->text();
+    int PROJET=ui->lineEditProjet->text().toInt();
+    QString FORMATEUR=ui->lineEditFormateur->text();
+    QString DATEDEBUT=ui->dateEditDateF->date().toString("dd/MM/yyyy");
+    QString DUREE=ui->lineEditDureeF->text();
+    QString COUT=ui->lineEditCoutF->text();
 
-        formation formation(NOM, PROJET, FORMATEUR, DATEDEBUT, DUREE, COUT);
-        formation.ajouter();
-        ui->tableViewF->setModel(tmp_formation.afficher());
+    formation formation(NOM, PROJET, FORMATEUR, DATEDEBUT, DUREE, COUT);
+    formation.ajouter();
+    ui->tableViewF->setModel(tmp_formation.afficher());
 
 }
 
@@ -103,4 +103,42 @@ void MainWindow::on_pushButtonModifierF_clicked()
 
     }
 
+}
+
+void MainWindow::on_pushButtonRechercheF_clicked()
+{
+    int critere=0;
+    if(ui->radioButtonIDF->isChecked())
+        critere=0;
+    else if(ui->radioButtonNomF->isChecked())
+        critere=1;
+    else if(ui->radioButtonProjetF->isChecked())
+        critere=2;
+    else if(ui->radioButtonFormateurF->isChecked())
+        critere=3;
+    else if(ui->radioButtonDateF->isChecked())
+        critere=4;
+    else if(ui->radioButtonDureeF->isChecked())
+        critere=5;
+    else if(ui->radioButtonCoutF->isChecked())
+        critere=6;
+
+    QString input = ui->lineEditRF->text();
+    QSqlQueryModel *test=tmp_formation.chercher(input,critere);
+
+
+    if(test != nullptr)
+    {
+        QMessageBox::information(nullptr, QObject::tr("chercher une formation"),
+                                 QObject::tr("Formation trouvé.\n"
+                                             "Click Cancel to get informations."), QMessageBox::Cancel);
+        ui->tableViewF->setModel(test);
+    }
+    else
+    {
+        QMessageBox::critical(nullptr, QObject::tr("chercher une formation"),
+                              QObject::tr("Erreur , formation introuvable !.\n"
+                                          "Click Cancel to exit."), QMessageBox::Cancel);
+        ui->tableViewF->setModel(test);
+    }
 }

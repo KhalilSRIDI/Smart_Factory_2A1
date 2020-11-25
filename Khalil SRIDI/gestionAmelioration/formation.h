@@ -8,6 +8,7 @@
 #include<QSqlQuery>
 #include<QVariant>
 #include<QSqlQueryModel>
+#include<QSqlRecord>
 
 class formation
 {
@@ -37,6 +38,7 @@ public:
     bool ajouter();
     bool supprimer(int idformation);
     QSqlQueryModel *afficher();
+    QSqlQueryModel *chercher(QString input,int critere);
 
 private:
     QString NOM;
