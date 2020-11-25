@@ -8,7 +8,7 @@ formation::formation()
 bool formation::ajouter()
 {
     QSqlQuery query;
-    query.prepare("INSERT INTO formations (NOM, PROJET, FORMATEUR, DATEDEBUT, DUREE, COUT) VALUES (:NOM, :PROJET, :FORMATEUR, :DATEDEBUT, :DUREE, :COUT)");
+    query.prepare("INSERT INTO FORMATIONS (NOM, PROJET, FORMATEUR, DATEDEBUT, DUREE, COUT) VALUES (:NOM, :PROJET, :FORMATEUR, :DATEDEBUT, :DUREE, :COUT)");
     query.bindValue(":NOM", NOM);
     query.bindValue(":PROJET", PROJET);
     query.bindValue(":FORMATEUR", FORMATEUR);
@@ -32,7 +32,7 @@ bool formation::supprimer(int idformation)
 QSqlQueryModel *formation::afficher()
 {
     QSqlQueryModel *model= new QSqlQueryModel();
-    model->setQuery("SELECT * FROM formations");
+    model->setQuery("SELECT * FROM FORMATIONS");
     model->setHeaderData(0,Qt::Horizontal,QObject::tr("IDFORMATION"));
     model->setHeaderData(1,Qt::Horizontal,QObject::tr("NOM"));
     model->setHeaderData(2,Qt::Horizontal,QObject::tr("PROJET"));
@@ -48,40 +48,51 @@ QSqlQueryModel *formation::chercher(QString input,int critere)
     QSqlQuery q;
     int inputid;
 
-    switch (critere) {
-    case 0:
+    if(critere==0)
+    {
         inputid=input.toInt();
-        q.prepare("SELECT * FROM formations WHERE IDFORMATION = :IDFORMATION");
+        q.prepare("SELECT * FROM FORMATIONS WHERE IDFORMATION = :IDFORMATION");
         q.bindValue(":IDFORMATION",inputid);
-        break;
-    case 1:
-        q.prepare("SELECT * FROM formations WHERE NOM = :NOM");
+        q.exec();
+    }
+    else if(critere==1)
+    {
+        q.prepare("SELECT * FROM FORMATIONS WHERE NOM = :NOM");
         q.bindValue(":NOM",input);
-        break;
-    case 2:
-        q.prepare("SELECT * FROM formations WHERE PROJET = :PROJET");
+        q.exec();
+    }
+    else if(critere==2)
+    {
+        q.prepare("SELECT * FROM FORMATIONS WHERE PROJET = :PROJET");
         q.bindValue(":PROJET",input);
-        break;
-    case 3:
-        q.prepare("SELECT * FROM formations WHERE FORMATEUR = :FORMATEUR");
+        q.exec();
+    }
+    else if(critere==3)
+    {
+        q.prepare("SELECT * FROM FORMATIONS WHERE FORMATEUR = :FORMATEUR");
         q.bindValue(":FORMATEUR",input);
-        break;
-    case 4:
-        q.prepare("SELECT * FROM formations WHERE DATEDEBUT = :DATEDEBUT");
+        q.exec();
+    }
+    else if(critere==4)
+    {
+        q.prepare("SELECT * FROM FORMATIONS WHERE DATEDEBUT = :DATEDEBUT");
         q.bindValue(":DATEDEBUT",input);
-        break;
-    case 5:
-        q.prepare("SELECT * FROM formations WHERE DUREE = :DUREE");
+        q.exec();
+    }
+    else if(critere==5)
+    {
+        q.prepare("SELECT * FROM FORMATIONS WHERE DUREE = :DUREE");
         q.bindValue(":DUREE",input);
-        break;
-    case 6:
-        q.prepare("SELECT * FROM formations WHERE COUT = :COUT");
+        q.exec();
+    }
+    else if(critere==6)
+    {
+        q.prepare("SELECT * FROM FORMATIONS WHERE COUT = :COUT");
         q.bindValue(":COUT",input);
-        break;
-
+        q.exec();
     }
 
-    q.exec();
+
     QSqlQueryModel * model = new QSqlQueryModel;
     model->setQuery(q);
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("IDFORMATION"));
@@ -91,13 +102,23 @@ QSqlQueryModel *formation::chercher(QString input,int critere)
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("DATEDEBUT"));
     model->setHeaderData(5, Qt::Horizontal, QObject::tr("DUREE"));
     model->setHeaderData(6, Qt::Horizontal, QObject::tr("COUT"));
+
     int num;
+    QString index;
+
     QSqlRecord rec;
-    rec = model->record(critere);
-    num = rec.value(critere).toInt();
-    if( num == input){
+    rec = model->record(0);
+    if(critere==0)
+    {
+        num = rec.value("IDFORMATION").toInt();
         return model;
     }
+    else
+    {
+        index = rec.value("input").toString();
+        return model;
+    }
+
     return nullptr;
 
 }

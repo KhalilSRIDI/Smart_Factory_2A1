@@ -9,6 +9,7 @@
 #include<QVariant>
 #include<QSqlQueryModel>
 #include<QSqlRecord>
+#include<QtDebug>
 
 class formation
 {

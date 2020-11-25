@@ -124,6 +124,7 @@ void MainWindow::on_pushButtonRechercheF_clicked()
         critere=6;
 
     QString input = ui->lineEditRF->text();
+
     QSqlQueryModel *test=tmp_formation.chercher(input,critere);
 
 
