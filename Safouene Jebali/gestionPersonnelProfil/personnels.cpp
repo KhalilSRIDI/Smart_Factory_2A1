@@ -1,3 +1,4 @@
+
 #include "personnels.h"
 #include "gestionpersonnelprofil.h"
 personnels::personnels()
@@ -111,3 +112,49 @@ QSqlQueryModel * model = new QSqlQueryModel;
 model->setQuery(qry);
     return model;
 }
+QSqlQueryModel *personnels::trierMatricule()
+{
+    QSqlQuery *qry=new QSqlQuery();
+    QSqlQueryModel *model=new QSqlQueryModel();
+    qry->prepare("select * from personnels order by matricule ASC");
+    qry->exec();
+    model->setQuery(*qry);
+    return model;
+}
+QSqlQueryModel *personnels::trierAge()
+{
+    QSqlQuery *qry=new QSqlQuery();
+    QSqlQueryModel *model=new QSqlQueryModel();
+    qry->prepare("select * from personnels order by date_naissance DESC");
+    qry->exec();
+    model->setQuery(*qry);
+    return model;
+}
+QSqlQueryModel *personnels::trierNom()
+{
+    QSqlQuery *qry=new QSqlQuery();
+    QSqlQueryModel *model=new QSqlQueryModel();
+    qry->prepare("select * from personnels order by nom ASC");
+    qry->exec();
+    model->setQuery(*qry);
+    return model;
+}
+QSqlQueryModel *personnels::trierAnciennete()
+{
+    QSqlQuery *qry=new QSqlQuery();
+    QSqlQueryModel *model=new QSqlQueryModel();
+    qry->prepare("select * from personnels order by date_recrutement DESC");
+    qry->exec();
+    model->setQuery(*qry);
+    return model;
+}
+QSqlQueryModel *personnels::trierSalaire()
+{
+    QSqlQuery *qry=new QSqlQuery();
+    QSqlQueryModel *model=new QSqlQueryModel();
+    qry->prepare("select * from personnels order by salaire ASC");
+    qry->exec();
+    model->setQuery(*qry);
+    return model;
+}
+

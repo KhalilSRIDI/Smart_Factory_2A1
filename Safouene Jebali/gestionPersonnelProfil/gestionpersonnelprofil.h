@@ -51,6 +51,8 @@ private slots:
 
     void on_chercherTripleC_clicked();
 
+    void on_trier_clicked();
+
 private:
     Ui::GestionPersonnelProfil *ui;
     personnels tmpPersonnels;

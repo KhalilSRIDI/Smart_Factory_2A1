@@ -394,3 +394,27 @@ void GestionPersonnelProfil::on_chercherTripleC_clicked()
     }
 
 }
+
+void GestionPersonnelProfil::on_trier_clicked()
+{
+    if(ui->matT->isChecked())
+    {
+        ui->tablePers->setModel(tmpPersonnels.trierMatricule());
+    }
+    else if(ui->nomT->isChecked())
+    {
+        ui->tablePers->setModel(tmpPersonnels.trierNom());
+    }
+    else if(ui->ageT->isChecked())
+    {
+       ui->tablePers->setModel(tmpPersonnels.trierAge());
+    }
+    else if(ui->ancienneteT->isChecked())
+    {
+        ui->tablePers->setModel(tmpPersonnels.trierAnciennete());
+    }
+    else if(ui->salaireT->isChecked())
+    {
+        ui->tablePers->setModel(tmpPersonnels.trierSalaire());
+    }
+}

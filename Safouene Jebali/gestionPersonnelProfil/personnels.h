@@ -51,6 +51,11 @@ public:
     QSqlQueryModel *chercherPersonnelFonction(QString);
     QSqlQueryModel *chercherPersonnelPeriodeRec(QDate,QDate);
     QSqlQueryModel *chercherPersonnel3C(QString,QString,int);
+    QSqlQueryModel *trierMatricule();
+    QSqlQueryModel *trierAge();
+    QSqlQueryModel *trierNom();
+    QSqlQueryModel *trierAnciennete();
+    QSqlQueryModel *trierSalaire();
 
 private:
 };

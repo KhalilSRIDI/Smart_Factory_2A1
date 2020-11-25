@@ -577,7 +577,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
         <item row="0" column="1" rowspan="2">
          <widget class="QTabWidget" name="actionPers">
           <property name="currentIndex">
-           <number>4</number>
+           <number>1</number>
           </property>
           <property name="usesScrollButtons">
            <bool>false</bool>
@@ -613,42 +613,6 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
                </widget>
               </item>
              </layout>
-            </item>
-            <item row="0" column="2">
-             <widget class="QGroupBox" name="grpPhotoPers">
-              <property name="minimumSize">
-               <size>
-                <width>400</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="title">
-               <string>Photo</string>
-              </property>
-              <layout class="QVBoxLayout" name="verticalLayout">
-               <item>
-                <widget class="QLabel" name="imagePers">
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="ajouterImgPers">
-                 <property name="text">
-                  <string>Ajouter Image</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="resetImgPers">
-                 <property name="text">
-                  <string>Reset</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
             </item>
             <item row="0" column="0">
              <widget class="QGroupBox" name="groupBox">
@@ -1690,21 +1654,63 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
              </layout>
             </item>
             <item row="1" column="0">
-             <widget class="QTableView" name="tablePers"/>
-            </item>
-            <item row="2" column="0">
-             <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <layout class="QHBoxLayout" name="horizontalLayout_22">
               <item>
-               <widget class="QPushButton" name="afficherUnPersonnel">
-                <property name="styleSheet">
-                 <string notr="true">-webkit-box-shadow: 12px 15px 17px 15px rgba(425,474,11,14);
-box-shadow: 12px 15px 17px 15px rgba(425,474,11,14);</string>
-                </property>
+               <widget class="QLabel" name="label_23">
                 <property name="text">
-                 <string>Afficher Un Personnel</string>
+                 <string>Trier Par :</string>
                 </property>
                </widget>
               </item>
+              <item>
+               <widget class="QRadioButton" name="matT">
+                <property name="text">
+                 <string>Matricule</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="nomT">
+                <property name="text">
+                 <string>Nom</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="ageT">
+                <property name="text">
+                 <string>Age</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="ancienneteT">
+                <property name="text">
+                 <string>Ancienneté</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="salaireT">
+                <property name="text">
+                 <string>Salaire</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="trier">
+                <property name="text">
+                 <string>Trier</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="2" column="0">
+             <widget class="QTableView" name="tablePers"/>
+            </item>
+            <item row="3" column="0">
+             <layout class="QHBoxLayout" name="horizontalLayout_5">
               <item>
                <widget class="QPushButton" name="modifierPers">
                 <property name="styleSheet">
@@ -1734,7 +1740,7 @@ box-shadow: 12px 15px 17px 15px rgba(425,474,11,14);</string>
               <item>
                <widget class="QPushButton" name="exportExcel">
                 <property name="text">
-                 <string>export Excel</string>
+                 <string>Export Excel</string>
                 </property>
                </widget>
               </item>
@@ -1749,10 +1755,10 @@ box-shadow: 12px 15px 17px 15px rgba(425,474,11,14);</string>
            <widget class="QFrame" name="testPie">
             <property name="geometry">
              <rect>
-              <x>10</x>
-              <y>10</y>
-              <width>1491</width>
-              <height>851</height>
+              <x>30</x>
+              <y>70</y>
+              <width>611</width>
+              <height>401</height>
              </rect>
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_11"/>
@@ -1762,6 +1768,52 @@ box-shadow: 12px 15px 17px 15px rgba(425,474,11,14);</string>
            <attribute name="title">
             <string>Pointage Des Personnels</string>
            </attribute>
+           <widget class="QLabel" name="label_33">
+            <property name="geometry">
+             <rect>
+              <x>100</x>
+              <y>50</y>
+              <width>56</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="lineEdit">
+            <property name="geometry">
+             <rect>
+              <x>180</x>
+              <y>50</y>
+              <width>113</width>
+              <height>22</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QTableView" name="tableView">
+            <property name="geometry">
+             <rect>
+              <x>160</x>
+              <y>150</y>
+              <width>256</width>
+              <height>192</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="pushButton">
+            <property name="geometry">
+             <rect>
+              <x>180</x>
+              <y>400</y>
+              <width>93</width>
+              <height>28</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>PushButton</string>
+            </property>
+           </widget>
           </widget>
           <widget class="QWidget" name="tab_11">
            <attribute name="title">
@@ -1825,42 +1877,6 @@ box-shadow: 12px 15px 17px 15px rgba(425,474,11,14);</string>
             <string>Ajouter Un Profil</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_4">
-            <item row="0" column="1">
-             <widget class="QGroupBox" name="grpPhotoPers_2">
-              <property name="minimumSize">
-               <size>
-                <width>400</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="title">
-               <string>Photo</string>
-              </property>
-              <layout class="QVBoxLayout" name="verticalLayout_3">
-               <item>
-                <widget class="QLabel" name="imagePers_2">
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="ajouterImgPers_2">
-                 <property name="text">
-                  <string>Ajouter Image</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="resetImgPers_2">
-                 <property name="text">
-                  <string>Reset</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
             <item row="0" column="0">
              <widget class="QGroupBox" name="groupBox_3">
               <property name="title">
@@ -1986,30 +2002,10 @@ box-shadow: 12px 15px 17px 15px rgba(425,474,11,14);</string>
                <item row="8" column="1">
                 <widget class="QDateEdit" name="dateNaissanceP"/>
                </item>
-               <item row="17" column="1">
-                <widget class="QLabel" name="label_23">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>400</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
                <item row="10" column="0">
                 <widget class="QLabel" name="label_25">
                  <property name="text">
                   <string>Département :</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="11" column="0">
-                <widget class="QLabel" name="label_26">
-                 <property name="text">
-                  <string>Unité :</string>
                  </property>
                 </widget>
                </item>
@@ -2050,6 +2046,13 @@ box-shadow: 12px 15px 17px 15px rgba(425,474,11,14);</string>
                    <string>Materiel</string>
                   </property>
                  </item>
+                </widget>
+               </item>
+               <item row="11" column="0">
+                <widget class="QLabel" name="label_26">
+                 <property name="text">
+                  <string>Unité :</string>
+                 </property>
                 </widget>
                </item>
                <item row="11" column="1">
@@ -2152,7 +2155,7 @@ box-shadow: 12px 15px 17px 15px rgba(425,474,11,14);</string>
             <item>
              <widget class="QPushButton" name="exportExcelP">
               <property name="text">
-               <string>export Excel</string>
+               <string>Export Excel</string>
               </property>
              </widget>
             </item>
@@ -2386,22 +2389,6 @@ box-shadow: 12px 15px 17px 15px rgba(425,474,11,14);</string>
     <hint type="destinationlabel">
      <x>1359</x>
      <y>442</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>resetImgPers</sender>
-   <signal>clicked()</signal>
-   <receiver>imagePers</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>1485</x>
-     <y>509</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1485</x>
-     <y>171</y>
     </hint>
    </hints>
   </connection>
