@@ -143,6 +143,7 @@ void MainWindow::on_pushButtonRechercheF_clicked()
         ui->tableViewF->setModel(test);
     }
 }
+
 void MainWindow::on_pushButtonRechercheP_clicked()
 {
     int critere=0;
@@ -180,4 +181,15 @@ void MainWindow::on_pushButtonRechercheP_clicked()
                                           "Click Cancel to exit."), QMessageBox::Cancel);
         ui->tableViewP->setModel(test);
     }
+}
+
+
+void MainWindow::on_pushButtonRefreshP_clicked()
+{
+    ui->tableViewP->setModel(tmp_projet.afficher());
+}
+
+void MainWindow::on_pushButtonRefreshF_clicked()
+{
+    ui->tableViewF->setModel(tmp_formation.afficher());
 }

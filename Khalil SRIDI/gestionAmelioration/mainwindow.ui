@@ -63,7 +63,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Projet">
      <attribute name="title">
@@ -448,6 +448,19 @@
        </property>
        <property name="text">
         <string>Revenus</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonRefreshP">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>520</y>
+         <width>110</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Refresh</string>
        </property>
       </widget>
      </widget>
@@ -843,6 +856,19 @@
         </rect>
        </property>
       </widget>
+     </widget>
+     <widget class="QPushButton" name="pushButtonRefreshF">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>520</y>
+        <width>110</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Refresh</string>
+      </property>
      </widget>
     </widget>
    </widget>
