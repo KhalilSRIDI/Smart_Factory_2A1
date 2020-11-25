@@ -10,6 +10,9 @@
 #include<QSqlQueryModel>
 #include<QSqlRecord>
 #include<QtDebug>
+#include<qtableview.h>
+#include<QFileDialog>
+#include<QCoreApplication>
 
 class formation
 {
@@ -40,6 +43,7 @@ public:
     bool supprimer(int idformation);
     QSqlQueryModel *afficher();
     QSqlQueryModel *chercher(QString input,int critere);
+    void exporterExcel(QTableView *table);
 
 private:
     QString NOM;

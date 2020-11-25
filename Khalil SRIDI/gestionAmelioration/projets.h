@@ -9,6 +9,9 @@
 #include<QSqlQueryModel>
 #include<QSqlRecord>
 #include<QtDebug>
+#include<qtableview.h>
+#include<QFileDialog>
+#include<QCoreApplication>
 
 class projets {
 public:
@@ -37,6 +40,7 @@ public:
     bool supprimer(int idprojet);
     QSqlQueryModel *afficher();
     QSqlQueryModel *chercher(QString input,int critere);
+    void exporterExcel(QTableView *table);
 
 private:
     QString NOM;

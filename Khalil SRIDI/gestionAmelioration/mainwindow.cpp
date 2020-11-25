@@ -183,7 +183,6 @@ void MainWindow::on_pushButtonRechercheP_clicked()
     }
 }
 
-
 void MainWindow::on_pushButtonRefreshP_clicked()
 {
     ui->tableViewP->setModel(tmp_projet.afficher());
@@ -192,4 +191,17 @@ void MainWindow::on_pushButtonRefreshP_clicked()
 void MainWindow::on_pushButtonRefreshF_clicked()
 {
     ui->tableViewF->setModel(tmp_formation.afficher());
+}
+
+void MainWindow::on_pushButtonExportF_clicked()
+{
+        tmp_formation.exporterExcel(ui->tableViewF);
+        ui->statusbar->showMessage("EXPORT TABLE ",5000);
+
+}
+
+void MainWindow::on_pushButtonExportP_clicked()
+{
+    tmp_projet.exporterExcel(ui->tableViewP);
+    ui->statusbar->showMessage("EXPORT TABLE ",5000);
 }
