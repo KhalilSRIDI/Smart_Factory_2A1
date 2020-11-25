@@ -16,16 +16,16 @@ SOURCES += \
     formation.cpp \
     main.cpp \
     mainwindow.cpp \
-    projets.cpp
+    projets.cpp \
 
 HEADERS += \
     connection.h \
     formation.h \
     mainwindow.h \
-    projets.h
+    projets.h \
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
