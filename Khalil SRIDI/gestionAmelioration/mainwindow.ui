@@ -63,7 +63,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="Projet">
      <attribute name="title">
@@ -268,12 +268,12 @@
         <string>Rechercher</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButtonNom">
+      <widget class="QRadioButton" name="radioButtonNomP">
        <property name="geometry">
         <rect>
-         <x>40</x>
+         <x>80</x>
          <y>100</y>
-         <width>97</width>
+         <width>60</width>
          <height>22</height>
         </rect>
        </property>
@@ -281,10 +281,10 @@
         <string>Nom</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButtonTeamLeader">
+      <widget class="QRadioButton" name="radioButtonTeamLeaderP">
        <property name="geometry">
         <rect>
-         <x>210</x>
+         <x>240</x>
          <y>100</y>
          <width>97</width>
          <height>22</height>
@@ -294,10 +294,10 @@
         <string>Team leader</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButtonDepartement">
+      <widget class="QRadioButton" name="radioButtonDepartementP">
        <property name="geometry">
         <rect>
-         <x>100</x>
+         <x>140</x>
          <y>100</y>
          <width>97</width>
          <height>22</height>
@@ -307,10 +307,10 @@
         <string>Departement</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButton_2">
+      <widget class="QRadioButton" name="radioButtonDateLancementP">
        <property name="geometry">
         <rect>
-         <x>320</x>
+         <x>340</x>
          <y>100</y>
          <width>140</width>
          <height>22</height>
@@ -320,17 +320,17 @@
         <string>Date de lancement</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButtonStatut">
+      <widget class="QRadioButton" name="radioButtonCoutsP">
        <property name="geometry">
         <rect>
-         <x>470</x>
+         <x>480</x>
          <y>100</y>
          <width>70</width>
          <height>22</height>
         </rect>
        </property>
        <property name="text">
-        <string>Statut</string>
+        <string>Couts</string>
        </property>
       </widget>
       <widget class="QPushButton" name="pushButtonModifier">
@@ -422,6 +422,32 @@
          <width>721</width>
          <height>351</height>
         </rect>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="radioButtonIDP">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>100</y>
+         <width>40</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>ID</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="radioButtonRevenusP">
+       <property name="geometry">
+        <rect>
+         <x>540</x>
+         <y>100</y>
+         <width>80</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Revenus</string>
        </property>
       </widget>
      </widget>

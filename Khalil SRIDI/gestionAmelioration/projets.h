@@ -7,6 +7,8 @@
 #include<QSqlQuery>
 #include<QVariant>
 #include<QSqlQueryModel>
+#include<QSqlRecord>
+#include<QtDebug>
 
 class projets {
 public:
@@ -34,6 +36,7 @@ public:
     bool ajouter();
     bool supprimer(int idprojet);
     QSqlQueryModel *afficher();
+    QSqlQueryModel *chercher(QString input,int critere);
 
 private:
     QString NOM;

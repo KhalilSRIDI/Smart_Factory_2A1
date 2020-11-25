@@ -42,6 +42,8 @@ private slots:
 
     void on_pushButtonRechercheF_clicked();
 
+    void on_pushButtonRechercheP_clicked();
+
 private:
     Ui::MainWindow *ui;
     projets tmp_projet;

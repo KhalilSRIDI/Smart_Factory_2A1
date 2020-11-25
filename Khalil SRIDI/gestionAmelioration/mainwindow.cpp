@@ -143,3 +143,41 @@ void MainWindow::on_pushButtonRechercheF_clicked()
         ui->tableViewF->setModel(test);
     }
 }
+void MainWindow::on_pushButtonRechercheP_clicked()
+{
+    int critere=0;
+    if(ui->radioButtonIDP->isChecked())
+        critere=0;
+    else if(ui->radioButtonNomP->isChecked())
+        critere=1;
+    else if(ui->radioButtonDepartementP->isChecked())
+        critere=2;
+    else if(ui->radioButtonTeamLeaderP->isChecked())
+        critere=3;
+    else if(ui->radioButtonDateLancementP->isChecked())
+        critere=4;
+    else if(ui->radioButtonCoutsP->isChecked())
+        critere=5;
+    else if(ui->radioButtonRevenusP->isChecked())
+        critere=6;
+
+    QString input = ui->lineEditRP->text();
+
+    QSqlQueryModel *test=tmp_projet.chercher(input,critere);
+
+
+    if(test != nullptr)
+    {
+        QMessageBox::information(nullptr, QObject::tr("chercher un projet"),
+                                 QObject::tr("Projet trouvé.\n"
+                                             "Click Cancel to get informations."), QMessageBox::Cancel);
+        ui->tableViewP->setModel(test);
+    }
+    else
+    {
+        QMessageBox::critical(nullptr, QObject::tr("chercher une projet"),
+                              QObject::tr("Erreur , projet introuvable !.\n"
+                                          "Click Cancel to exit."), QMessageBox::Cancel);
+        ui->tableViewP->setModel(test);
+    }
+}
