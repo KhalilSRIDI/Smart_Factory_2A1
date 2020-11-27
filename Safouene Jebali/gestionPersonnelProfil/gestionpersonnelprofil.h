@@ -30,7 +30,6 @@ public:
     ~GestionPersonnelProfil();
 private slots:
     void on_vAjouterPers_clicked();
-    void on_afficherUnPersonnel_clicked();
     void on_gestionPersonnel_clicked();
     void on_gestionProfil_clicked();
     void on_modifierPers_clicked();
@@ -42,17 +41,10 @@ private slots:
     void on_supprimerPro_clicked();
     void on_exportExcelP_clicked();
     void on_matCh_returnPressed();
-
-
-
     void on_fonctionCh_currentIndexChanged(int index);
-
     void on_chercherDate_clicked();
-
     void on_chercherTripleC_clicked();
-
     void on_trier_clicked();
-
 private:
     Ui::GestionPersonnelProfil *ui;
     personnels tmpPersonnels;

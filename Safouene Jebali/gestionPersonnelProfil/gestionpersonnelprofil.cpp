@@ -1,6 +1,5 @@
 #include "gestionpersonnelprofil.h"
 #include "ui_gestionpersonnelprofil.h"
-#include "afficherunpersonnel.h"
 #include "personnels.h"
 
 GestionPersonnelProfil::GestionPersonnelProfil(QWidget *parent)
@@ -213,12 +212,6 @@ void GestionPersonnelProfil::on_modifierPers_clicked()
         ui->modifierPers->setText("Tableau Non Modifiable");
         ui->statusbar->showMessage("MODIFY OFF ",5000);
     }
-}
-void GestionPersonnelProfil::on_afficherUnPersonnel_clicked()
-{
-    afficherUnPersonnel afficherUnPersonnel;
-    afficherUnPersonnel.setModal(true);
-    afficherUnPersonnel.exec();
 }
 void GestionPersonnelProfil::on_supprimerPers_clicked()
 {

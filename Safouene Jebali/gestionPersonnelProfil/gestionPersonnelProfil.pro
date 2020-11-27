@@ -20,7 +20,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    afficherunpersonnel.cpp \
     connexionsql.cpp \
     main.cpp \
     gestionpersonnelprofil.cpp \
@@ -28,13 +27,11 @@ SOURCES += \
     profils.cpp
 
 HEADERS += \
-    afficherunpersonnel.h \
     connexionsql.h \
     gestionpersonnelprofil.h \
     personnels.h \
     profils.h
 
 FORMS += \
-    afficherunpersonnel.ui \
     gestionpersonnelprofil.ui
 

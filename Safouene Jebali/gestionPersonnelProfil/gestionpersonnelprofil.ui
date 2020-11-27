@@ -577,7 +577,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
         <item row="0" column="1" rowspan="2">
          <widget class="QTabWidget" name="actionPers">
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <property name="usesScrollButtons">
            <bool>false</bool>
