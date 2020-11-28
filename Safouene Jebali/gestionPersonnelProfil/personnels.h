@@ -47,15 +47,16 @@ public:
     bool ajouter();
     QSqlQueryModel * afficher();
     bool supprimer(int);
+    QSqlQueryModel *trier(QString,QString);
+    QSqlQueryModel *trier(QString,QString,QString,QString,QString);
+    QSqlQueryModel *chercherPersonnel(QString);
+
+
+
     QSqlQueryModel *chercherPersonnel(int);
     QSqlQueryModel *chercherPersonnelFonction(QString);
     QSqlQueryModel *chercherPersonnelPeriodeRec(QDate,QDate);
     QSqlQueryModel *chercherPersonnel3C(QString,QString,int);
-    QSqlQueryModel *trierMatricule();
-    QSqlQueryModel *trierAge();
-    QSqlQueryModel *trierNom();
-    QSqlQueryModel *trierAnciennete();
-    QSqlQueryModel *trierSalaire();
 
 private:
 };
