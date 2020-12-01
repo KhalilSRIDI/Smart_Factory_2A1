@@ -10,6 +10,7 @@
 #include <QSqlTableModel>
 #include <QSqlQuery>
 #include <QMessageBox>
+#include <QtDebug>
 
 
 
@@ -51,6 +52,10 @@ private slots:
     void on_pushButtonExportF_clicked();
 
     void on_pushButtonExportP_clicked();
+
+    void on_pushTrierP_clicked();
+
+    void on_pushTrierF_clicked();
 
 private:
     Ui::MainWindow *ui;

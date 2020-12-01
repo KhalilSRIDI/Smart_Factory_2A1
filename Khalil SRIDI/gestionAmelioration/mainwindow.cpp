@@ -64,6 +64,82 @@ void MainWindow::on_pushButtonModifier_clicked()
 
 }
 
+
+void MainWindow::on_pushButtonRechercheP_clicked()
+{
+    int critere=0;
+    if(ui->radioButtonIDP->isChecked())
+        critere=0;
+    else if(ui->radioButtonNomP->isChecked())
+        critere=1;
+    else if(ui->radioButtonDepartementP->isChecked())
+        critere=2;
+    else if(ui->radioButtonTeamLeaderP->isChecked())
+        critere=3;
+    else if(ui->radioButtonDateLancementP->isChecked())
+        critere=4;
+    else if(ui->radioButtonCoutsP->isChecked())
+        critere=5;
+    else if(ui->radioButtonRevenusP->isChecked())
+        critere=6;
+
+    QString input = ui->lineEditRP->text();
+
+    QSqlQueryModel *test=tmp_projet.chercher(input,critere);
+
+
+    if(test != nullptr)
+    {
+        ui->tableViewP->setModel(test);
+    }
+    else
+    {
+        ui->tableViewP->setModel(test);
+    }
+}
+
+void MainWindow::on_pushButtonRefreshP_clicked()
+{
+    ui->tableViewP->setModel(tmp_projet.afficher());
+}
+
+void MainWindow::on_pushButtonExportP_clicked()
+{
+    tmp_projet.exporterExcel(ui->tableViewP);
+    ui->statusbar->showMessage("EXPORT TABLE ",5000);
+}
+
+
+void MainWindow::on_pushTrierP_clicked()
+{
+    ui->tableViewP->setModel(tmp_projet.afficher());
+
+    int critere=-1;
+    if(ui->radioButtonIDP->isChecked())
+        critere=0;
+    else if(ui->radioButtonNomP->isChecked())
+        critere=1;
+    else if(ui->radioButtonDepartementP->isChecked())
+        critere=2;
+    else if(ui->radioButtonTeamLeaderP->isChecked())
+        critere=3;
+    else if(ui->radioButtonDateLancementP->isChecked())
+        critere=4;
+    else if(ui->radioButtonCoutsP->isChecked())
+        critere=5;
+    else if(ui->radioButtonRevenusP->isChecked())
+        critere=6;
+    else
+    {
+        QMessageBox::critical(nullptr, QObject::tr("Aucun critere"),
+                    QObject::tr("Veuillez choisir un critere.\n"), QMessageBox::Cancel);
+
+    }
+
+    QString order = ui->comboBoxP->currentText();
+    ui->tableViewP->setModel(tmp_projet.trier(critere,order));
+}
+
 //formations UI
 void MainWindow::on_pushButtonAjouterF_clicked()
 {
@@ -130,63 +206,14 @@ void MainWindow::on_pushButtonRechercheF_clicked()
 
     if(test != nullptr)
     {
-        QMessageBox::information(nullptr, QObject::tr("chercher une formation"),
-                                 QObject::tr("Formation trouvé.\n"
-                                             "Click Cancel to get informations."), QMessageBox::Cancel);
         ui->tableViewF->setModel(test);
     }
     else
     {
-        QMessageBox::critical(nullptr, QObject::tr("chercher une formation"),
-                              QObject::tr("Erreur , formation introuvable !.\n"
-                                          "Click Cancel to exit."), QMessageBox::Cancel);
         ui->tableViewF->setModel(test);
     }
 }
 
-void MainWindow::on_pushButtonRechercheP_clicked()
-{
-    int critere=0;
-    if(ui->radioButtonIDP->isChecked())
-        critere=0;
-    else if(ui->radioButtonNomP->isChecked())
-        critere=1;
-    else if(ui->radioButtonDepartementP->isChecked())
-        critere=2;
-    else if(ui->radioButtonTeamLeaderP->isChecked())
-        critere=3;
-    else if(ui->radioButtonDateLancementP->isChecked())
-        critere=4;
-    else if(ui->radioButtonCoutsP->isChecked())
-        critere=5;
-    else if(ui->radioButtonRevenusP->isChecked())
-        critere=6;
-
-    QString input = ui->lineEditRP->text();
-
-    QSqlQueryModel *test=tmp_projet.chercher(input,critere);
-
-
-    if(test != nullptr)
-    {
-        QMessageBox::information(nullptr, QObject::tr("chercher un projet"),
-                                 QObject::tr("Projet trouvé.\n"
-                                             "Click Cancel to get informations."), QMessageBox::Cancel);
-        ui->tableViewP->setModel(test);
-    }
-    else
-    {
-        QMessageBox::critical(nullptr, QObject::tr("chercher une projet"),
-                              QObject::tr("Erreur , projet introuvable !.\n"
-                                          "Click Cancel to exit."), QMessageBox::Cancel);
-        ui->tableViewP->setModel(test);
-    }
-}
-
-void MainWindow::on_pushButtonRefreshP_clicked()
-{
-    ui->tableViewP->setModel(tmp_projet.afficher());
-}
 
 void MainWindow::on_pushButtonRefreshF_clicked()
 {
@@ -197,11 +224,35 @@ void MainWindow::on_pushButtonExportF_clicked()
 {
         tmp_formation.exporterExcel(ui->tableViewF);
         ui->statusbar->showMessage("EXPORT TABLE ",5000);
-
 }
 
-void MainWindow::on_pushButtonExportP_clicked()
+
+void MainWindow::on_pushTrierF_clicked()
 {
-    tmp_projet.exporterExcel(ui->tableViewP);
-    ui->statusbar->showMessage("EXPORT TABLE ",5000);
+    ui->tableViewP->setModel(tmp_formation.afficher());
+    int critere=-1;
+    if(ui->radioButtonIDF->isChecked())
+        critere=0;
+    else if(ui->radioButtonNomF->isChecked())
+        critere=1;
+    else if(ui->radioButtonProjetF->isChecked())
+        critere=2;
+    else if(ui->radioButtonFormateurF->isChecked())
+        critere=3;
+    else if(ui->radioButtonDateF->isChecked())
+        critere=4;
+    else if(ui->radioButtonDureeF->isChecked())
+        critere=5;
+    else if(ui->radioButtonCoutF->isChecked())
+        critere=6;
+    else
+    {
+        QMessageBox::critical(nullptr, QObject::tr("Aucun critere"),
+                    QObject::tr("Veuillez choisir un critere.\n"), QMessageBox::Cancel);
+
+    }
+
+    QString order = ui->comboBoxF->currentText();
+    ui->tableViewF->setModel(tmp_formation.trier(critere,order));
+
 }

@@ -63,7 +63,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Projet">
      <attribute name="title">
@@ -397,6 +397,18 @@
          <height>351</height>
         </rect>
        </property>
+       <property name="sortingEnabled">
+        <bool>false</bool>
+       </property>
+       <property name="cornerButtonEnabled">
+        <bool>true</bool>
+       </property>
+       <attribute name="verticalHeaderVisible">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="verticalHeaderHighlightSections">
+        <bool>false</bool>
+       </attribute>
       </widget>
       <widget class="QRadioButton" name="radioButtonIDP">
        <property name="geometry">
@@ -436,6 +448,39 @@
        <property name="text">
         <string>Refresh</string>
        </property>
+      </widget>
+      <widget class="QPushButton" name="pushTrierP">
+       <property name="geometry">
+        <rect>
+         <x>650</x>
+         <y>120</y>
+         <width>70</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Trier</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBoxP">
+       <property name="geometry">
+        <rect>
+         <x>550</x>
+         <y>130</y>
+         <width>60</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>ASC</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>DESC</string>
+        </property>
+       </item>
       </widget>
      </widget>
     </widget>
@@ -613,6 +658,15 @@
        <property name="selectionBehavior">
         <enum>QAbstractItemView::SelectItems</enum>
        </property>
+       <property name="cornerButtonEnabled">
+        <bool>true</bool>
+       </property>
+       <attribute name="verticalHeaderVisible">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="verticalHeaderHighlightSections">
+        <bool>false</bool>
+       </attribute>
       </widget>
       <widget class="QRadioButton" name="radioButtonCoutF">
        <property name="geometry">
@@ -639,6 +693,26 @@
        <property name="text">
         <string>ID</string>
        </property>
+      </widget>
+      <widget class="QComboBox" name="comboBoxF">
+       <property name="geometry">
+        <rect>
+         <x>550</x>
+         <y>130</y>
+         <width>60</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>ASC</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>DESC</string>
+        </property>
+       </item>
       </widget>
      </widget>
      <widget class="QGroupBox" name="groupBoxAjouterP_2">
@@ -816,6 +890,19 @@
       </property>
       <property name="text">
        <string>Refresh</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushTrierF">
+      <property name="geometry">
+       <rect>
+        <x>1090</x>
+        <y>120</y>
+        <width>70</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Trier</string>
       </property>
      </widget>
     </widget>

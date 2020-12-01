@@ -44,6 +44,7 @@ public:
     QSqlQueryModel *afficher();
     QSqlQueryModel *chercher(QString input,int critere);
     void exporterExcel(QTableView *table);
+    QSqlQueryModel *trier(int critere,QString order);
 
 private:
     QString NOM;

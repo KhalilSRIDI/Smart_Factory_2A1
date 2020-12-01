@@ -154,3 +154,49 @@ void projets::exporterExcel(QTableView *table)
         file.close();
     }
 }
+
+QSqlQueryModel * projets::trier(int critere,QString order)
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+
+    if(critere==0)
+    {
+        model->setQuery("SELECT * FROM PROJETS ORDER BY IDPROJET "+order);
+
+    }
+    else if(critere==1)
+    {
+        model->setQuery("SELECT * FROM PROJETS ORDER BY NOM "+order);
+    }
+    else if(critere==2)
+    {
+        model->setQuery("SELECT * FROM PROJETS ORDER BY DEPARTEMENT "+order);
+    }
+    else if(critere==3)
+    {
+        model->setQuery("SELECT *FROM PROJETS ORDER BY TEAM_LEADER "+order);
+    }
+    else if(critere==4)
+    {
+        model->setQuery("SELECT * FROM PROJETS ORDER BY DATE_LANCEMENT "+order);
+    }
+    else if(critere==5)
+    {
+        model->setQuery("SELECT * FROM PROJETS ORDER BY COUTS_PREVUS "+order);
+    }
+    else if(critere==6)
+    {
+        model->setQuery("SELECT * FROM PROJETS ORDER BY REVENUS_PROJETES "+order);
+    }
+
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("IDPROJET"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("DEPARTEMENT"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("TEAM_LEADER"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("DATE_LANCEMENT"));
+    model->setHeaderData(5, Qt::Horizontal, QObject::tr("COUTS_PREVUS"));
+    model->setHeaderData(6, Qt::Horizontal, QObject::tr("REVENUS_PROJETES"));
+
+    return model;
+}

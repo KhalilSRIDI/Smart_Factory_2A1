@@ -156,3 +156,49 @@ void formation::exporterExcel(QTableView *table)
     }
 }
 
+QSqlQueryModel * formation::trier(int critere,QString order)
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+
+    if(critere==0)
+    {
+        model->setQuery("SELECT * FROM FORMATIONS ORDER BY IDFORMATION "+order);
+
+    }
+    else if(critere==1)
+    {
+        model->setQuery("SELECT * FROM FORMATIONS ORDER BY NOM "+order);
+    }
+    else if(critere==2)
+    {
+        model->setQuery("SELECT * FROM FORMATIONS ORDER BY PROJET "+order);
+    }
+    else if(critere==3)
+    {
+        model->setQuery("SELECT * FROM FORMATIONS ORDER BY FORMATEUR "+order);
+    }
+    else if(critere==4)
+    {
+        model->setQuery("SELECT * FROM FORMATIONS ORDER BY DATEDEBUT "+order);
+    }
+    else if(critere==5)
+    {
+        model->setQuery("SELECT * FROM FORMATIONS ORDER BY DUREE "+order);
+    }
+    else if(critere==6)
+    {
+        model->setQuery("SELECT * FROM FORMATIONS ORDER BY COUT "+order);
+    }
+
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("IDFORMATION"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("PROJET"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("FORMATEUR"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("DATEDEBUT"));
+    model->setHeaderData(5, Qt::Horizontal, QObject::tr("DUREE"));
+    model->setHeaderData(6, Qt::Horizontal, QObject::tr("COUT"));
+
+    return model;
+}
+
