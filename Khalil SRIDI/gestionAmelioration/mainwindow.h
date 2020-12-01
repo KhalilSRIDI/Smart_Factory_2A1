@@ -57,6 +57,8 @@ private slots:
 
     void on_pushTrierF_clicked();
 
+    void on_pushButtonStat_clicked();
+
 private:
     Ui::MainWindow *ui;
     projets tmp_projet;

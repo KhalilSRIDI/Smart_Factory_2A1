@@ -1,6 +1,6 @@
 QT       += core gui
 QT += sql
-
+QT += charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,15 +17,18 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     projets.cpp \
+    statistiques.cpp
 
 HEADERS += \
     connection.h \
     formation.h \
     mainwindow.h \
     projets.h \
+    statistiques.h
 
 FORMS += \
     mainwindow.ui \
+    statistiques.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -63,7 +63,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="Projet">
      <attribute name="title">
@@ -166,16 +166,6 @@
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEditDepartementP">
-       <property name="geometry">
-        <rect>
-         <x>220</x>
-         <y>80</y>
-         <width>150</width>
-         <height>20</height>
-        </rect>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="lineEditTeamLeaderP">
        <property name="geometry">
         <rect>
@@ -231,6 +221,51 @@
        <property name="text">
         <string>Ajouter</string>
        </property>
+      </widget>
+      <widget class="QComboBox" name="comboBoxDepartementP">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>80</y>
+         <width>150</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string/>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Ressources Humaines</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Stock</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Achats</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Ventes</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Ameliorations</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Materiel</string>
+        </property>
+       </item>
       </widget>
      </widget>
      <widget class="QGroupBox" name="groupBoxConsulterP">
@@ -375,7 +410,7 @@
         <string>Export</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_5">
+      <widget class="QPushButton" name="pushButtonStat">
        <property name="geometry">
         <rect>
          <x>510</x>
@@ -482,6 +517,17 @@
         </property>
        </item>
       </widget>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>2</width>
+        <height>2</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout"/>
      </widget>
     </widget>
     <widget class="QWidget" name="Formation">

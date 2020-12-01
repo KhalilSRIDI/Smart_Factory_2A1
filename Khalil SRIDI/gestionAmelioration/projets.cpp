@@ -27,8 +27,6 @@ bool projets::supprimer(int idprojet)
     return qry.exec();
 }
 
-
-
 QSqlQueryModel *projets::afficher()
 {
     QSqlQueryModel *model= new QSqlQueryModel();
@@ -199,4 +197,65 @@ QSqlQueryModel * projets::trier(int critere,QString order)
     model->setHeaderData(6, Qt::Horizontal, QObject::tr("REVENUS_PROJETES"));
 
     return model;
+}
+/*
+QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Export PDF", QString(), "*.pdf");
+        if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append("reclamation.pdf"); }
+
+        QPrinter printer(QPrinter::PrinterResolution);
+        printer.setOutputFormat(QPrinter::PdfFormat);
+        printer.setPaperSize(QPrinter::A4);
+        printer.setOutputFileName(fileName);
+
+        QTextDocument doc;
+        QSqlQuery q;
+        q.prepare("SELECT * FROM reclamation ");
+        q.exec();
+        QString pdf="<br> <img src='D:/Esprit/2A2/projet c++/logo/debug2.png' height='42' width='144'/> <h1  style='color:red'>LISTE DES RECLAMATION  <br></h1>\n <br> <table>  <tr>  <th> CODE </th> <th> SUJET </th> <th> COMMENTAIRE </th> <th> DATE AJOUT </th>  </tr>" ;
+
+
+        while ( q.next()) {
+
+            pdf= pdf+ " <br> <tr> <td>"+ q.value(0).toString()+"    </td>   <td>   " + q.value(1).toString() +"</td>   <td>" +q.value(2).toString() +"  "" " "</td>   <td>"+q.value(3).toString()+"</td>    <td>"+q.value(4).toString()+" </td>" ;
+
+        }
+        doc.setHtml(pdf);
+        doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
+        doc.print(&printer);
+
+
+*/
+
+int projets::calculCout(QString departement)
+{
+    QSqlQuery statq;
+    int totalCout=0;
+    int cout;
+    statq.prepare("SELECT COUTS_PREVUS FROM PROJETS WHERE DEPARTEMENT=:departement");
+    statq.bindValue(":departement",departement);
+    statq.exec();
+    while (statq.next()) {
+        cout = statq.value(0).toInt();
+        totalCout+=cout;
+        qDebug() << cout;
+        qDebug() << totalCout;
+    }
+    return totalCout;
+}
+
+int projets::calculRevenus(QString departement)
+{
+    QSqlQuery statq;
+    int totalRevenus=0;
+    int revenus;
+    statq.prepare("SELECT REVENUS_PROJETES FROM PROJETS WHERE DEPARTEMENT=:departement");
+    statq.bindValue(":departement",departement);
+    statq.exec();
+    while (statq.next()) {
+        revenus = statq.value(0).toInt();
+        totalRevenus+=revenus;
+        qDebug() << revenus;
+        qDebug() << totalRevenus;
+    }
+    return totalRevenus;
 }

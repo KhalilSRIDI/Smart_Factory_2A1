@@ -42,6 +42,8 @@ public:
     QSqlQueryModel *chercher(QString input,int critere);
     void exporterExcel(QTableView *table);
     QSqlQueryModel *trier(int critere,QString order);
+    int calculCout(QString departement);
+    int calculRevenus(QString departement);
 
 private:
     QString NOM;

@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "statistiques.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -27,7 +28,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButtonAjouter_clicked()
 {
     QString NOM=ui->lineEditNomP->text();
-    QString DEPARTEMENT=ui->lineEditDepartementP->text();
+    QString DEPARTEMENT=ui->comboBoxDepartementP->currentText();
     QString TEAM_LEADER=ui->lineEditTeamLeaderP->text();
     QString DATE_LANCEMENT=ui->dateEditLancementP->date().toString("dd/MM/yyyy");
     QString COUTS_PREVUS=ui->lineEditCoutP->text();
@@ -255,4 +256,11 @@ void MainWindow::on_pushTrierF_clicked()
     QString order = ui->comboBoxF->currentText();
     ui->tableViewF->setModel(tmp_formation.trier(critere,order));
 
+}
+
+void MainWindow::on_pushButtonStat_clicked()
+{
+    statistiques *a= new statistiques() ;
+
+       a->show();
 }
