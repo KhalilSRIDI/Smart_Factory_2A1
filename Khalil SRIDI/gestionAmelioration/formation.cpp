@@ -69,8 +69,9 @@ QSqlQueryModel *formation::chercher(QString input,int critere)
     }
     else if(critere==3)
     {
+        inputid=input.toInt();
         q.prepare("SELECT * FROM FORMATIONS WHERE FORMATEUR = :FORMATEUR");
-        q.bindValue(":FORMATEUR",input);
+        q.bindValue(":FORMATEUR",inputid);
         q.exec();
     }
     else if(critere==4)

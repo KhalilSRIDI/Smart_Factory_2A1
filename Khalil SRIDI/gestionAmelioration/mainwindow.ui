@@ -63,7 +63,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Projet">
      <attribute name="title">
@@ -572,7 +572,7 @@
         <bool>false</bool>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButtonNomF">
+      <widget class="QCheckBox" name="checkBoxNomF">
        <property name="geometry">
         <rect>
          <x>90</x>
@@ -585,7 +585,7 @@
         <string>Nom</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButtonFormateurF">
+      <widget class="QCheckBox" name="checkBoxFormateurF">
        <property name="geometry">
         <rect>
          <x>220</x>
@@ -598,7 +598,7 @@
         <string>Formateur</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButtonProjetF">
+      <widget class="QCheckBox" name="checkBoxProjetF">
        <property name="geometry">
         <rect>
          <x>150</x>
@@ -611,7 +611,7 @@
         <string>Projet</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButtonDateF">
+      <widget class="QCheckBox" name="checkBoxDateF">
        <property name="geometry">
         <rect>
          <x>320</x>
@@ -624,7 +624,7 @@
         <string>Date de debut</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButtonDureeF">
+      <widget class="QCheckBox" name="checkBoxDureeF">
        <property name="geometry">
         <rect>
          <x>440</x>
@@ -714,7 +714,7 @@
         <bool>false</bool>
        </attribute>
       </widget>
-      <widget class="QRadioButton" name="radioButtonCoutF">
+      <widget class="QCheckBox" name="checkBoxCoutF">
        <property name="geometry">
         <rect>
          <x>510</x>
@@ -727,7 +727,7 @@
         <string>Cout</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButtonIDF">
+      <widget class="QCheckBox" name="checkBoxIDF">
        <property name="geometry">
         <rect>
          <x>40</x>

@@ -100,14 +100,13 @@ QSqlQueryModel *projets::chercher(QString input,int critere)
     model->setHeaderData(5, Qt::Horizontal, QObject::tr("COUTS_PREVUS"));
     model->setHeaderData(6, Qt::Horizontal, QObject::tr("REVENUS_PROJETES"));
 
-    int num;
     QString index;
 
     QSqlRecord recp;
     recp = model->record(0);
     if(critere==0)
     {
-        num = recp.value("IDPROJET").toInt();
+        int num = recp.value("IDPROJET").toInt();
         return model;
     }
     else
@@ -182,11 +181,10 @@ int projets::calculCout(QString departement)
     statq.prepare("SELECT COUTS_PREVUS FROM PROJETS WHERE DEPARTEMENT=:departement");
     statq.bindValue(":departement",departement);
     statq.exec();
-    while (statq.next()) {
+    while (statq.next())
+    {
         cout = statq.value(0).toInt();
         totalCout+=cout;
-        qDebug() << cout;
-        qDebug() << totalCout;
     }
     return totalCout;
 }
@@ -199,11 +197,10 @@ int projets::calculRevenus(QString departement)
     statq.prepare("SELECT REVENUS_PROJETES FROM PROJETS WHERE DEPARTEMENT=:departement");
     statq.bindValue(":departement",departement);
     statq.exec();
-    while (statq.next()) {
+    while (statq.next())
+    {
         revenus = statq.value(0).toInt();
         totalRevenus+=revenus;
-        qDebug() << revenus;
-        qDebug() << totalRevenus;
     }
     return totalRevenus;
 }
