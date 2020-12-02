@@ -1,7 +1,9 @@
 #include "mainwindow.h"
+#include "ui_mainwindow.h"
 #include <QApplication>
 #include <QMessageBox>
 #include <QDebug>
+#include <QStatusBar>
 #include "connection.h"
 
 int main(int argc, char *argv[])
@@ -14,10 +16,6 @@ int main(int argc, char *argv[])
     if(test)
     {
         w.show();
-        QMessageBox::critical(nullptr, QObject::tr("database is open"),
-                    QObject::tr("connection successful.\n"
-                                "Click Cancel to exit."), QMessageBox::Cancel);
-
 }
     else
         QMessageBox::critical(nullptr, QObject::tr("database is not open"),

@@ -156,37 +156,41 @@ void projets::exporterExcel(QTableView *table)
 QSqlQueryModel * projets::trier(int critere,QString order)
 {
     QSqlQueryModel * model= new QSqlQueryModel();
+    QSqlQuery *triq= new QSqlQuery();
 
-
+    QString champs;
     if(critere==0)
     {
-        model->setQuery("SELECT * FROM PROJETS ORDER BY IDPROJET "+order);
-
+        champs="IDPROJET";
     }
     else if(critere==1)
     {
-        model->setQuery("SELECT * FROM PROJETS ORDER BY NOM "+order);
+        champs="NOM";
     }
     else if(critere==2)
     {
-        model->setQuery("SELECT * FROM PROJETS ORDER BY DEPARTEMENT "+order);
+        champs="DEPARTEMENT";
     }
     else if(critere==3)
     {
-        model->setQuery("SELECT *FROM PROJETS ORDER BY TEAM_LEADER "+order);
+        champs="TEAM_LEADER";
     }
     else if(critere==4)
     {
-        model->setQuery("SELECT * FROM PROJETS ORDER BY DATE_LANCEMENT "+order);
+        champs="DATE_LANCEMENT";
     }
     else if(critere==5)
     {
-        model->setQuery("SELECT * FROM PROJETS ORDER BY COUTS_PREVUS "+order);
+        champs="COUTS_PREVUS";
     }
     else if(critere==6)
     {
-        model->setQuery("SELECT * FROM PROJETS ORDER BY REVENUS_PROJETES "+order);
+        champs="REVENUS_PROJETES";
     }
+
+    triq->prepare("SELECT * FROM PROJETS ORDER BY "+champs+" "+order);
+    triq->exec();
+    model->setQuery(*triq);
 
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("IDPROJET"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
