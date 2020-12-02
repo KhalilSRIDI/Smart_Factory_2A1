@@ -44,7 +44,6 @@ QSqlQueryModel *projets::chercher(QString input,int critere)
 {
     QSqlQuery q;
     int inputid;
-
     if(critere==0)
     {
         inputid=input.toInt();

@@ -104,14 +104,13 @@ QSqlQueryModel *formation::chercher(QString input,int critere)
     model->setHeaderData(5, Qt::Horizontal, QObject::tr("DUREE"));
     model->setHeaderData(6, Qt::Horizontal, QObject::tr("COUT"));
 
-    int num;
     QString index;
 
     QSqlRecord rec;
     rec = model->record(0);
     if(critere==0)
     {
-        num = rec.value("IDFORMATION").toInt();
+        int num = rec.value("IDFORMATION").toInt();
         return model;
     }
     else
@@ -157,40 +156,15 @@ void formation::exporterExcel(QTableView *table)
     }
 }
 
-QSqlQueryModel * formation::trier(int critere,QString order)
+QSqlQueryModel * formation::trier(QString critere,QString order)
 {
     QSqlQueryModel * model= new QSqlQueryModel();
+    QSqlQuery *triq= new QSqlQuery();
 
 
-    if(critere==0)
-    {
-        model->setQuery("SELECT * FROM FORMATIONS ORDER BY IDFORMATION "+order);
-
-    }
-    else if(critere==1)
-    {
-        model->setQuery("SELECT * FROM FORMATIONS ORDER BY NOM "+order);
-    }
-    else if(critere==2)
-    {
-        model->setQuery("SELECT * FROM FORMATIONS ORDER BY PROJET "+order);
-    }
-    else if(critere==3)
-    {
-        model->setQuery("SELECT * FROM FORMATIONS ORDER BY FORMATEUR "+order);
-    }
-    else if(critere==4)
-    {
-        model->setQuery("SELECT * FROM FORMATIONS ORDER BY DATEDEBUT "+order);
-    }
-    else if(critere==5)
-    {
-        model->setQuery("SELECT * FROM FORMATIONS ORDER BY DUREE "+order);
-    }
-    else if(critere==6)
-    {
-        model->setQuery("SELECT * FROM FORMATIONS ORDER BY COUT "+order);
-    }
+    triq->prepare("SELECT * FROM FORMATIONS ORDER BY "+critere+" "+order);
+    triq->exec();
+    model->setQuery(*triq);
 
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("IDFORMATION"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
@@ -202,4 +176,3 @@ QSqlQueryModel * formation::trier(int critere,QString order)
 
     return model;
 }
-

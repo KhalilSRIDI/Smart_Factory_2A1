@@ -679,19 +679,6 @@
         <string>Export</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_6">
-       <property name="geometry">
-        <rect>
-         <x>510</x>
-         <y>50</y>
-         <width>100</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Statistiques</string>
-       </property>
-      </widget>
       <widget class="QTableView" name="tableViewF">
        <property name="geometry">
         <rect>

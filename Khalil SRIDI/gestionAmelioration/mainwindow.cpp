@@ -259,6 +259,13 @@ void MainWindow::on_pushTrierP_clicked()
     ui->tableViewP->setModel(tmp_projet.trier(critere,order));
 }
 
+void MainWindow::on_pushButtonStat_clicked()
+{
+    statistiques *a= new statistiques() ;
+
+    a->show();
+}
+
 //formations UI
 void MainWindow::on_pushButtonAjouterF_clicked()
 {
@@ -295,7 +302,6 @@ void MainWindow::on_pushButtonModifierF_clicked()
         tableModelF->select();
         ui->tableViewF->setModel(tableModelF);
         ui->pushButtonModifierF->setText("Tableau Modifiable");
-
     }
 
 }
@@ -348,22 +354,142 @@ void MainWindow::on_pushButtonExportF_clicked()
 
 void MainWindow::on_pushTrierF_clicked()
 {
-    ui->tableViewP->setModel(tmp_formation.afficher());
-    int critere=-1;
-    if(ui->checkBoxIDF->isChecked())
-        critere=0;
-    else if(ui->checkBoxNomF->isChecked())
-        critere=1;
-    else if(ui->checkBoxProjetF->isChecked())
-        critere=2;
-    else if(ui->checkBoxFormateurF->isChecked())
-        critere=3;
-    else if(ui->checkBoxDateF->isChecked())
-        critere=4;
-    else if(ui->checkBoxDureeF->isChecked())
-        critere=5;
-    else if(ui->checkBoxCoutF->isChecked())
-        critere=6;
+    ui->tableViewF->setModel(tmp_formation.afficher());
+    QString critere;
+
+    if(ui->checkBoxIDF->isChecked() && !ui->checkBoxNomF->isChecked() && !ui->checkBoxProjetF->isChecked() && !ui->checkBoxFormateurF->isChecked() && !ui->checkBoxDateF->isChecked() && !ui->checkBoxDureeF->isChecked() && !ui->checkBoxCoutF->isChecked())
+    {
+        critere="IDFORMATION";
+    }
+    else if(!ui->checkBoxIDF->isChecked() && ui->checkBoxNomF->isChecked() && !ui->checkBoxProjetF->isChecked() && !ui->checkBoxFormateurF->isChecked() && !ui->checkBoxDateF->isChecked() && !ui->checkBoxDureeF->isChecked() && !ui->checkBoxCoutF->isChecked())
+    {
+        critere="NOM";
+    }
+    else if(!ui->checkBoxIDF->isChecked() && !ui->checkBoxNomF->isChecked() && ui->checkBoxProjetF->isChecked() && !ui->checkBoxFormateurF->isChecked() && !ui->checkBoxDateF->isChecked() && !ui->checkBoxDureeF->isChecked() && !ui->checkBoxCoutF->isChecked())
+    {
+        critere="PROJET";
+    }
+    else if(!ui->checkBoxIDF->isChecked() && !ui->checkBoxNomF->isChecked() && !ui->checkBoxProjetF->isChecked() && ui->checkBoxFormateurF->isChecked() && !ui->checkBoxDateF->isChecked() && !ui->checkBoxDureeF->isChecked() && !ui->checkBoxCoutF->isChecked())
+    {
+        critere="FORMATEUR";
+    }
+    else if(!ui->checkBoxIDF->isChecked() && !ui->checkBoxNomF->isChecked() && !ui->checkBoxProjetF->isChecked() && !ui->checkBoxFormateurF->isChecked() && ui->checkBoxDateF->isChecked() && !ui->checkBoxDureeF->isChecked() && !ui->checkBoxCoutF->isChecked())
+    {
+        critere="DATEDEBUT";
+    }
+    else if(!ui->checkBoxIDF->isChecked() && !ui->checkBoxNomF->isChecked() && !ui->checkBoxProjetF->isChecked() && !ui->checkBoxFormateurF->isChecked() && !ui->checkBoxDateF->isChecked() && ui->checkBoxDureeF->isChecked() && !ui->checkBoxCoutF->isChecked())
+    {
+        critere="DUREE";
+    }
+    else if(!ui->checkBoxIDF->isChecked() && !ui->checkBoxNomF->isChecked() && !ui->checkBoxProjetF->isChecked() && !ui->checkBoxFormateurF->isChecked() && !ui->checkBoxDateF->isChecked() && !ui->checkBoxDureeF->isChecked() && ui->checkBoxCoutF->isChecked())
+    {
+        critere="COUT";
+    }
+    //TRI MULTICRITERE
+    //nom fixé 2 var
+    else if(!ui->checkBoxIDF->isChecked() && ui->checkBoxNomF->isChecked() && ui->checkBoxProjetF->isChecked() && !ui->checkBoxFormateurF->isChecked() && !ui->checkBoxDateF->isChecked() && !ui->checkBoxDureeF->isChecked() && !ui->checkBoxCoutF->isChecked())
+    {
+        critere="NOM,PROJET";
+    }
+    else if(!ui->checkBoxIDF->isChecked() && ui->checkBoxNomF->isChecked() && !ui->checkBoxProjetF->isChecked() && ui->checkBoxFormateurF->isChecked() && !ui->checkBoxDateF->isChecked() && !ui->checkBoxDureeF->isChecked() && !ui->checkBoxCoutF->isChecked())
+    {
+        critere="NOM,FORMATEUR";
+    }
+    else if(!ui->checkBoxIDF->isChecked() && ui->checkBoxNomF->isChecked() && !ui->checkBoxProjetF->isChecked() && !ui->checkBoxFormateurF->isChecked() && ui->checkBoxDateF->isChecked() && !ui->checkBoxDureeF->isChecked() && !ui->checkBoxCoutF->isChecked())
+    {
+        critere="NOM,DATEDEBUT";
+    }
+    else if(!ui->checkBoxIDF->isChecked() && ui->checkBoxNomF->isChecked() && !ui->checkBoxProjetF->isChecked() && !ui->checkBoxFormateurF->isChecked() && !ui->checkBoxDateF->isChecked() && ui->checkBoxDureeF->isChecked() && !ui->checkBoxCoutF->isChecked())
+    {
+        critere="NOM,DUREE";
+    }
+    else if(!ui->checkBoxIDF->isChecked() && ui->checkBoxNomF->isChecked() && !ui->checkBoxProjetF->isChecked() && !ui->checkBoxFormateurF->isChecked() && !ui->checkBoxDateF->isChecked() && !ui->checkBoxDureeF->isChecked() && ui->checkBoxCoutF->isChecked())
+    {
+        critere="NOM,COUT";
+    }
+    //PROJET fixé
+    else if(!ui->checkBoxIDF->isChecked() && !ui->checkBoxNomF->isChecked() && ui->checkBoxProjetF->isChecked() && ui->checkBoxFormateurF->isChecked() && !ui->checkBoxDateF->isChecked() && !ui->checkBoxDureeF->isChecked() && !ui->checkBoxCoutF->isChecked())
+    {
+        critere="PROJET,FORMATEUR";
+    }
+    else if(!ui->checkBoxIDF->isChecked() && !ui->checkBoxNomF->isChecked() && ui->checkBoxProjetF->isChecked() && !ui->checkBoxFormateurF->isChecked() && ui->checkBoxDateF->isChecked() && !ui->checkBoxDureeF->isChecked() && !ui->checkBoxCoutF->isChecked())
+    {
+        critere="PROJET,DATEDEBUT";
+    }
+    else if(!ui->checkBoxIDF->isChecked() && !ui->checkBoxNomF->isChecked() && ui->checkBoxProjetF->isChecked() && !ui->checkBoxFormateurF->isChecked() && !ui->checkBoxDateF->isChecked() && ui->checkBoxDureeF->isChecked() && !ui->checkBoxCoutF->isChecked())
+    {
+        critere="PROJET,DUREE";
+    }
+    else if(!ui->checkBoxIDF->isChecked() && !ui->checkBoxNomF->isChecked() && ui->checkBoxProjetF->isChecked() && !ui->checkBoxFormateurF->isChecked() && !ui->checkBoxDateF->isChecked() && !ui->checkBoxDureeF->isChecked() && ui->checkBoxCoutF->isChecked())
+    {
+        critere="PROJET,COUT";
+    }
+    //team leader fixé
+    else if(!ui->checkBoxIDF->isChecked() && !ui->checkBoxNomF->isChecked() && !ui->checkBoxProjetF->isChecked() && ui->checkBoxFormateurF->isChecked() && ui->checkBoxDateF->isChecked() && !ui->checkBoxDureeF->isChecked() && !ui->checkBoxCoutF->isChecked())
+    {
+        critere="FORMATEUR,DATEDEBUT";
+    }
+    else if(!ui->checkBoxIDF->isChecked() && !ui->checkBoxNomF->isChecked() && !ui->checkBoxProjetF->isChecked() && ui->checkBoxFormateurF->isChecked() && !ui->checkBoxDateF->isChecked() && ui->checkBoxDureeF->isChecked() && !ui->checkBoxCoutF->isChecked())
+    {
+        critere="FORMATEUR,DUREE";
+    }
+    else if(!ui->checkBoxIDF->isChecked() && !ui->checkBoxNomF->isChecked() && !ui->checkBoxProjetF->isChecked() && ui->checkBoxFormateurF->isChecked() && !ui->checkBoxDateF->isChecked() && !ui->checkBoxDureeF->isChecked() && ui->checkBoxCoutF->isChecked())
+    {
+        critere="FORMATEUR,COUT";
+    }
+    //date lancement fixé
+    else if(!ui->checkBoxIDF->isChecked() && !ui->checkBoxNomF->isChecked() && !ui->checkBoxProjetF->isChecked() && !ui->checkBoxFormateurF->isChecked() && ui->checkBoxDateF->isChecked() && ui->checkBoxDureeF->isChecked() && !ui->checkBoxCoutF->isChecked())
+    {
+        critere="DATEDEBUT,DUREE";
+    }
+    else if(!ui->checkBoxIDF->isChecked() && !ui->checkBoxNomF->isChecked() && !ui->checkBoxProjetF->isChecked() && !ui->checkBoxFormateurF->isChecked() && ui->checkBoxDateF->isChecked() && !ui->checkBoxDureeF->isChecked() && ui->checkBoxCoutF->isChecked())
+    {
+        critere="DATEDEBUT,COUT";
+    }
+    //couts fixé
+    else if(!ui->checkBoxIDF->isChecked() && !ui->checkBoxNomF->isChecked() && !ui->checkBoxProjetF->isChecked() && !ui->checkBoxFormateurF->isChecked() && !ui->checkBoxDateF->isChecked() && ui->checkBoxDureeF->isChecked() && ui->checkBoxCoutF->isChecked())
+    {
+        critere="DUREE,COUT";
+    }
+    //nom+PROJET fixés 3 var
+    else if(!ui->checkBoxIDF->isChecked() && ui->checkBoxNomF->isChecked() && ui->checkBoxProjetF->isChecked() && ui->checkBoxFormateurF->isChecked() && !ui->checkBoxDateF->isChecked() && !ui->checkBoxDureeF->isChecked() && !ui->checkBoxCoutF->isChecked())
+    {
+        critere="NOM,PROJET,FORMATEUR";
+    }
+    else if(!ui->checkBoxIDF->isChecked() && ui->checkBoxNomF->isChecked() && ui->checkBoxProjetF->isChecked() && !ui->checkBoxFormateurF->isChecked() && ui->checkBoxDateF->isChecked() && !ui->checkBoxDureeF->isChecked() && !ui->checkBoxCoutF->isChecked())
+    {
+        critere="NOM,PROJET,DATEDEBUT";
+    }
+    else if(!ui->checkBoxIDF->isChecked() && ui->checkBoxNomF->isChecked() && ui->checkBoxProjetF->isChecked() && !ui->checkBoxFormateurF->isChecked() && !ui->checkBoxDateF->isChecked() && ui->checkBoxDureeF->isChecked() && !ui->checkBoxCoutF->isChecked())
+    {
+        critere="NOM,PROJET,DUREE";
+    }
+    else if(!ui->checkBoxIDF->isChecked() && ui->checkBoxNomF->isChecked() && ui->checkBoxProjetF->isChecked() && !ui->checkBoxFormateurF->isChecked() && !ui->checkBoxDateF->isChecked() && !ui->checkBoxDureeF->isChecked() && ui->checkBoxCoutF->isChecked())
+    {
+        critere="NOM,PROJET,COUT";
+    }
+    //nom+FORMATEUR fixés 3 var
+    else if(!ui->checkBoxIDF->isChecked() && ui->checkBoxNomF->isChecked() && !ui->checkBoxProjetF->isChecked() && ui->checkBoxFormateurF->isChecked() && ui->checkBoxDateF->isChecked() && !ui->checkBoxDureeF->isChecked() && !ui->checkBoxCoutF->isChecked())
+    {
+        critere="NOM,FORMATEUR,DATEDEBUT";
+    }
+    else if(!ui->checkBoxIDF->isChecked() && ui->checkBoxNomF->isChecked() && !ui->checkBoxProjetF->isChecked() && ui->checkBoxFormateurF->isChecked() && !ui->checkBoxDateF->isChecked() && ui->checkBoxDureeF->isChecked() && !ui->checkBoxCoutF->isChecked())
+    {
+        critere="NOM,FORMATEUR,DUREE";
+    }
+    else if(!ui->checkBoxIDF->isChecked() && ui->checkBoxNomF->isChecked() && !ui->checkBoxProjetF->isChecked() && ui->checkBoxFormateurF->isChecked() && !ui->checkBoxDateF->isChecked() && !ui->checkBoxDureeF->isChecked() && ui->checkBoxCoutF->isChecked())
+    {
+        critere="NOM,FORMATEUR,COUT";
+    }
+    //nom+DATEDEBUT fixés 3 var
+    else if(!ui->checkBoxIDF->isChecked() && ui->checkBoxNomF->isChecked() && !ui->checkBoxProjetF->isChecked() && ui->checkBoxFormateurF->isChecked() && ui->checkBoxDateF->isChecked() && ui->checkBoxDureeF->isChecked() && !ui->checkBoxCoutF->isChecked())
+    {
+        critere="NOM,DATEDEBUT,DUREE";
+    }
+    else if(!ui->checkBoxIDF->isChecked() && ui->checkBoxNomF->isChecked() && !ui->checkBoxProjetF->isChecked() && !ui->checkBoxFormateurF->isChecked() && ui->checkBoxDateF->isChecked() && !ui->checkBoxDureeF->isChecked() && ui->checkBoxCoutF->isChecked())
+    {
+        critere="NOM,DATEDEBUT,COUT";
+    }
     else
     {
         QMessageBox::critical(nullptr, QObject::tr("Aucun critere"),
@@ -374,11 +500,4 @@ void MainWindow::on_pushTrierF_clicked()
     QString order = ui->comboBoxF->currentText();
     ui->tableViewF->setModel(tmp_formation.trier(critere,order));
 
-}
-
-void MainWindow::on_pushButtonStat_clicked()
-{
-    statistiques *a= new statistiques() ;
-
-    a->show();
 }
