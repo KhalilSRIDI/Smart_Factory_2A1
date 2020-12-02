@@ -303,7 +303,7 @@
         <string>Rechercher</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButtonNomP">
+      <widget class="QCheckBox" name="checkBoxNomP">
        <property name="geometry">
         <rect>
          <x>80</x>
@@ -316,7 +316,7 @@
         <string>Nom</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButtonTeamLeaderP">
+      <widget class="QCheckBox" name="checkBoxTeamLeaderP">
        <property name="geometry">
         <rect>
          <x>240</x>
@@ -329,7 +329,7 @@
         <string>Team leader</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButtonDepartementP">
+      <widget class="QCheckBox" name="checkBoxDepartementP">
        <property name="geometry">
         <rect>
          <x>140</x>
@@ -342,7 +342,7 @@
         <string>Departement</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButtonDateLancementP">
+      <widget class="QCheckBox" name="checkBoxDateLancementP">
        <property name="geometry">
         <rect>
          <x>340</x>
@@ -355,7 +355,7 @@
         <string>Date de lancement</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButtonCoutsP">
+      <widget class="QCheckBox" name="checkBoxCoutsP">
        <property name="geometry">
         <rect>
          <x>480</x>
@@ -445,7 +445,7 @@
         <bool>false</bool>
        </attribute>
       </widget>
-      <widget class="QRadioButton" name="radioButtonIDP">
+      <widget class="QCheckBox" name="checkBoxIDP">
        <property name="geometry">
         <rect>
          <x>40</x>
@@ -458,7 +458,7 @@
         <string>ID</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButtonRevenusP">
+      <widget class="QCheckBox" name="checkBoxRevenusP">
        <property name="geometry">
         <rect>
          <x>540</x>

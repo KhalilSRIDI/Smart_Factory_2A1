@@ -69,19 +69,19 @@ void MainWindow::on_pushButtonModifier_clicked()
 void MainWindow::on_pushButtonRechercheP_clicked()
 {
     int critere=0;
-    if(ui->radioButtonIDP->isChecked())
+    if(ui->checkBoxIDP->isChecked())
         critere=0;
-    else if(ui->radioButtonNomP->isChecked())
+    else if(ui->checkBoxNomP->isChecked())
         critere=1;
-    else if(ui->radioButtonDepartementP->isChecked())
+    else if(ui->checkBoxDepartementP->isChecked())
         critere=2;
-    else if(ui->radioButtonTeamLeaderP->isChecked())
+    else if(ui->checkBoxTeamLeaderP->isChecked())
         critere=3;
-    else if(ui->radioButtonDateLancementP->isChecked())
+    else if(ui->checkBoxDateLancementP->isChecked())
         critere=4;
-    else if(ui->radioButtonCoutsP->isChecked())
+    else if(ui->checkBoxCoutsP->isChecked())
         critere=5;
-    else if(ui->radioButtonRevenusP->isChecked())
+    else if(ui->checkBoxRevenusP->isChecked())
         critere=6;
 
     QString input = ui->lineEditRP->text();
@@ -114,26 +114,105 @@ void MainWindow::on_pushButtonExportP_clicked()
 void MainWindow::on_pushTrierP_clicked()
 {
     ui->tableViewP->setModel(tmp_projet.afficher());
+    QString critere;
 
-    int critere=-1;
-    if(ui->radioButtonIDP->isChecked())
-        critere=0;
-    else if(ui->radioButtonNomP->isChecked())
-        critere=1;
-    else if(ui->radioButtonDepartementP->isChecked())
-        critere=2;
-    else if(ui->radioButtonTeamLeaderP->isChecked())
-        critere=3;
-    else if(ui->radioButtonDateLancementP->isChecked())
-        critere=4;
-    else if(ui->radioButtonCoutsP->isChecked())
-        critere=5;
-    else if(ui->radioButtonRevenusP->isChecked())
-        critere=6;
+    if(ui->checkBoxNomP->isChecked() && !ui->checkBoxDepartementP->isChecked() && !ui->checkBoxTeamLeaderP->isChecked() && !ui->checkBoxDateLancementP->isChecked() && !ui->checkBoxCoutsP->isChecked() && !ui->checkBoxRevenusP->isChecked())
+    {
+        critere="NOM";
+    }
+    else if(!ui->checkBoxNomP->isChecked() && ui->checkBoxDepartementP->isChecked() && !ui->checkBoxTeamLeaderP->isChecked() && !ui->checkBoxDateLancementP->isChecked() && !ui->checkBoxCoutsP->isChecked() && !ui->checkBoxRevenusP->isChecked())
+    {
+        critere="DEPARTEMENT";
+    }
+    else if(!ui->checkBoxNomP->isChecked() && !ui->checkBoxDepartementP->isChecked() && ui->checkBoxTeamLeaderP->isChecked() && !ui->checkBoxDateLancementP->isChecked() && !ui->checkBoxCoutsP->isChecked() && !ui->checkBoxRevenusP->isChecked())
+    {
+        critere="TEAM_LEADER";
+    }
+    else if(!ui->checkBoxNomP->isChecked() && !ui->checkBoxDepartementP->isChecked() && !ui->checkBoxTeamLeaderP->isChecked() && ui->checkBoxDateLancementP->isChecked() && !ui->checkBoxCoutsP->isChecked() && !ui->checkBoxRevenusP->isChecked())
+    {
+        critere="DATE_LANCEMENT";
+    }
+    else if(!ui->checkBoxNomP->isChecked() && !ui->checkBoxDepartementP->isChecked() && !ui->checkBoxTeamLeaderP->isChecked() && !ui->checkBoxDateLancementP->isChecked() && ui->checkBoxCoutsP->isChecked() && !ui->checkBoxRevenusP->isChecked())
+    {
+        critere="COUTS_PREVUS";
+    }
+
+    else if(!ui->checkBoxNomP->isChecked() && !ui->checkBoxDepartementP->isChecked() && !ui->checkBoxTeamLeaderP->isChecked() && !ui->checkBoxDateLancementP->isChecked() && !ui->checkBoxCoutsP->isChecked() && ui->checkBoxRevenusP->isChecked())
+    {
+        critere="REVENUS_PROJETES";
+    }
+    //TRI MULTICRITERE
+    //nom fixé
+    else if(ui->checkBoxNomP->isChecked() && ui->checkBoxDepartementP->isChecked() && !ui->checkBoxTeamLeaderP->isChecked() && !ui->checkBoxDateLancementP->isChecked() && !ui->checkBoxCoutsP->isChecked() && !ui->checkBoxRevenusP->isChecked())
+    {
+        critere="NOM,DEPARTEMENT";
+    }
+    else if(ui->checkBoxNomP->isChecked() && !ui->checkBoxDepartementP->isChecked() && ui->checkBoxTeamLeaderP->isChecked() && !ui->checkBoxDateLancementP->isChecked() && !ui->checkBoxCoutsP->isChecked() && !ui->checkBoxRevenusP->isChecked())
+    {
+        critere="NOM,TEAM_LEADER";
+    }
+    else if(ui->checkBoxNomP->isChecked() && !ui->checkBoxDepartementP->isChecked() && !ui->checkBoxTeamLeaderP->isChecked() && ui->checkBoxDateLancementP->isChecked() && !ui->checkBoxCoutsP->isChecked() && !ui->checkBoxRevenusP->isChecked())
+    {
+        critere="NOM,DATE_LANCEMENT";
+    }
+    else if(ui->checkBoxNomP->isChecked() && !ui->checkBoxDepartementP->isChecked() && !ui->checkBoxTeamLeaderP->isChecked() && !ui->checkBoxDateLancementP->isChecked() && ui->checkBoxCoutsP->isChecked() && !ui->checkBoxRevenusP->isChecked())
+    {
+        critere="NOM,COUTS_PREVUS";
+    }
+    else if(ui->checkBoxNomP->isChecked() && !ui->checkBoxDepartementP->isChecked() && !ui->checkBoxTeamLeaderP->isChecked() && !ui->checkBoxDateLancementP->isChecked() && !ui->checkBoxCoutsP->isChecked() && ui->checkBoxRevenusP->isChecked())
+    {
+        critere="NOM,REVENUS_PROJETES";
+    }
+    //departement fixé
+    else if(!ui->checkBoxNomP->isChecked() && ui->checkBoxDepartementP->isChecked() && ui->checkBoxTeamLeaderP->isChecked() && !ui->checkBoxDateLancementP->isChecked() && !ui->checkBoxCoutsP->isChecked() && !ui->checkBoxRevenusP->isChecked())
+    {
+        critere="DEPARTEMENT,TEAM_LEADER";
+    }
+    else if(!ui->checkBoxNomP->isChecked() && ui->checkBoxDepartementP->isChecked() && !ui->checkBoxTeamLeaderP->isChecked() && ui->checkBoxDateLancementP->isChecked() && !ui->checkBoxCoutsP->isChecked() && !ui->checkBoxRevenusP->isChecked())
+    {
+        critere="DEPARTEMENT,DATE_LANCEMENT";
+    }
+    else if(!ui->checkBoxNomP->isChecked() && ui->checkBoxDepartementP->isChecked() && !ui->checkBoxTeamLeaderP->isChecked() && !ui->checkBoxDateLancementP->isChecked() && ui->checkBoxCoutsP->isChecked() && !ui->checkBoxRevenusP->isChecked())
+    {
+        critere="DEPARTEMENT,COUTS_PREVUS";
+    }
+    else if(!ui->checkBoxNomP->isChecked() && ui->checkBoxDepartementP->isChecked() && !ui->checkBoxTeamLeaderP->isChecked() && !ui->checkBoxDateLancementP->isChecked() && !ui->checkBoxCoutsP->isChecked() && ui->checkBoxRevenusP->isChecked())
+    {
+        critere="DEPARTEMENT,REVENUS_PROJETES";
+    }
+    //team leader fixé
+    else if(!ui->checkBoxNomP->isChecked() && !ui->checkBoxDepartementP->isChecked() && ui->checkBoxTeamLeaderP->isChecked() && !ui->checkBoxDateLancementP->isChecked() && !ui->checkBoxCoutsP->isChecked() && !ui->checkBoxRevenusP->isChecked())
+    {
+        critere="TEAM_LEADER,DATE_LANCEMENT";
+    }else if(!ui->checkBoxNomP->isChecked() && !ui->checkBoxDepartementP->isChecked() && ui->checkBoxTeamLeaderP->isChecked() && !ui->checkBoxDateLancementP->isChecked() && !ui->checkBoxCoutsP->isChecked() && !ui->checkBoxRevenusP->isChecked())
+    {
+        critere="TEAM_LEADER,COUTS_PREVUS";
+    }else if(!ui->checkBoxNomP->isChecked() && !ui->checkBoxDepartementP->isChecked() && ui->checkBoxTeamLeaderP->isChecked() && !ui->checkBoxDateLancementP->isChecked() && !ui->checkBoxCoutsP->isChecked() && !ui->checkBoxRevenusP->isChecked())
+    {
+        critere="TEAM_LEADER,REVENUS_PROJETES";
+    }
+    //date lancement fixé
+    else if(!ui->checkBoxNomP->isChecked() && !ui->checkBoxDepartementP->isChecked() && !ui->checkBoxTeamLeaderP->isChecked() && ui->checkBoxDateLancementP->isChecked() && ui->checkBoxCoutsP->isChecked() && !ui->checkBoxRevenusP->isChecked())
+    {
+        critere="DATE_LANCEMENT,COUTS_PREVUS";
+    }
+    else if(!ui->checkBoxNomP->isChecked() && !ui->checkBoxDepartementP->isChecked() && !ui->checkBoxTeamLeaderP->isChecked() && ui->checkBoxDateLancementP->isChecked() && !ui->checkBoxCoutsP->isChecked() && ui->checkBoxRevenusP->isChecked())
+    {
+        critere="DATE_LANCEMENT,REVENUS_PROJETES";
+    }
+    //couts fixé
+    else if(!ui->checkBoxNomP->isChecked() && !ui->checkBoxDepartementP->isChecked() && !ui->checkBoxTeamLeaderP->isChecked() && !ui->checkBoxDateLancementP->isChecked() && ui->checkBoxCoutsP->isChecked() && ui->checkBoxRevenusP->isChecked())
+    {
+        critere="COUTS_PREVUS,REVENUS_PROJETES";
+    }
+
+
+
+
     else
     {
         QMessageBox::critical(nullptr, QObject::tr("Aucun critere"),
-                    QObject::tr("Veuillez choisir un critere.\n"), QMessageBox::Cancel);
+                              QObject::tr("Veuillez choisir un critere.\n"), QMessageBox::Cancel);
 
     }
 
@@ -223,8 +302,8 @@ void MainWindow::on_pushButtonRefreshF_clicked()
 
 void MainWindow::on_pushButtonExportF_clicked()
 {
-        tmp_formation.exporterExcel(ui->tableViewF);
-        ui->statusbar->showMessage("EXPORT TABLE ",5000);
+    tmp_formation.exporterExcel(ui->tableViewF);
+    ui->statusbar->showMessage("EXPORT TABLE ",5000);
 }
 
 
@@ -249,7 +328,7 @@ void MainWindow::on_pushTrierF_clicked()
     else
     {
         QMessageBox::critical(nullptr, QObject::tr("Aucun critere"),
-                    QObject::tr("Veuillez choisir un critere.\n"), QMessageBox::Cancel);
+                              QObject::tr("Veuillez choisir un critere.\n"), QMessageBox::Cancel);
 
     }
 
@@ -262,5 +341,5 @@ void MainWindow::on_pushButtonStat_clicked()
 {
     statistiques *a= new statistiques() ;
 
-       a->show();
+    a->show();
 }
