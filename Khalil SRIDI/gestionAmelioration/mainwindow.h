@@ -11,7 +11,10 @@
 #include <QSqlQuery>
 #include <QMessageBox>
 #include <QtDebug>
-
+#include <QRegularExpression>
+#include <QDate>
+#include <QDateTimeEdit>
+#include <QSound>
 
 
 
@@ -63,5 +66,6 @@ private:
     Ui::MainWindow *ui;
     projets tmp_projet;
     formation tmp_formation;
+
 };
 #endif // MAINWINDOW_H

@@ -27,6 +27,9 @@ MainWindow::~MainWindow()
 //projets UI
 void MainWindow::on_pushButtonAjouter_clicked()
 {
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Khalil SRIDI/gestionAmelioration/src/mouseclick.wav");
+
+
     QString NOM=ui->lineEditNomP->text();
     QString DEPARTEMENT=ui->comboBoxDepartementP->currentText();
     QString TEAM_LEADER=ui->lineEditTeamLeaderP->text();
@@ -35,12 +38,24 @@ void MainWindow::on_pushButtonAjouter_clicked()
     QString REVENUS_PROJETES=ui->lineEditRevenuesP->text();
 
     projets projet(NOM, DEPARTEMENT, TEAM_LEADER, DATE_LANCEMENT, COUTS_PREVUS, REVENUS_PROJETES);
-    projet.ajouter();
-    ui->tableViewP->setModel(tmp_projet.afficher());
+    if(projet.ajouter())
+    {
+        ui->tableViewP->setModel(tmp_projet.afficher());
+        ui->statusbar->showMessage("AJOUT : SUCCESS");
+        ui->lineEditNomP->setText("");
+        ui->lineEditTeamLeaderP->setText("");
+        ui->lineEditCoutP->setText("");
+        ui->lineEditRevenuesP->setText("");
+    }
+    else
+        ui->statusbar->showMessage("AJOUT : UNSUCCESS");
 }
+
 
 void MainWindow::on_pushButtonSupprimer_clicked()
 {
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Khalil SRIDI/gestionAmelioration/src/mouseclick.wav");
+
     QItemSelectionModel *select = ui->tableViewP->selectionModel();
     int idprojet =select->selectedRows(0).value(0).data().toInt();
     if(tmp_projet.supprimer(idprojet))
@@ -68,6 +83,7 @@ void MainWindow::on_pushButtonModifier_clicked()
 
 void MainWindow::on_pushButtonRechercheP_clicked()
 {
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Khalil SRIDI/gestionAmelioration/src/mouseclick.wav");
     int critere=0;
     if(ui->checkBoxIDP->isChecked())
         critere=0;
@@ -101,6 +117,7 @@ void MainWindow::on_pushButtonRechercheP_clicked()
 
 void MainWindow::on_pushButtonRefreshP_clicked()
 {
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Khalil SRIDI/gestionAmelioration/src/mouseclick.wav");
     ui->tableViewP->setModel(tmp_projet.afficher());
 }
 
@@ -113,6 +130,7 @@ void MainWindow::on_pushButtonExportP_clicked()
 
 void MainWindow::on_pushTrierP_clicked()
 {
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Khalil SRIDI/gestionAmelioration/src/mouseclick.wav");
     ui->tableViewP->setModel(tmp_projet.afficher());
     QString critere;
 
@@ -261,6 +279,7 @@ void MainWindow::on_pushTrierP_clicked()
 
 void MainWindow::on_pushButtonStat_clicked()
 {
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Khalil SRIDI/gestionAmelioration/src/mouseclick.wav");
     statistiques *a= new statistiques() ;
 
     a->show();
@@ -269,6 +288,7 @@ void MainWindow::on_pushButtonStat_clicked()
 //formations UI
 void MainWindow::on_pushButtonAjouterF_clicked()
 {
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Khalil SRIDI/gestionAmelioration/src/mouseclick.wav");
     QString NOM=ui->lineEditNomF->text();
     int PROJET=ui->lineEditProjet->text().toInt();
     QString FORMATEUR=ui->lineEditFormateur->text();
@@ -277,13 +297,19 @@ void MainWindow::on_pushButtonAjouterF_clicked()
     QString COUT=ui->lineEditCoutF->text();
 
     formation formation(NOM, PROJET, FORMATEUR, DATEDEBUT, DUREE, COUT);
-    formation.ajouter();
-    ui->tableViewF->setModel(tmp_formation.afficher());
+    if(formation.ajouter())
+    {
+        ui->tableViewF->setModel(tmp_formation.afficher());
+        ui->statusbar->showMessage("AJOUT : SUCCESS");
+    }
+    else
+        ui->statusbar->showMessage("AJOUT : UNSUCCESS");
 
 }
 
 void MainWindow::on_pushButtonSupprimerF_clicked()
 {
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Khalil SRIDI/gestionAmelioration/src/mouseclick.wav");
     QItemSelectionModel *select = ui->tableViewF->selectionModel();
     int idformation =select->selectedRows(0).value(0).data().toInt();
     if(tmp_formation.supprimer(idformation))
@@ -308,6 +334,7 @@ void MainWindow::on_pushButtonModifierF_clicked()
 
 void MainWindow::on_pushButtonRechercheF_clicked()
 {
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Khalil SRIDI/gestionAmelioration/src/mouseclick.wav");
     int critere=0;
     if(ui->checkBoxIDF->isChecked())
         critere=0;
@@ -342,6 +369,7 @@ void MainWindow::on_pushButtonRechercheF_clicked()
 
 void MainWindow::on_pushButtonRefreshF_clicked()
 {
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Khalil SRIDI/gestionAmelioration/src/mouseclick.wav");
     ui->tableViewF->setModel(tmp_formation.afficher());
 }
 
@@ -354,6 +382,7 @@ void MainWindow::on_pushButtonExportF_clicked()
 
 void MainWindow::on_pushTrierF_clicked()
 {
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Khalil SRIDI/gestionAmelioration/src/mouseclick.wav");
     ui->tableViewF->setModel(tmp_formation.afficher());
     QString critere;
 
@@ -492,8 +521,7 @@ void MainWindow::on_pushTrierF_clicked()
     }
     else
     {
-        QMessageBox::critical(nullptr, QObject::tr("Aucun critere"),
-                              QObject::tr("Veuillez choisir un critere.\n"), QMessageBox::Cancel);
+        ui->statusbar->showMessage("ERROR : AUCUN CRITERE CHOISI");
 
     }
 
