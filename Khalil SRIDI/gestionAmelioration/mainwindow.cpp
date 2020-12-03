@@ -68,7 +68,7 @@ void MainWindow::on_pushButtonSupprimer_clicked()
 
 void MainWindow::on_pushButtonModifier_clicked()
 {
-
+    ui->pushButtonModifier->setText("Modifier");
     if(ui->pushButtonModifier->isChecked())
     {
         QSqlTableModel *tableModel= new QSqlTableModel();
@@ -321,6 +321,8 @@ void MainWindow::on_pushButtonSupprimerF_clicked()
 
 void MainWindow::on_pushButtonModifierF_clicked()
 {
+    ui->pushButtonModifierF->setText("Modifier");
+
     if(ui->pushButtonModifierF->isChecked())
     {
         QSqlTableModel *tableModelF= new QSqlTableModel();

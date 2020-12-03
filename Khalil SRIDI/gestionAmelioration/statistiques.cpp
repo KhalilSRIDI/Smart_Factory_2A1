@@ -28,9 +28,6 @@ statistiques::statistiques(QWidget *parent) :
     chart->createDefaultAxes();
     chart->setAxisX(axis,series);
     axis->setMax("10000");
-
-
-
     QChartView *chartview=new QChartView(chart);
     chartview->setRenderHint(QPainter::Antialiasing);
 
