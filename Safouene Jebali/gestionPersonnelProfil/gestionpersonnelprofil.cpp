@@ -1,28 +1,51 @@
 #include "gestionpersonnelprofil.h"
 #include "ui_gestionpersonnelprofil.h"
-#include "personnels.h"
-#include "profile.h"
+
 
 GestionPersonnelProfil::GestionPersonnelProfil(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::GestionPersonnelProfil)
 {
     ui->setupUi(this);
+
+    chaine=QRegExp("[a-zA-Z]{3,15}$");
+    numeroCin=QRegExp("[0-9]{8}$");
+    numeroTelephone=QRegExp("[1-9]{8}$");
+    nomUtilisateur = QRegExp("[a-zA-Z]+[_]+[a-zA-Z]$");
+    email = QRegExp("^[0-9a-zA-Z]+([0-9a-zA-Z]*[-._+])*[0-9a-zA-Z]+@[0-9a-zA-Z]+([-.][0-9a-zA-Z]+)*([0-9a-zA-Z]*[.])[a-zA-Z]{2,6}$");
+
+
     ui->tablePers->setModel(tmpPersonnels.afficher());
     ui->tablePers->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->tablePers->setSelectionMode(QAbstractItemView::SingleSelection);
+
     ui->tablePro->setModel(tmpProfils.afficher());
     ui->tablePro->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->tablePro->setSelectionMode(QAbstractItemView::SingleSelection);
+
     ui->cin->setMaxLength(8);
     ui->numTel->setMaxLength(8);
     ui->nom->setMaxLength(15);
     ui->prenom->setMaxLength(15);
-    ui->email->setMaxLength(35);
     ui->salaire->setRange(0,10000);
     ui->dateRecrutement->setDate(QDate::currentDate());
     ui->dateRecrutement->setMaximumDate(QDate::currentDate());
     ui->dateNaissance->setMaximumDate(QDate::currentDate().addYears(-18));
+    ui->dateCh1->setDate(QDate::currentDate().addYears(-10));
+    ui->dateCh2->setDate(QDate::currentDate());
+    ui->dateCh2->setMaximumDate(QDate::currentDate());
+
+    reduireAnimation = new QPropertyAnimation(ui->groupProfil,"maximumWidth");
+    reduireAnimation->setDuration(400);
+    reduireAnimation->setStartValue(500);
+    reduireAnimation->setEndValue(110);
+    etendreAnimation = new QPropertyAnimation(ui->groupProfil,"maximumWidth");
+    etendreAnimation->setDuration(400);
+    etendreAnimation->setStartValue(100);
+    etendreAnimation->setEndValue(500);
+    ui->reduire->setText("Reduire");
+    etendreAnimation->start();
+
 
 }
 GestionPersonnelProfil::~GestionPersonnelProfil()
@@ -33,21 +56,27 @@ void GestionPersonnelProfil::on_gestionPersonnel_clicked()
 {
     QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
     ui->stackedWidget->setCurrentIndex(0);
+    ui->statusbar->showMessage("Gestion Personnel",5000);
 }
 
 void GestionPersonnelProfil::on_gestionProfil_clicked()
 {
     QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
     ui->stackedWidget->setCurrentIndex(1);
+    ui->statusbar->showMessage("Gestion Profil",5000);
 }
 void GestionPersonnelProfil::on_vAjouterPers_clicked()
 {
+    bool verifCin = numeroCin.exactMatch(ui->cin->text());
+    bool verifTel = numeroCin.exactMatch(ui->numTel->text());
+    bool verifNom = chaine.exactMatch(ui->nom->text());
+    bool verifPrenom = chaine.exactMatch(ui->prenom->text());
+
     QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
-    int cin = ui->cin->text().toInt();
+    QString cin = ui->cin->text();
     QString nom = ui->nom->text();
     QString prenom = ui->prenom->text();
-    int numTel = ui->numTel->text().toInt();
-    QString email = ui->email->text();
+    QString numTel = ui->numTel->text();
     QString sexe ;
     if(ui->masculin->isChecked())
         sexe =ui->masculin->text();
@@ -84,35 +113,33 @@ void GestionPersonnelProfil::on_vAjouterPers_clicked()
     QString unite = ui->unite->currentText();
     QString fonction = ui->fonction->currentText();
     int salaire = ui->salaire->value();
-    personnels p(cin,nom,prenom,numTel,email,sexe,etatcivile,dateNaissance,gouvernoratOrigin,gouvernoratHabitation,diplomeEtude,dateRecrutement,typeContrat,departement,unite,fonction,salaire);
-    if(p.ajouter())
+    personnels p(cin,nom,prenom,numTel,sexe,etatcivile,dateNaissance,gouvernoratOrigin,gouvernoratHabitation,diplomeEtude,dateRecrutement,typeContrat,departement,unite,fonction,salaire);
+    if(verifCin and verifTel and verifNom and verifPrenom)
     {
-        ui->statusbar->showMessage("DATA INSERTED ",5000);
+        p.ajouter();
+        ui->statusbar->showMessage("Personnel Ajouté ",5000);
         ui->tablePers->setModel(tmpPersonnels.afficher());
     }
     else
     {
         QMessageBox::critical(this,"Ajouter Personnel !","Erreur lors de l'Ajout de ce Personnel\nVeuillez réssayer de Nouveau");
     }
-
 }
 void GestionPersonnelProfil::on_modifierPers_clicked()
 {
     QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
     if(ui->modifierPers->isChecked())
     {
-        QSqlTableModel *tableModel= new QSqlTableModel();
-        tableModel->setTable("PERSONNELS");
-        tableModel->select();
-        ui->tablePers->setModel(tableModel);
+
+        ui->tablePers->setModel(tmpPersonnels.modifier());
         ui->modifierPers->setText("Tableau Modifiable");
-        ui->statusbar->showMessage("MODIFY ON ",5000);
+        ui->statusbar->showMessage("Tableau Modifiable ",5000);
     }
     else
     {
         ui->tablePers->setModel(tmpPersonnels.afficher());
         ui->modifierPers->setText("Tableau Non Modifiable");
-        ui->statusbar->showMessage("MODIFY OFF ",5000);
+        ui->statusbar->showMessage("Tableau Non Modifiable ",5000);
     }
 }
 void GestionPersonnelProfil::on_supprimerPers_clicked()
@@ -123,8 +150,66 @@ void GestionPersonnelProfil::on_supprimerPers_clicked()
     if(tmpPersonnels.supprimer(matricule))
     {
         ui->tablePers->setModel(tmpPersonnels.afficher());
-        ui->statusbar->showMessage("SUPPRESSION ",5000);
+        ui->statusbar->showMessage("Personnel Supprimé ",5000);
     }
+}
+void GestionPersonnelProfil::on_vAjouterPro_clicked()
+{
+    bool verifEmail = email.exactMatch(ui->email->text());
+    bool verifNU = nomUtilisateur.exactMatch(ui->nomUP->text());
+
+    QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
+    int matricule = ui->matriculeP->text().toInt();
+    QString nomUP = ui->nomUP->text();
+    QString email = ui->email->text();;
+    QString mdp = ui->motDePasseP->text();
+    profils p(matricule,nomUP,email,mdp);
+    if(verifEmail /*and verifNU*/)
+    {
+        p.ajouter();
+        ui->tablePro->setModel(tmpProfils.afficher());
+        ui->statusbar->showMessage("Profil Ajouté ",5000);
+    }
+    else
+        QMessageBox::critical(this,"Ajouter Profil !","Erreur lors de l'Ajout de ce Profil\nVeuillez réssayer de Nouveau");
+
+}
+void GestionPersonnelProfil::on_modifierPro_clicked()
+{
+    QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
+    if(ui->modifierPro->isChecked())
+    {
+        ui->tablePro->setModel(tmpProfils.modifier());
+        ui->modifierPro->setText("Tableau Modifiable");
+        ui->statusbar->showMessage("Tableau Modifiable ",5000);
+    }
+    else
+    {
+        ui->tablePro->setModel(tmpProfils.afficher());
+        ui->modifierPro->setText("Tableau Non Modifiable");
+        ui->statusbar->showMessage("Tableau Non Modifiable ",5000);
+    }
+}
+void GestionPersonnelProfil::on_supprimerPro_clicked()
+{
+    QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
+    QItemSelectionModel *select = ui->tablePro->selectionModel();
+    int id =select->selectedRows(0).value(0).data().toInt();
+    if(tmpProfils.supprimer(id))
+    {
+        ui->tablePro->setModel(tmpProfils.afficher());
+        ui->statusbar->showMessage("Profil Supprimé ",5000);
+    }
+}
+void GestionPersonnelProfil::on_afficherTablePro_clicked()
+{
+    ui->tablePro->setModel(tmpProfils.afficher());
+    ui->statusbar->showMessage("Tableau Des Profils");
+}
+void GestionPersonnelProfil::on_afficherTablePers_clicked()
+{
+    ui->tablePers->setModel(tmpPersonnels.afficher());
+    ui->statusbar->showMessage("Tableau Des Personnels");
 }
 void GestionPersonnelProfil::exporter(QTableView *table)
 {
@@ -162,96 +247,122 @@ void GestionPersonnelProfil::on_exportExcel_clicked()
 {
     QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
     exporter(ui->tablePers);
-    ui->statusbar->showMessage("EXPORT TABLE ",5000);
-}
-void GestionPersonnelProfil::on_vAjouterPro_clicked()
-{
-    QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
-    int matricule = ui->matriculeP->text().toInt();
-    QString nomUP = ui->nomUP->text();
-    QString mdp = ui->motDePasseP->text();
-    profils p(matricule,nomUP,mdp);
-    if(p.ajouter())
-    {
-        ui->statusbar->showMessage("DATA INSERTED ",5000);
-        ui->tablePro->setModel(tmpProfils.afficher());
-    }
-}
-void GestionPersonnelProfil::on_modifierPro_clicked()
-{
-    QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
-    if(ui->modifierPro->isChecked())
-    {
-        QSqlTableModel *tableModel= new QSqlTableModel();
-        tableModel->setTable("PROFILS");
-        tableModel->select();
-        ui->tablePro->setModel(tableModel);
-        ui->modifierPro->setText("Tableau Modifiable");
-        ui->statusbar->showMessage("MODIFY ON ",5000);
-    }
-    else
-    {
-        ui->tablePro->setModel(tmpProfils.afficher());
-        ui->modifierPro->setText("Tableau Non Modifiable");
-        ui->statusbar->showMessage("MODIFY OFF ",5000);
-    }
-
-}
-void GestionPersonnelProfil::on_supprimerPro_clicked()
-{
-    QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
-    QItemSelectionModel *select = ui->tablePro->selectionModel();
-    int id =select->selectedRows(0).value(0).data().toInt();
-    if(tmpProfils.supprimer(id))
-    {
-        ui->tablePro->setModel(tmpProfils.afficher());
-        ui->statusbar->showMessage("SUPPRESSION ",5000);
-    }
-
+    ui->statusbar->showMessage("Export De Tableau Personnel ",5000);
 }
 void GestionPersonnelProfil::on_exportExcelP_clicked()
 {
     QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
     exporter(ui->tablePro);
-    ui->statusbar->showMessage("EXPORT TABLE ",5000);
-
+    ui->statusbar->showMessage("Export De Tableau Profil ",5000);
 }
+void GestionPersonnelProfil::on_trier_clicked()
+{
+    QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
+    if(ui->matT->isChecked())
+    {
+        ui->tablePro->setModel(tmpProfils.trier("matricule",ui->AD->currentText()));
+        ui->statusbar->showMessage("Tableau Profils Trié Selon Matricule");
+    }
+    else if(ui->nomUT->isChecked())
+    {
+        ui->tablePro->setModel(tmpProfils.trier("nom_utilisateur",ui->AD->currentText()));
+        ui->statusbar->showMessage("Tableau Profils Trié Selon Nom Utilisateur");
+    }
+    else if(ui->idT->isChecked())
+    {
+        ui->tablePro->setModel(tmpProfils.trier("id",ui->AD->currentText()));
+        ui->statusbar->showMessage("Tableau Profils Trié Selon Id");
+    }
+}
+void GestionPersonnelProfil::on_trierM_clicked()
+{
+    QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
+    int check=0;
+    QString cD="";
+    QString cU="";
+    QString cF="";
+    QString cS="";
+    if(ui->departementT->isChecked())
+    {
+        check++;
+        if(check==1)
+        {
+            cD=ui->departementT->text();
+        }
+    }
+    if(ui->UniteT->isChecked())
+    {
+        check++;
+        if(check==1)
+        {
+            cU="unite";
+        }
+        else if(check==1)
+        {
+            cU=",unite";
+        }
+    }
+    if(ui->FonctionT->isChecked())
+    {
+        check++;
+        if(check==1)
+        {
+            cF="fonction";
+        }
+        else
+            cF=",fonction";
+    }
+    if(ui->salaireTM->isChecked())
+    {
+        check++;
+        if(check==1)
+        {
+            cS=ui->salaireTM->text();
+        }
+        else
+            cS=","+ui->salaireTM->text();
+    }
+
+    ui->tablePers->setModel(tmpPersonnels.trier(cD,cU,cF,cS,ui->AD_2->currentText()));
+}
+void GestionPersonnelProfil::on_nomCh_textChanged(const QString &arg1)
+{
+    ui->tablePers->setModel(tmpPersonnels.chercherNom(arg1));
+}
+
 void GestionPersonnelProfil::on_matCh_returnPressed()
 {
     int matricule = ui->matCh->text().toInt();
-    QSqlQueryModel * verifCh=tmpPersonnels.chercherPersonnel(matricule);
-    if(verifCh != nullptr)
+    if(tmpPersonnels.chercher(matricule)!= nullptr)
     {
-        ui->tablePers->setModel(verifCh);
+        ui->tablePers->setModel(tmpPersonnels.chercher(matricule));
+        ui->statusbar->showMessage("Personnel Trouvé",5000);
     }
     else
-    {
-        ui->statusbar->showMessage("Matricule Non Trouvée");
-    }
+        QMessageBox::critical(this,"Recherche Personnel !","Erreur lors de Recherche:\nPersonnel Non Trouvé");
 }
 void GestionPersonnelProfil::on_fonctionCh_currentIndexChanged(int index)
 {
-    QString fonction = ui->fonctionCh->currentText();
-    QSqlQueryModel * verifCh=tmpPersonnels.chercherPersonnelFonction(fonction);
-    if(verifCh != nullptr)
+    if(tmpPersonnels.chercherFonction(ui->fonctionCh->currentText()) != nullptr)
     {
-        ui->tablePers->setModel(verifCh);
+        ui->tablePers->setModel(tmpPersonnels.chercherFonction(ui->fonctionCh->currentText()));
+        ui->statusbar->showMessage("Personnel Trouvé",5000);
     }
     else
-    {
-        ui->statusbar->showMessage("Fonction Non Trouvée",5000);
-    }
+        QMessageBox::critical(this,"Recherche Fonctionnaire !","Erreur lors de Recherche:\nFonctionnaire Non Trouvé");
 }
 void GestionPersonnelProfil::on_chercherDate_clicked()
 {
     QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
     QDate date1 = ui->dateCh1->date();
     QDate date2 = ui->dateCh2->date();
-    QSqlQueryModel * verifCh=tmpPersonnels.chercherPersonnelPeriodeRec(date1,date2);
-    if(verifCh != nullptr)
+    if(tmpPersonnels.chercher(date1,date2) != nullptr)
     {
-        ui->tablePers->setModel(verifCh);
+        ui->tablePers->setModel(tmpPersonnels.chercher(date1,date2));
+        ui->statusbar->showMessage("Personnel Trouvé",5000);
     }
+    else
+        QMessageBox::critical(this,"Recherche Personnel !","Erreur lors de Recherche:\nPersonnel Non Trouvé");
 }
 void GestionPersonnelProfil::on_chercherTripleC_clicked()
 {
@@ -269,55 +380,71 @@ void GestionPersonnelProfil::on_chercherTripleC_clicked()
     if(ui->celebCh->isChecked())
         etatcivile = ui->celebCh->text();
     int age = ui->ageCh->currentText().toInt();
-    QSqlQueryModel * verifCh=tmpPersonnels.chercherPersonnel3C(sexe,etatcivile,age);
-    if(verifCh != nullptr)
+    if(tmpPersonnels.chercher(sexe,etatcivile,age) != nullptr)
     {
-        ui->tablePers->setModel(verifCh);
+        ui->tablePers->setModel(tmpPersonnels.chercher(sexe,etatcivile,age));
+        ui->statusbar->showMessage("Personnel Trouvé",5000);
     }
+    else
+        QMessageBox::critical(this,"Recherche Personnel !","Erreur lors de Recherche:\nPersonnel Non Trouvé");
 }
-void GestionPersonnelProfil::on_trier_clicked()
+void GestionPersonnelProfil::on_trierS_clicked()
 {
     QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
-    if(ui->matT->isChecked())
+    if(ui->matTP->isChecked())
     {
-        ui->tablePers->setModel(tmpPersonnels.trier("matricule",ui->AD->currentText()));
+        ui->tablePers->setModel(tmpPersonnels.trier("matricule",ui->AD_3->currentText()));
     }
     else if(ui->nomT->isChecked())
     {
-        ui->tablePers->setModel(tmpPersonnels.trier("nom",ui->AD->currentText()));
+        ui->tablePers->setModel(tmpPersonnels.trier("nom",ui->AD_3->currentText()));
     }
     else if(ui->ageT->isChecked())
     {
-        ui->tablePers->setModel(tmpPersonnels.trier("date_naissance",ui->AD->currentText()));
+        ui->tablePers->setModel(tmpPersonnels.trier("date_naissance",ui->AD_3->currentText()));
     }
     else if(ui->ancienneteT->isChecked())
     {
-        ui->tablePers->setModel(tmpPersonnels.trier("date_recrutement",ui->AD->currentText()));
+        ui->tablePers->setModel(tmpPersonnels.trier("date_recrutement",ui->AD_3->currentText()));
     }
     else if(ui->salaireT->isChecked())
     {
-        ui->tablePers->setModel(tmpPersonnels.trier("salaire",ui->AD->currentText()));
+        ui->tablePers->setModel(tmpPersonnels.trier("salaire",ui->AD_3->currentText()));
     }
+
 }
-void GestionPersonnelProfil::on_trierM_clicked()
+
+
+
+
+
+void GestionPersonnelProfil::on_reduire_clicked()
 {
+    static int turn=1;
     QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
-    QString cN="";
-    QString cAg="";
-    QString cAn="";
-    QString cS="";
-    if(ui->nomT_2->isChecked())
-        cN=ui->nomT_2->text();
-    if(ui->ageT_2->isChecked())
-        cAg="date_naissance";
-    if(ui->ancienneteT_2->isChecked())
-        cAn="date_recrutement";
-    if(ui->salaireT_2->isChecked())
-        cS=ui->salaireT_2->text();
-    ui->tablePers->setModel(tmpPersonnels.trier(cN,cAg,cAn,cS,ui->AD_2->currentText()));
+    if (turn==1)
+    {
+        reduireAnimation->start();
+        ui->reduire->setText("Etendre");
+    }
+    else
+    {
+        etendreAnimation->start();
+        ui->reduire->setText("Reduire");
+    }
+    turn*=-1;
 }
-void GestionPersonnelProfil::on_nomCh_textChanged(const QString &arg1)
+
+void GestionPersonnelProfil::on_statistiques_clicked()
 {
-    QSqlQueryModel * verifCh=tmpPersonnels.chercherPersonnel(arg1);
-    ui->tablePers->setModel(verifCh);
+    statistiques s;
+    s.setModal(true);
+    s.exec();
+}
+
+void GestionPersonnelProfil::on_Afficher1Pers_clicked()
+{
+    afficherUnPersonnel afficherUnPersonnel;
+    afficherUnPersonnel.setModal(true);
+    afficherUnPersonnel.exec();
 }

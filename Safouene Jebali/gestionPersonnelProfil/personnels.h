@@ -1,17 +1,16 @@
 #ifndef PERSONNELS_H
 #define PERSONNELS_H
-#include <QSqlQuery>
-#include <QSqlQueryModel>
+#include "connexionsql.h"
+#include <QSqlTableModel>
 #include <QSqlRecord>
 #include <QString>
 #include <QDate>
 class personnels
 {
-    int cin;
+    QString cin;
     QString nom ;
     QString prenom ;
-    int numTel ;
-    QString email ;
+    QString numTel ;
     QString sexe ;
     QString etatCivile;
     QDate dateNaissance ;
@@ -26,12 +25,12 @@ class personnels
     int salaire ;
 public:
     personnels();
-    personnels(int,QString,QString,int,QString,QString,QString,QDate,QString,QString,QString,QDate,QString,QString,QString,QString,int);
-    int get_cin(){return cin;}
+    personnels(QString,QString,QString,QString,QString,QString,QDate,QString,QString,QString,QDate,QString,QString,QString,QString,int);
+
+    QString get_cin(){return cin;}
     QString get_nom(){return nom;}
     QString get_prenom() {return prenom;}
-    int get_numTel(){return numTel;}
-    QString get_email(){return email;}
+    QString get_numTel(){return numTel;}
     QString get_sexe(){return sexe;};
     QString get_etatCivile(){return etatCivile ;}
     QDate get_dateNaissance(){return dateNaissance;}
@@ -44,20 +43,25 @@ public:
     QString get_departement(){return departement;}
     QString get_unite(){return unite;}
     int get_salaire(){return salaire;}
+
     bool ajouter();
+    QSqlQueryModel * modifier();
     QSqlQueryModel * afficher();
     bool supprimer(int);
+
     QSqlQueryModel *trier(QString,QString);
     QSqlQueryModel *trier(QString,QString,QString,QString,QString);
-    QSqlQueryModel *chercherPersonnel(QString);
 
+    QSqlQueryModel *chercherNom(QString);
+    QSqlQueryModel *chercher(int);
+    QSqlQueryModel *chercherFonction(QString);
+    QSqlQueryModel *chercher(QDate,QDate);
+    QSqlQueryModel *chercher(QString,QString,int);
 
-
-    QSqlQueryModel *chercherPersonnel(int);
-    QSqlQueryModel *chercherPersonnelFonction(QString);
-    QSqlQueryModel *chercherPersonnelPeriodeRec(QDate,QDate);
-    QSqlQueryModel *chercherPersonnel3C(QString,QString,int);
-
+    int calculerTC(QString);
+    int calculerSE(QString,QString);
+    int calculerSF(QString,QString);
 private:
+
 };
 #endif // PERSONNELS_H

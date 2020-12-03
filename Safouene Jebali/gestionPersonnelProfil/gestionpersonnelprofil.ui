@@ -14,28 +14,1109 @@
    <string>Gestion Personnels et Profils</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">QWidget {
+  background-color: #19232D;
+  border: 0px solid #32414B;
+  padding: 0px;
+  color: #F0F0F0;
+  selection-background-color: #1464A0;
+  selection-color: #F0F0F0;
+}
+
+QWidget:disabled {
+  background-color: #19232D;
+  color: #787878;
+  selection-background-color: #14506E;
+  selection-color: #787878;
+}
+
+QWidget::item:selected {
+  background-color: #1464A0;
+}
+
+QWidget::item:hover {
+  background-color: #148CD2;
+  color: #32414B;
+}
+QMainWindow::separator {
+  background-color: #32414B;
+  border: 0px solid #19232D;
+  spacing: 0px;
+  padding: 2px;
+}
+
+QMainWindow::separator:hover {
+  background-color: #505F69;
+  border: 0px solid #148CD2;
+}
+
+QMainWindow::separator:horizontal {
+  width: 5px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/toolbar_separator_vertical.png&quot;);
+}
+
+QMainWindow::separator:vertical {
+  height: 5px;
+  margin-left: 2px;
+  margin-right: 2px;
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/toolbar_separator_horizontal.png&quot;);
+}
+QStatusBar {
+  border: 1px solid #32414B;
+  /* Fixes Spyder #9120, #9121 */
+  background: #32414B;
+  /* Fixes #205, white vertical borders separating items */
+}
+
+QStatusBar::item {
+  border: none;
+}
+
+QStatusBar QToolTip {
+  background-color: #148CD2;
+  border: 1px solid #19232D;
+  color: #19232D;
+  /* Remove padding, for fix combo box tooltip */
+  padding: 0px;
+  /* Reducing transparency to read better */
+  opacity: 230;
+}
+
+QStatusBar QLabel {
+  /* Fixes Spyder #9120, #9121 */
+  background: transparent;
+}
+QGroupBox {
+  font-weight: bold;
+  border: 1px solid #32414B;
+  border-radius: 4px;
+  padding: 4px;
+  margin-top: 16px;
+}
+
+QGroupBox::title {
+  subcontrol-origin: margin;
+  subcontrol-position: top left;
+  left: 3px;
+  padding-left: 3px;
+  padding-right: 5px;
+  padding-top: 8px;
+  padding-bottom: 16px;
+}
+
+QGroupBox::indicator {
+  margin-left: 2px;
+  height: 16px;
+  width: 16px;
+}
+
+QGroupBox::indicator:unchecked {
+  border: none;
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/checkbox_unchecked.png&quot;);
+}
+
+QGroupBox::indicator:unchecked:hover, QGroupBox::indicator:unchecked:focus, QGroupBox::indicator:unchecked:pressed {
+  border: none;
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/checkbox_unchecked_focus.png&quot;);
+}
+
+QGroupBox::indicator:unchecked:disabled {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/checkbox_unchecked_disabled.png&quot;);
+}
+
+QGroupBox::indicator:checked {
+  border: none;
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/checkbox_checked.png&quot;);
+}
+
+QGroupBox::indicator:checked:hover, QGroupBox::indicator:checked:focus, QGroupBox::indicator:checked:pressed {
+  border: none;
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/checkbox_checked_focus.png&quot;);
+}
+
+QGroupBox::indicator:checked:disabled {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/checkbox_checked_disabled.png&quot;);
+}
+QRadioButton {
+  background-color: #19232D;
+  color: #F0F0F0;
+  spacing: 4px;
+  padding: 0px;
+  border: none;
+  outline: none;
+}
+
+QRadioButton:focus {
+  border: none;
+}
+
+QRadioButton:disabled {
+  background-color: #19232D;
+  color: #787878;
+  border: none;
+  outline: none;
+}
+
+QRadioButton QWidget {
+  background-color: #19232D;
+  color: #F0F0F0;
+  spacing: 0px;
+  padding: 0px;
+  outline: none;
+  border: none;
+}
+
+QRadioButton::indicator {
+  border: none;
+  outline: none;
+  margin-left: 4px;
+  height: 16px;
+  width: 16px;
+}
+
+QRadioButton::indicator:unchecked {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/radio_unchecked.png&quot;);
+}
+
+QRadioButton::indicator:unchecked:hover, QRadioButton::indicator:unchecked:focus, QRadioButton::indicator:unchecked:pressed {
+  border: none;
+  outline: none;
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/radio_unchecked_focus.png&quot;);
+}
+
+QRadioButton::indicator:unchecked:disabled {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/radio_unchecked_disabled.png&quot;);
+}
+
+QRadioButton::indicator:checked {
+  border: none;
+  outline: none;
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/radio_checked.png&quot;);
+}
+
+QRadioButton::indicator:checked:hover, QRadioButton::indicator:checked:focus, QRadioButton::indicator:checked:pressed {
+  border: none;
+  outline: none;
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/radio_checked_focus.png&quot;);
+}
+
+QRadioButton::indicator:checked:disabled {
+  outline: none;
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/radio_checked_disabled.png&quot;);
+}
+QMenu {
+  border: 0px solid #32414B;
+  color: #F0F0F0;
+  margin: 0px;
+}
+
+QMenu::separator {
+  height: 1px;
+  background-color: #505F69;
+  color: #F0F0F0;
+}
+
+QMenu::icon {
+  margin: 0px;
+  padding-left: 8px;
+}
+
+QMenu::item {
+  background-color: #32414B;
+  padding: 4px 24px 4px 24px;
+  /* Reserve space for selection border */
+  border: 1px transparent #32414B;
+}
+
+QMenu::item:selected {
+  color: #F0F0F0;
+}
+
+QMenu::indicator {
+  width: 12px;
+  height: 12px;
+  padding-left: 6px;
+  /* non-exclusive indicator = check box style indicator (see QActionGroup::setExclusive) */
+  /* exclusive indicator = radio button style indicator (see QActionGroup::setExclusive) */
+}
+
+QMenu::indicator:non-exclusive:unchecked {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/checkbox_unchecked.png&quot;);
+}
+
+QMenu::indicator:non-exclusive:unchecked:selected {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/checkbox_unchecked_disabled.png&quot;);
+}
+
+QMenu::indicator:non-exclusive:checked {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/checkbox_checked.png&quot;);
+}
+
+QMenu::indicator:non-exclusive:checked:selected {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/checkbox_checked_disabled.png&quot;);
+}
+
+QMenu::indicator:exclusive:unchecked {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/radio_unchecked.png&quot;);
+}
+
+QMenu::indicator:exclusive:unchecked:selected {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/radio_unchecked_disabled.png&quot;);
+}
+
+QMenu::indicator:exclusive:checked {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/radio_checked.png&quot;);
+}
+
+QMenu::indicator:exclusive:checked:selected {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/radio_checked_disabled.png&quot;);
+}
+
+QMenu::right-arrow {
+  margin: 5px;
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/arrow_right.png&quot;);
+  height: 12px;
+  width: 12px;
+}
+/* QStackedWidget ---------------------------------------------------------
+
+--------------------------------------------------------------------------- */
+QStackedWidget {
+  padding: 2px;
+  border: 1px solid #32414B;
+  border: 1px solid #19232D;
+}
+/* QAbstractSpinBox -------------------------------------------------------
+
+--------------------------------------------------------------------------- */
+QAbstractSpinBox {
+  background-color: #19232D;
+  border: 1px solid #32414B;
+  color: #F0F0F0;
+  /* This fixes 103, 111 */
+  padding-top: 2px;
+  /* This fixes 103, 111 */
+  padding-bottom: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  border-radius: 4px;
+  /* min-width: 5px; removed to fix 109 */
+}
+
+QAbstractSpinBox:up-button {
+  background-color: transparent #19232D;
+  subcontrol-origin: border;
+  subcontrol-position: top right;
+  border-left: 1px solid #32414B;
+  border-bottom: 1px solid #32414B;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin: 1px;
+  width: 12px;
+  margin-bottom: -1px;
+}
+
+QAbstractSpinBox::up-arrow, QAbstractSpinBox::up-arrow:disabled, QAbstractSpinBox::up-arrow:off {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/arrow_up_disabled.png&quot;);
+  height: 8px;
+  width: 8px;
+}
+
+QAbstractSpinBox::up-arrow:hover {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/arrow_up.png&quot;);
+}
+
+QAbstractSpinBox:down-button {
+  background-color: transparent #19232D;
+  subcontrol-origin: border;
+  subcontrol-position: bottom right;
+  border-left: 1px solid #32414B;
+  border-top: 1px solid #32414B;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin: 1px;
+  width: 12px;
+  margin-top: -1px;
+}
+
+QAbstractSpinBox::down-arrow, QAbstractSpinBox::down-arrow:disabled, QAbstractSpinBox::down-arrow:off {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/arrow_down_disabled.png&quot;);
+  height: 8px;
+  width: 8px;
+}
+
+QAbstractSpinBox::down-arrow:hover {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/arrow_down.png&quot;);
+}
+
+QAbstractSpinBox:hover {
+  border: 1px solid #148CD2;
+  color: #F0F0F0;
+}
+
+QAbstractSpinBox:focus {
+  border: 1px solid #1464A0;
+}
+
+QAbstractSpinBox:selected {
+  background: #1464A0;
+  color: #32414B;
+}
+
+QLabel {
+  background-color: #19232D;
+  border: 0px solid #32414B;
+  padding: 2px;
+  margin: 0px;
+  color: #F0F0F0;
+}
+
+QLabel:disabled {
+  background-color: #19232D;
+  border: 0px solid #32414B;
+  color: #787878;
+}
+
+QTextBrowser {
+  background-color: #19232D;
+  border: 1px solid #32414B;
+  color: #F0F0F0;
+  border-radius: 4px;
+}
+
+QTextBrowser:disabled {
+  background-color: #19232D;
+  border: 1px solid #32414B;
+  color: #787878;
+  border-radius: 4px;
+}
+
+QTextBrowser:hover, QTextBrowser:!hover, QTextBrowser:selected, QTextBrowser:pressed {
+  border: 1px solid #32414B;
+}
+
+QPushButton {
+  background-color: #505F69;
+  border: 1px solid #32414B;
+  color: #F0F0F0;
+  border-radius: 4px;
+  padding: 3px;
+  outline: none;
+  /* Issue #194 - Special case of QPushButton inside dialogs, for better UI */
+  min-width: 80px;
+}
+
+QPushButton:disabled {
+  background-color: #32414B;
+  border: 1px solid #32414B;
+  color: #787878;
+  border-radius: 4px;
+  padding: 3px;
+}
+
+QPushButton:checked {
+  background-color: #32414B;
+  border: 1px solid #32414B;
+  border-radius: 4px;
+  padding: 3px;
+  outline: none;
+}
+
+QPushButton:checked:disabled {
+  background-color: #19232D;
+  border: 1px solid #32414B;
+  color: #787878;
+  border-radius: 4px;
+  padding: 3px;
+  outline: none;
+}
+
+QPushButton:checked:selected {
+  background: #1464A0;
+  color: #32414B;
+}
+
+QPushButton::menu-indicator {
+  subcontrol-origin: padding;
+  subcontrol-position: bottom right;
+  bottom: 4px;
+}
+
+QPushButton:pressed {
+  background-color: #19232D;
+  border: 1px solid #19232D;
+}
+
+QPushButton:pressed:hover {
+  border: 1px solid #148CD2;
+}
+
+QPushButton:hover {
+  border: 1px solid #148CD2;
+  color: #F0F0F0;
+}
+
+QPushButton:selected {
+  background: #1464A0;
+  color: #32414B;
+}
+
+QPushButton:hover {
+  border: 1px solid #148CD2;
+  color: #F0F0F0;
+}
+
+QPushButton:focus {
+  border: 1px solid #1464A0;
+}
+
+QComboBox {
+  border: 1px solid #32414B;
+  border-radius: 4px;
+  selection-background-color: #1464A0;
+  padding-left: 4px;
+  padding-right: 36px;
+  /* 4 + 16*2 See scrollbar size */
+  /* Fixes #103, #111 */
+  min-height: 1.5em;
+  /* padding-top: 2px;     removed to fix #132 */
+  /* padding-bottom: 2px;  removed to fix #132 */
+  /* min-width: 75px;      removed to fix #109 */
+  /* Needed to remove indicator - fix #132 */
+}
+
+QComboBox QAbstractItemView {
+  border: 1px solid #32414B;
+  border-radius: 0;
+  background-color: #19232D;
+  selection-background-color: #1464A0;
+}
+
+QComboBox QAbstractItemView:hover {
+  background-color: #19232D;
+  color: #F0F0F0;
+}
+
+QComboBox QAbstractItemView:selected {
+  background: #1464A0;
+  color: #32414B;
+}
+
+QComboBox QAbstractItemView:alternate {
+  background: #19232D;
+}
+
+QComboBox:disabled {
+  background-color: #19232D;
+  color: #787878;
+}
+
+QComboBox:hover {
+  border: 1px solid #148CD2;
+}
+
+QComboBox:focus {
+  border: 1px solid #1464A0;
+}
+
+QComboBox:on {
+  selection-background-color: #1464A0;
+}
+
+QComboBox::indicator {
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  selection-background-color: transparent;
+  color: transparent;
+  selection-color: transparent;
+  /* Needed to remove indicator - fix #132 */
+}
+
+QComboBox::indicator:alternate {
+  background: #19232D;
+}
+
+QComboBox::item:alternate {
+  background: #19232D;
+}
+
+QComboBox::item:checked {
+  font-weight: bold;
+}
+
+QComboBox::item:selected {
+  border: 0px solid transparent;
+}
+
+QComboBox::drop-down {
+  subcontrol-origin: padding;
+  subcontrol-position: top right;
+  width: 12px;
+  border-left: 1px solid #32414B;
+}
+
+QComboBox::down-arrow {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/arrow_down_disabled.png&quot;);
+  height: 8px;
+  width: 8px;
+}
+
+QComboBox::down-arrow:on, QComboBox::down-arrow:hover, QComboBox::down-arrow:focus {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/arrow_down.png&quot;);
+}
+QLineEdit {
+  background-color: #19232D;
+  padding-top: 2px;
+  /* This QLineEdit fix  103, 111 */
+  padding-bottom: 2px;
+  /* This QLineEdit fix  103, 111 */
+  padding-left: 4px;
+  padding-right: 4px;
+  border-style: solid;
+  border: 1px solid #32414B;
+  border-radius: 4px;
+  color: #F0F0F0;
+}
+
+QLineEdit:disabled {
+  background-color: #19232D;
+  color: #787878;
+}
+
+QLineEdit:hover {
+  border: 1px solid #148CD2;
+  color: #F0F0F0;
+}
+
+QLineEdit:focus {
+  border: 1px solid #1464A0;
+}
+
+QLineEdit:selected {
+  background-color: #1464A0;
+  color: #32414B;
+}
+QTabWidget {
+  padding: 2px;
+  selection-background-color: #32414B;
+}
+
+QTabWidget QWidget {
+  /* Fixes #189 */
+  border-radius: 4px;
+}
+
+QTabWidget::pane {
+  border: 1px solid #32414B;
+  border-radius: 4px;
+  margin: 0px;
+  /* Fixes double border inside pane with pyqt5 */
+  padding: 0px;
+}
+
+QTabWidget::pane:selected {
+  background-color: #32414B;
+  border: 1px solid #1464A0;
+}
+
+QTabBar {
+  qproperty-drawBase: 0;
+  border-radius: 4px;
+  margin: 0px;
+  padding: 2px;
+  border: 0;
+  /* left: 5px; move to the right by 5px - removed for fix */
+}
+
+QTabBar::close-button {
+  border: 0;
+  margin: 2px;
+  padding: 2px;
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/window_close.png&quot;);
+}
+
+QTabBar::close-button:hover {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/window_close_focus.png&quot;);
+}
+
+QTabBar::close-button:pressed {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/window_close_pressed.png&quot;);
+}
+
+/* QTabBar::tab - selected ------------------------------------------------
+
+https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qtabwidget-and-qtabbar
+
+--------------------------------------------------------------------------- */
+QTabBar::tab {
+  /* !selected and disabled ----------------------------------------- */
+  /* selected ------------------------------------------------------- */
+}
+
+QTabBar::tab:top:selected:disabled {
+  border-bottom: 3px solid #14506E;
+  color: #787878;
+  background-color: #32414B;
+}
+
+QTabBar::tab:bottom:selected:disabled {
+  border-top: 3px solid #14506E;
+  color: #787878;
+  background-color: #32414B;
+}
+
+QTabBar::tab:left:selected:disabled {
+  border-right: 3px solid #14506E;
+  color: #787878;
+  background-color: #32414B;
+}
+
+QTabBar::tab:right:selected:disabled {
+  border-left: 3px solid #14506E;
+  color: #787878;
+  background-color: #32414B;
+}
+
+QTabBar::tab:top:!selected:disabled {
+  border-bottom: 3px solid #19232D;
+  color: #787878;
+  background-color: #19232D;
+}
+
+QTabBar::tab:bottom:!selected:disabled {
+  border-top: 3px solid #19232D;
+  color: #787878;
+  background-color: #19232D;
+}
+
+QTabBar::tab:left:!selected:disabled {
+  border-right: 3px solid #19232D;
+  color: #787878;
+  background-color: #19232D;
+}
+
+QTabBar::tab:right:!selected:disabled {
+  border-left: 3px solid #19232D;
+  color: #787878;
+  background-color: #19232D;
+}
+
+QTabBar::tab:top:!selected {
+  border-bottom: 2px solid #19232D;
+  margin-top: 2px;
+}
+
+QTabBar::tab:bottom:!selected {
+  border-top: 2px solid #19232D;
+  margin-bottom: 3px;
+}
+
+QTabBar::tab:left:!selected {
+  border-left: 2px solid #19232D;
+  margin-right: 2px;
+}
+
+QTabBar::tab:right:!selected {
+  border-right: 2px solid #19232D;
+  margin-left: 2px;
+}
+
+QTabBar::tab:top {
+  background-color: #32414B;
+  color: #F0F0F0;
+  margin-left: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  min-width: 5px;
+  border-bottom: 3px solid #32414B;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+QTabBar::tab:top:selected {
+  background-color: #505F69;
+  color: #F0F0F0;
+  border-bottom: 3px solid #1464A0;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+QTabBar::tab:top:!selected:hover {
+  border: 1px solid #148CD2;
+  border-bottom: 3px solid #148CD2;
+  /* Fixes spyder-ide/spyder#9766 */
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+QTabBar::tab:bottom {
+  color: #F0F0F0;
+  border-top: 3px solid #32414B;
+  background-color: #32414B;
+  margin-left: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  min-width: 5px;
+}
+
+QTabBar::tab:bottom:selected {
+  color: #F0F0F0;
+  background-color: #505F69;
+  border-top: 3px solid #1464A0;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+QTabBar::tab:bottom:!selected:hover {
+  border: 1px solid #148CD2;
+  border-top: 3px solid #148CD2;
+  /* Fixes spyder-ide/spyder#9766 */
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+QTabBar::tab:left {
+  color: #F0F0F0;
+  background-color: #32414B;
+  margin-top: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  min-height: 5px;
+}
+
+QTabBar::tab:left:selected {
+  color: #F0F0F0;
+  background-color: #505F69;
+  border-right: 3px solid #1464A0;
+}
+
+QTabBar::tab:left:!selected:hover {
+  border: 1px solid #148CD2;
+  border-right: 3px solid #148CD2;
+  padding: 0px;
+}
+
+QTabBar::tab:right {
+  color: #F0F0F0;
+  background-color: #32414B;
+  margin-top: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  min-height: 5px;
+}
+
+QTabBar::tab:right:selected {
+  color: #F0F0F0;
+  background-color: #505F69;
+  border-left: 3px solid #1464A0;
+}
+
+QTabBar::tab:right:!selected:hover {
+  border: 1px solid #148CD2;
+  border-left: 3px solid #148CD2;
+  padding: 0px;
+}
+
+QTabBar QToolButton {
+  /* Fixes #136 */
+  background-color: #32414B;
+  height: 12px;
+  width: 12px;
+}
+
+QTabBar QToolButton:pressed {
+  background-color: #32414B;
+}
+
+QTabBar QToolButton:pressed:hover {
+  border: 1px solid #148CD2;
+}
+
+QTabBar QToolButton::left-arrow:enabled {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/arrow_left.png&quot;);
+}
+
+QTabBar QToolButton::left-arrow:disabled {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/arrow_left_disabled.png&quot;);
+}
+
+QTabBar QToolButton::right-arrow:enabled {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/arrow_right.png&quot;);
+}
+
+QTabBar QToolButton::right-arrow:disabled {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/arrow_right_disabled.png&quot;);
+}
+QListView::indicator:checked {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/checkbox_checked.png&quot;);
+}
+QListView::indicator:checked:hover,
+QListView::indicator:checked:focus,
+QListView::indicator:checked:pressed {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/checkbox_checked_focus.png&quot;);
+}
+QListView::indicator:unchecked {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/checkbox_unchecked.png&quot;);
+}
+QListView::indicator:unchecked:hover,
+QListView::indicator:unchecked:focus,
+QListView::indicator:unchecked:pressed {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/checkbox_unchecked_focus.png&quot;);
+}
+QListView::indicator:indeterminate {
+  image: url(&quot;:C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/checkbox_indeterminate.png&quot;);
+}
+QListView::indicator:indeterminate:hover,
+QListView::indicator:indeterminate:focus,
+QListView::indicator:indeterminate:pressed {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/checkbox_indeterminate_focus.png&quot;);
+}
+QListView,
+QTableView,
+QColumnView {
+  background-color: #19232D;
+  border: 1px solid #32414B;
+  color: #F0F0F0;
+  gridline-color: #32414B;
+  border-radius: 4px;
+}
+QListView:disabled,
+QTableView:disabled,
+QColumnView:disabled {
+  background-color: #19232D;
+  color: #787878;
+}
+QListView:selected,
+QTableView:selected,
+QColumnView:selected {
+  background-color: #1464A0;
+  color: #32414B;
+}
+QListView:hover,
+QTableView:hover,
+QColumnView:hover {
+  background-color: #19232D;
+  border: 1px solid #148CD2;
+}
+
+QListView::item:pressed,
+QTableView::item:pressed,
+QColumnView::item:pressed {
+  background-color: #1464A0;
+}
+
+QListView::item:selected:hover,
+QTableView::item:selected:hover,
+QColumnView::item:selected:hover {
+  background: #1464A0;
+  color: #19232D;
+}
+
+QListView::item:selected:active,
+QTableView::item:selected:active,
+QColumnView::item:selected:active {
+  background-color: #1464A0;
+}
+
+QListView::item:!selected:hover,
+QTableView::item:!selected:hover,
+QColumnView::item:!selected:hover {
+  outline: 0;
+  color: #148CD2;
+  background-color: #32414B;
+}
+
+QTableCornerButton::section {
+  background-color: #19232D;
+  border: 1px transparent #32414B;
+  border-radius: 0px;
+}
+
+/* QHeaderView ------------------------------------------------------------
+
+https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qheaderview
+
+--------------------------------------------------------------------------- */
+QHeaderView {
+  background-color: #32414B;
+  border: 0px transparent #32414B;
+  padding: 0px;
+  margin: 0px;
+  border-radius: 0px;
+}
+
+QHeaderView:disabled {
+  background-color: #32414B;
+  border: 1px transparent #32414B;
+  padding: 2px;
+}
+
+QHeaderView::section {
+  background-color: #32414B;
+  color: #F0F0F0;
+  padding: 2px;
+  border-radius: 0px;
+  text-align: left;
+}
+
+QHeaderView::section:checked {
+  color: #F0F0F0;
+  background-color: #1464A0;
+}
+
+QHeaderView::section:checked:disabled {
+  color: #787878;
+  background-color: #14506E;
+}
+
+QHeaderView::section::horizontal {
+  padding-left: 4px;
+  padding-right: 4px;
+  border-left: 1px solid #19232D;
+}
+
+QHeaderView::section::horizontal::first, QHeaderView::section::horizontal::only-one {
+  border-left: 1px solid #32414B;
+}
+
+QHeaderView::section::horizontal:disabled {
+  color: #787878;
+}
+
+QHeaderView::section::vertical {
+  padding-left: 4px;
+  padding-right: 4px;
+  border-top: 1px solid #19232D;
+}
+
+QHeaderView::section::vertical::first, QHeaderView::section::vertical::only-one {
+  border-top: 1px solid #32414B;
+}
+
+QHeaderView::section::vertical:disabled {
+  color: #787878;
+}
+
+QHeaderView::down-arrow {
+  /* Those settings (border/width/height/background-color) solve bug */
+  /* transparent arrow background and size */
+  background-color: #32414B;
+  border: none;
+  height: 12px;
+  width: 12px;
+  padding-left: 2px;
+  padding-right: 2px;
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/arrow_down.png&quot;);
+}
+
+QHeaderView::up-arrow {
+  background-color: #32414B;
+  border: none;
+  height: 12px;
+  width: 12px;
+  padding-left: 2px;
+  padding-right: 2px;
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/arrow_up.png&quot;);
+}
+/* QFrame -----------------------------------------------------------------
+
+https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qframe
+https://doc.qt.io/qt-5/qframe.html#-prop
+https://doc.qt.io/qt-5/qframe.html#details
+https://stackoverflow.com/questions/14581498/qt-stylesheet-for-hline-vline-color
+
+--------------------------------------------------------------------------- */
+/* (dot) .QFrame  fix #141, #126, #123 */
+.QFrame {
+  border-radius: 4px;
+  border: 1px solid #32414B;
+  /* No frame */
+  /* HLine */
+  /* HLine */
+}
+
+.QFrame[frameShape=&quot;0&quot;] {
+  border-radius: 4px;
+  border: 1px transparent #32414B;
+}
+
+.QFrame[frameShape=&quot;4&quot;] {
+  max-height: 2px;
+  border: none;
+  background-color: #32414B;
+}
+
+.QFrame[frameShape=&quot;5&quot;] {
+  max-width: 2px;
+  border: none;
+  background-color: #32414B;
+}
+/* QDateEdit, QDateTimeEdit -----------------------------------------------
+
+--------------------------------------------------------------------------- */
+QDateEdit, QDateTimeEdit {
+  selection-background-color: #1464A0;
+  border-style: solid;
+  border: 1px solid #32414B;
+  border-radius: 4px;
+  /* This fixes 103, 111 */
+  padding-top: 2px;
+  /* This fixes 103, 111 */
+  padding-bottom: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  min-width: 10px;
+}
+
+QDateEdit:on, QDateTimeEdit:on {
+  selection-background-color: #1464A0;
+}
+
+QDateEdit::drop-down, QDateTimeEdit::drop-down {
+  subcontrol-origin: padding;
+  subcontrol-position: top right;
+  width: 12px;
+  border-left: 1px solid #32414B;
+}
+
+QDateEdit::down-arrow, QDateTimeEdit::down-arrow {
+  image: url(&quot;:/qss_icons/rc/arrow_down_disabled.png&quot;);
+  height: 8px;
+  width: 8px;
+}
+
+QDateEdit::down-arrow:on, QDateEdit::down-arrow:hover, QDateEdit::down-arrow:focus, QDateTimeEdit::down-arrow:on, QDateTimeEdit::down-arrow:hover, QDateTimeEdit::down-arrow:focus {
+  image: url(&quot;C:/Users/DELL/Downloads/QDarkStyleSheet-master/QDarkStyleSheet-master/qdarkstyle/rc/arrow_down.png&quot;);
+}
+
+QDateEdit QAbstractItemView, QDateTimeEdit QAbstractItemView {
+  background-color: #19232D;
+  border-radius: 4px;
+  border: 1px solid #32414B;
+  selection-background-color: #1464A0;
+}
+
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="2" column="1">
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <item>
-       <widget class="QPushButton" name="pushButton_4">
-        <property name="text">
-         <string>Menu Principal</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="quitter">
-        <property name="text">
-         <string>Quitter</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
     <item row="0" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
@@ -49,6 +1130,24 @@
        <widget class="QPushButton" name="gestionProfil">
         <property name="text">
          <string>Gestion Des Profils</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="2" column="1">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QPushButton" name="pushButton_4">
+        <property name="text">
+         <string>Menu Principal</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="quitter">
+        <property name="text">
+         <string>Quitter</string>
         </property>
        </widget>
       </item>
@@ -96,11 +1195,6 @@
           </item>
           <item>
            <property name="text">
-            <string>Statistiques</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
             <string>Pointage Des Personnels</string>
            </property>
           </item>
@@ -108,8 +1202,14 @@
         </item>
         <item row="0" column="1" rowspan="2">
          <widget class="QTabWidget" name="actionPers">
+          <property name="minimumSize">
+           <size>
+            <width>754</width>
+            <height>471</height>
+           </size>
+          </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>2</number>
           </property>
           <property name="usesScrollButtons">
            <bool>false</bool>
@@ -196,17 +1296,7 @@
                <item row="3" column="1">
                 <widget class="QLineEdit" name="numTel"/>
                </item>
-               <item row="4" column="0">
-                <widget class="QLabel" name="label">
-                 <property name="text">
-                  <string>E-mail :</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="1">
-                <widget class="QLineEdit" name="email"/>
-               </item>
-               <item row="5" column="0" colspan="2">
+               <item row="4" column="0" colspan="2">
                 <widget class="QGroupBox" name="groupBox_7">
                  <property name="minimumSize">
                   <size>
@@ -227,21 +1317,21 @@
                   <item>
                    <widget class="QRadioButton" name="masculin">
                     <property name="text">
-                     <string> Masculin</string>
+                     <string>Masculin</string>
                     </property>
                    </widget>
                   </item>
                   <item>
                    <widget class="QRadioButton" name="feminin">
                     <property name="text">
-                     <string> Feminin</string>
+                     <string>Feminin</string>
                     </property>
                    </widget>
                   </item>
                  </layout>
                 </widget>
                </item>
-               <item row="6" column="0">
+               <item row="5" column="0">
                 <widget class="QGroupBox" name="groupBox_10">
                  <property name="title">
                   <string> Etat Civile :</string>
@@ -250,45 +1340,45 @@
                   <item>
                    <widget class="QRadioButton" name="marie">
                     <property name="text">
-                     <string>Marié(e)</string>
+                     <string>Marie</string>
                     </property>
                    </widget>
                   </item>
                   <item>
                    <widget class="QRadioButton" name="celeb">
                     <property name="text">
-                     <string>Célébataire</string>
+                     <string>Celebataire</string>
                     </property>
                    </widget>
                   </item>
                   <item>
                    <widget class="QRadioButton" name="divorce">
                     <property name="text">
-                     <string>Divorcé(e)</string>
+                     <string>Divorce</string>
                     </property>
                    </widget>
                   </item>
                  </layout>
                 </widget>
                </item>
-               <item row="7" column="0">
+               <item row="6" column="0">
                 <widget class="QLabel" name="label_6">
                  <property name="text">
                   <string> Date De Naissance :</string>
                  </property>
                 </widget>
                </item>
-               <item row="7" column="1">
+               <item row="6" column="1">
                 <widget class="QDateEdit" name="dateNaissance"/>
                </item>
-               <item row="8" column="0">
+               <item row="7" column="0">
                 <widget class="QLabel" name="label_9">
                  <property name="text">
                   <string> Gouvernorat D'Origin :</string>
                  </property>
                 </widget>
                </item>
-               <item row="8" column="1">
+               <item row="7" column="1">
                 <widget class="QComboBox" name="gouvernoratHabitation">
                  <item>
                   <property name="text">
@@ -417,14 +1507,14 @@
                  </item>
                 </widget>
                </item>
-               <item row="9" column="0">
+               <item row="8" column="0">
                 <widget class="QLabel" name="label_8">
                  <property name="text">
                   <string> Gouvernorat D'Habitation :</string>
                  </property>
                 </widget>
                </item>
-               <item row="9" column="1">
+               <item row="8" column="1">
                 <widget class="QComboBox" name="gouvernoratOrigin">
                  <item>
                   <property name="text">
@@ -782,7 +1872,7 @@
                  </item>
                  <item>
                   <property name="text">
-                   <string>Chef D'Unite</string>
+                   <string>Chef D Unite</string>
                   </property>
                  </item>
                  <item>
@@ -963,7 +2053,7 @@
                     </item>
                     <item>
                      <property name="text">
-                      <string>Chef D'Unite</string>
+                      <string>Chef D Unite</string>
                      </property>
                     </item>
                     <item>
@@ -1037,14 +2127,14 @@
                    <item>
                     <widget class="QRadioButton" name="masculinCh">
                      <property name="text">
-                      <string> Masculin</string>
+                      <string>Masculin</string>
                      </property>
                     </widget>
                    </item>
                    <item>
                     <widget class="QRadioButton" name="femininCh">
                      <property name="text">
-                      <string> Feminin</string>
+                      <string>Feminin</string>
                      </property>
                     </widget>
                    </item>
@@ -1067,21 +2157,21 @@
                    <item>
                     <widget class="QRadioButton" name="marieCh">
                      <property name="text">
-                      <string>Marié(e)</string>
+                      <string>Marie</string>
                      </property>
                     </widget>
                    </item>
                    <item>
                     <widget class="QRadioButton" name="celebCh">
                      <property name="text">
-                      <string>Célébataire</string>
+                      <string>Celebataire</string>
                      </property>
                     </widget>
                    </item>
                    <item>
                     <widget class="QRadioButton" name="divorceCh">
                      <property name="text">
-                      <string>Divorcé(e)</string>
+                      <string>Divorce</string>
                      </property>
                     </widget>
                    </item>
@@ -1195,6 +2285,73 @@
               </item>
              </layout>
             </item>
+            <item row="1" column="0">
+             <layout class="QHBoxLayout" name="horizontalLayout_22">
+              <item>
+               <widget class="QLabel" name="label_23">
+                <property name="text">
+                 <string>Trier Par :</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="matTP">
+                <property name="text">
+                 <string>Matricule</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="nomT">
+                <property name="text">
+                 <string>Nom</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="ageT">
+                <property name="text">
+                 <string>Age</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="ancienneteT">
+                <property name="text">
+                 <string>Ancienneté</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="salaireT">
+                <property name="text">
+                 <string>Salaire</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="AD_3">
+                <item>
+                 <property name="text">
+                  <string>ASC</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>DESC</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="trierS">
+                <property name="text">
+                 <string>Trier</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
             <item row="2" column="0">
              <layout class="QHBoxLayout" name="horizontalLayout_23">
               <item>
@@ -1205,23 +2362,23 @@
                </widget>
               </item>
               <item>
-               <widget class="QCheckBox" name="nomT_2">
+               <widget class="QCheckBox" name="departementT">
                 <property name="text">
-                 <string>Nom</string>
+                 <string>Departement</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QCheckBox" name="ageT_2">
+               <widget class="QCheckBox" name="UniteT">
                 <property name="text">
-                 <string>Age</string>
+                 <string>Unite</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QCheckBox" name="ancienneteT_2">
+               <widget class="QCheckBox" name="FonctionT">
                 <property name="text">
-                 <string>Anciennete</string>
+                 <string>Fonction</string>
                 </property>
                 <property name="tristate">
                  <bool>false</bool>
@@ -1229,7 +2386,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QCheckBox" name="salaireT_2">
+               <widget class="QCheckBox" name="salaireTM">
                 <property name="text">
                  <string>Salaire</string>
                 </property>
@@ -1258,8 +2415,32 @@
               </item>
              </layout>
             </item>
+            <item row="3" column="0">
+             <widget class="QTableView" name="tablePers"/>
+            </item>
             <item row="4" column="0">
              <layout class="QHBoxLayout" name="horizontalLayout_5">
+              <item>
+               <widget class="QPushButton" name="statistiques">
+                <property name="text">
+                 <string>Statistiques </string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="Afficher1Pers">
+                <property name="text">
+                 <string>Afficher Un Personnel</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="afficherTablePers">
+                <property name="text">
+                 <string>Afficher Tout</string>
+                </property>
+               </widget>
+              </item>
               <item>
                <widget class="QPushButton" name="modifierPers">
                 <property name="styleSheet">
@@ -1295,144 +2476,60 @@
               </item>
              </layout>
             </item>
-            <item row="3" column="0">
-             <widget class="QTableView" name="tablePers"/>
-            </item>
-            <item row="1" column="0">
-             <layout class="QHBoxLayout" name="horizontalLayout_22">
-              <item>
-               <widget class="QLabel" name="label_23">
-                <property name="text">
-                 <string>Trier Par :</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QRadioButton" name="matT">
-                <property name="text">
-                 <string>Matricule</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QRadioButton" name="nomT">
-                <property name="text">
-                 <string>Nom</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QRadioButton" name="ageT">
-                <property name="text">
-                 <string>Age</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QRadioButton" name="ancienneteT">
-                <property name="text">
-                 <string>Ancienneté</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QRadioButton" name="salaireT">
-                <property name="text">
-                 <string>Salaire</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QComboBox" name="AD">
-                <item>
-                 <property name="text">
-                  <string>ASC</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>DESC</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="trier">
-                <property name="text">
-                 <string>Trier</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
            </layout>
-          </widget>
-          <widget class="QWidget" name="tab_4">
-           <attribute name="title">
-            <string>Statistiques</string>
-           </attribute>
-           <widget class="QFrame" name="testPie">
-            <property name="geometry">
-             <rect>
-              <x>30</x>
-              <y>70</y>
-              <width>611</width>
-              <height>401</height>
-             </rect>
-            </property>
-            <layout class="QHBoxLayout" name="horizontalLayout_11"/>
-           </widget>
           </widget>
           <widget class="QWidget" name="tab_5">
            <attribute name="title">
             <string>Pointage Des Personnels</string>
            </attribute>
-           <widget class="QLabel" name="label_33">
-            <property name="geometry">
-             <rect>
-              <x>100</x>
-              <y>50</y>
-              <width>56</width>
-              <height>16</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>TextLabel</string>
-            </property>
-           </widget>
-           <widget class="QLineEdit" name="lineEdit">
-            <property name="geometry">
-             <rect>
-              <x>180</x>
-              <y>50</y>
-              <width>113</width>
-              <height>22</height>
-             </rect>
-            </property>
-           </widget>
-           <widget class="QTableView" name="tableView">
-            <property name="geometry">
-             <rect>
-              <x>160</x>
-              <y>150</y>
-              <width>256</width>
-              <height>192</height>
-             </rect>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="pushButton">
-            <property name="geometry">
-             <rect>
-              <x>180</x>
-              <y>400</y>
-              <width>93</width>
-              <height>28</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>PushButton</string>
-            </property>
-           </widget>
+           <layout class="QGridLayout" name="gridLayout_6">
+            <item row="0" column="0">
+             <layout class="QVBoxLayout" name="verticalLayout">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_10">
+                <item>
+                 <widget class="QLabel" name="label_33">
+                  <property name="text">
+                   <string>Matricule :</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="recherchePers"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QTableView" name="tablePointagePers"/>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_11">
+                <item>
+                 <widget class="QPushButton" name="convoquer">
+                  <property name="text">
+                   <string>Convoquer</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="avertir">
+                  <property name="text">
+                   <string>Avertir</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="envoyerMail">
+                  <property name="text">
+                   <string>Envoyer Mail</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
           </widget>
          </widget>
         </item>
@@ -1440,79 +2537,15 @@
       </widget>
       <widget class="QWidget" name="gestionPro">
        <layout class="QGridLayout" name="gridLayout_4">
-        <item row="0" column="0" rowspan="3">
-         <widget class="QGroupBox" name="groupBox_3">
-          <property name="title">
-           <string>Informations Générales</string>
-          </property>
-          <layout class="QFormLayout" name="formLayout_3">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_21">
-             <property name="text">
-              <string>Matricule</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QLineEdit" name="matriculeP">
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_14">
-             <property name="text">
-              <string>Nom Utilisateur :</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QLineEdit" name="nomUP"/>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="label_18">
-             <property name="text">
-              <string>Mot De Passe :</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QLineEdit" name="motDePasseP"/>
-           </item>
-           <item row="3" column="0">
-            <layout class="QHBoxLayout" name="horizontalLayout_4">
-             <item>
-              <widget class="QPushButton" name="vAjouterPro">
-               <property name="text">
-                <string>Valider</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="annulerAjoutPers_2">
-               <property name="text">
-                <string>Annuler</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QPushButton" name="exportExcelP">
-          <property name="text">
-           <string>Export Excel</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QTableView" name="tablePro"/>
-        </item>
-        <item row="2" column="1">
+        <item row="3" column="2" colspan="2">
          <layout class="QHBoxLayout" name="horizontalLayout_14">
+          <item>
+           <widget class="QPushButton" name="afficherTablePro">
+            <property name="text">
+             <string>Afficher Tout</string>
+            </property>
+           </widget>
+          </item>
           <item>
            <widget class="QPushButton" name="modifierPro">
             <property name="styleSheet">
@@ -1540,6 +2573,147 @@
            </widget>
           </item>
          </layout>
+        </item>
+        <item row="0" column="0" rowspan="3">
+         <widget class="QGroupBox" name="groupProfil">
+          <property name="title">
+           <string>Profil</string>
+          </property>
+          <layout class="QFormLayout" name="formLayout_3">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_21">
+             <property name="text">
+              <string>Matricule</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="matriculeP">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_14">
+             <property name="text">
+              <string>Nom Utilisateur :</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="nomUP"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_7">
+             <property name="text">
+              <string>E-mail</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="email"/>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_18">
+             <property name="text">
+              <string>Mot De Passe :</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="motDePasseP"/>
+           </item>
+           <item row="4" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <item>
+              <widget class="QPushButton" name="reduire">
+               <property name="text">
+                <string>Réduire</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="vAjouterPro">
+               <property name="text">
+                <string>Valider</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="annulerAjoutPers_2">
+               <property name="text">
+                <string>Annuler</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <layout class="QHBoxLayout" name="horizontalLayout_24">
+          <item>
+           <widget class="QLabel" name="label_26">
+            <property name="text">
+             <string>Trier Par :</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="idT">
+            <property name="text">
+             <string>ID</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="matT">
+            <property name="text">
+             <string>Matricule</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="nomUT">
+            <property name="text">
+             <string>Nom Utilisateur</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="AD">
+            <item>
+             <property name="text">
+              <string>ASC</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>DESC</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="trier">
+            <property name="text">
+             <string>Trier</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="1" colspan="3">
+         <widget class="QTableView" name="tablePro"/>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="exportExcelP">
+          <property name="text">
+           <string>Export Excel</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -1588,7 +2762,7 @@
      <y>1010</y>
     </hint>
     <hint type="destinationlabel">
-     <x>784</x>
+     <x>892</x>
      <y>247</y>
     </hint>
    </hints>
@@ -1604,8 +2778,8 @@
      <y>1010</y>
     </hint>
     <hint type="destinationlabel">
-     <x>784</x>
-     <y>487</y>
+     <x>892</x>
+     <y>965</y>
     </hint>
    </hints>
   </connection>
@@ -1636,7 +2810,7 @@
      <y>1010</y>
     </hint>
     <hint type="destinationlabel">
-     <x>784</x>
+     <x>892</x>
      <y>163</y>
     </hint>
    </hints>
@@ -1652,7 +2826,7 @@
      <y>1010</y>
     </hint>
     <hint type="destinationlabel">
-     <x>784</x>
+     <x>892</x>
      <y>219</y>
     </hint>
    </hints>
@@ -1684,7 +2858,7 @@
      <y>1010</y>
     </hint>
     <hint type="destinationlabel">
-     <x>784</x>
+     <x>892</x>
      <y>191</y>
     </hint>
    </hints>
@@ -1700,8 +2874,8 @@
      <y>1010</y>
     </hint>
     <hint type="destinationlabel">
-     <x>784</x>
-     <y>459</y>
+     <x>892</x>
+     <y>937</y>
     </hint>
    </hints>
   </connection>
@@ -1716,8 +2890,8 @@
      <y>1010</y>
     </hint>
     <hint type="destinationlabel">
-     <x>784</x>
-     <y>431</y>
+     <x>892</x>
+     <y>909</y>
     </hint>
    </hints>
   </connection>
@@ -1744,12 +2918,12 @@
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1728</x>
-     <y>993</y>
+     <x>1774</x>
+     <y>1010</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1453</x>
-     <y>323</y>
+     <x>1565</x>
+     <y>337</y>
     </hint>
    </hints>
   </connection>
@@ -1760,12 +2934,12 @@
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1753</x>
-     <y>989</y>
+     <x>1774</x>
+     <y>1010</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1532</x>
-     <y>296</y>
+     <x>1565</x>
+     <y>309</y>
     </hint>
    </hints>
   </connection>
@@ -1776,28 +2950,76 @@
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1741</x>
-     <y>992</y>
+     <x>1774</x>
+     <y>1010</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1490</x>
-     <y>268</y>
+     <x>1565</x>
+     <y>281</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>annulerAjoutPers</sender>
+   <sender>annulerAjoutPers_2</sender>
+   <signal>clicked()</signal>
+   <receiver>matriculeP</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>321</x>
+     <y>315</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>607</x>
+     <y>129</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>annulerAjoutPers_2</sender>
+   <signal>clicked()</signal>
+   <receiver>nomUP</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>321</x>
+     <y>315</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>344</x>
+     <y>155</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>annulerAjoutPers_2</sender>
+   <signal>clicked()</signal>
+   <receiver>motDePasseP</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>321</x>
+     <y>315</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>870</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>annulerAjoutPers_2</sender>
    <signal>clicked()</signal>
    <receiver>email</receiver>
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1699</x>
-     <y>990</y>
+     <x>283</x>
+     <y>299</y>
     </hint>
     <hint type="destinationlabel">
-     <x>634</x>
-     <y>270</y>
+     <x>403</x>
+     <y>232</y>
     </hint>
    </hints>
   </connection>
