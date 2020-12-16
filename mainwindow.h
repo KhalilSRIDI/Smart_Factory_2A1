@@ -15,6 +15,8 @@
 #include "gestionmaintenance.h"
 #include "email.h"
 #include "statis.h"
+#include "arduino.h"
+#include "arduinoobstacle.h"
 #include <QMediaPlayer>
 #include <QSound>
 
@@ -45,6 +47,8 @@ private slots:
 
     void on_pushButton_email_clicked();
     void on_pushButton_stat_clicked();
+
+    void on_pushButton_quitter_clicked();
 
 private:
     Ui::MainWindow *ui;

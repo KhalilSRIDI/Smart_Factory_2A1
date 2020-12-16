@@ -566,3 +566,14 @@ void MainWindow::on_pushButton_stat_clicked()
     statis *obj =new statis;
     obj->show();
 }
+
+void MainWindow::on_pushButton_quitter_clicked()
+{
+    click = new QMediaPlayer();
+        click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
+         click->play();
+         arduinoobstacle *obj =new arduinoobstacle;
+         obj->show();
+
+
+}

@@ -1,9 +1,9 @@
-QT       += core gui serialport
+QT += core gui serialport
 QT +=core gui serialport
-QT       += core gui
-QT       +=sql
+QT += core gui
+QT +=sql
 QT +=sql network
-QT+=multimedia
+QT +=multimedia
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -20,6 +20,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    arduino.cpp \
+    arduinoobstacle.cpp \
     connexion.cpp \
     email.cpp \
     gestionmaintenance.cpp \
@@ -31,6 +33,8 @@ SOURCES += \
     statis.cpp
 
 HEADERS += \
+    arduino.h \
+    arduinoobstacle.h \
     connexion.h \
     email.h \
     gestionmaintenance.h \
@@ -41,6 +45,7 @@ HEADERS += \
     statis.h
 
 FORMS += \
+    arduinoobstacle.ui \
     email.ui \
     mainwindow.ui \
     statis.ui

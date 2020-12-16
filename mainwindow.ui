@@ -18,170 +18,6 @@
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton_menu">
-    <property name="geometry">
-     <rect>
-      <x>791</x>
-      <y>620</y>
-      <width>141</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QDateEdit{
-padding: 1px;
-
-border-style: solid;
-
-border: 3px solid darkblue;
-
-border-radius: 4px;
-}
-QLineEdit {
-
-padding: 1px;
-
-border-style: solid;
-
-border: 3px solid darkblue;
-
-border-radius: 8px;
-}
-QTextEdit {
-
-padding: 1px;
-
-border-style: solid;
-
-border: 3px solid darkblue;
-
-border-radius: 8px;
-}
-
-QComboBox {
-    border: 3px solid darkblue;
-    border-radius: 3px;
-    padding: 1px 18px 1px 3px;
-    min-width: 6em;
-}
-QPushButton {
-
-color:white;
-
-background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0#91BACF, stop: 0.1#371F57, stop: 0.49#371F57 , stop: 0.5#371F57, stop: 1#91BACF);
-
-border-width: 1px;
-
-border-color: #500;
-
-border-style: solid;
-
-border-radius: 7;
-
-padding: 3px;
-
-font-size: 20px;
-
-padding-left: 5px;
-
-padding-right: 5px;
-
-min-width: 100px;
-
-max-width: 1000px;
-
-min-height: 20px;
-
-max-height: 200px;
-
-}</string>
-    </property>
-    <property name="text">
-     <string>Menu Principal</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_quitter">
-    <property name="geometry">
-     <rect>
-      <x>951</x>
-      <y>620</y>
-      <width>121</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QDateEdit{
-padding: 1px;
-
-border-style: solid;
-
-border: 3px solid darkblue;
-
-border-radius: 4px;
-}
-QLineEdit {
-
-padding: 1px;
-
-border-style: solid;
-
-border: 3px solid darkblue;
-
-border-radius: 8px;
-}
-QTextEdit {
-
-padding: 1px;
-
-border-style: solid;
-
-border: 3px solid darkblue;
-
-border-radius: 8px;
-}
-
-QComboBox {
-    border: 3px solid darkblue;
-    border-radius: 3px;
-    padding: 1px 18px 1px 3px;
-    min-width: 6em;
-}
-QPushButton {
-
-color:white;
-
-background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0#91BACF, stop: 0.1#371F57, stop: 0.49#371F57 , stop: 0.5#371F57, stop: 1#91BACF);
-
-border-width: 1px;
-
-border-color: #500;
-
-border-style: solid;
-
-border-radius: 7;
-
-padding: 3px;
-
-font-size: 20px;
-
-padding-left: 5px;
-
-padding-right: 5px;
-
-min-width: 100px;
-
-max-width: 1000px;
-
-min-height: 20px;
-
-max-height: 200px;
-
-}</string>
-    </property>
-    <property name="text">
-     <string>Quitter</string>
-    </property>
-   </widget>
    <widget class="QTabWidget" name="tabWidget_2">
     <property name="geometry">
      <rect>
@@ -1792,7 +1628,7 @@ max-height: 200px;
         <property name="geometry">
          <rect>
           <x>130</x>
-          <y>467</y>
+          <y>470</y>
           <width>161</width>
           <height>31</height>
          </rect>
@@ -1938,6 +1774,88 @@ max-height: 200px;
         <property name="icon">
          <iconset>
           <normaloff>../../icons/stat.png</normaloff>../../icons/stat.png</iconset>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_quitter">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>470</y>
+          <width>161</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QDateEdit{
+padding: 1px;
+
+border-style: solid;
+
+border: 3px solid darkblue;
+
+border-radius: 4px;
+}
+QLineEdit {
+
+padding: 1px;
+
+border-style: solid;
+
+border: 3px solid darkblue;
+
+border-radius: 8px;
+}
+QTextEdit {
+
+padding: 1px;
+
+border-style: solid;
+
+border: 3px solid darkblue;
+
+border-radius: 8px;
+}
+
+QComboBox {
+    border: 3px solid darkblue;
+    border-radius: 3px;
+    padding: 1px 18px 1px 3px;
+    min-width: 6em;
+}
+QPushButton {
+
+color:white;
+
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0#91BACF, stop: 0.1#371F57, stop: 0.49#371F57 , stop: 0.5#371F57, stop: 1#91BACF);
+
+border-width: 1px;
+
+border-color: #500;
+
+border-style: solid;
+
+border-radius: 7;
+
+padding: 3px;
+
+font-size: 20px;
+
+padding-left: 5px;
+
+padding-right: 5px;
+
+min-width: 100px;
+
+max-width: 1000px;
+
+min-height: 20px;
+
+max-height: 200px;
+
+}</string>
+        </property>
+        <property name="text">
+         <string>Arduino</string>
         </property>
        </widget>
       </widget>
@@ -3227,6 +3145,170 @@ max-height: 200px;
         </layout>
        </widget>
       </widget>
+     </widget>
+     <widget class="QPushButton" name="pushButton_quitter_2">
+      <property name="geometry">
+       <rect>
+        <x>940</x>
+        <y>580</y>
+        <width>121</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QDateEdit{
+padding: 1px;
+
+border-style: solid;
+
+border: 3px solid darkblue;
+
+border-radius: 4px;
+}
+QLineEdit {
+
+padding: 1px;
+
+border-style: solid;
+
+border: 3px solid darkblue;
+
+border-radius: 8px;
+}
+QTextEdit {
+
+padding: 1px;
+
+border-style: solid;
+
+border: 3px solid darkblue;
+
+border-radius: 8px;
+}
+
+QComboBox {
+    border: 3px solid darkblue;
+    border-radius: 3px;
+    padding: 1px 18px 1px 3px;
+    min-width: 6em;
+}
+QPushButton {
+
+color:white;
+
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0#91BACF, stop: 0.1#371F57, stop: 0.49#371F57 , stop: 0.5#371F57, stop: 1#91BACF);
+
+border-width: 1px;
+
+border-color: #500;
+
+border-style: solid;
+
+border-radius: 7;
+
+padding: 3px;
+
+font-size: 20px;
+
+padding-left: 5px;
+
+padding-right: 5px;
+
+min-width: 100px;
+
+max-width: 1000px;
+
+min-height: 20px;
+
+max-height: 200px;
+
+}</string>
+      </property>
+      <property name="text">
+       <string>Quitter</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_menu">
+      <property name="geometry">
+       <rect>
+        <x>780</x>
+        <y>580</y>
+        <width>141</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QDateEdit{
+padding: 1px;
+
+border-style: solid;
+
+border: 3px solid darkblue;
+
+border-radius: 4px;
+}
+QLineEdit {
+
+padding: 1px;
+
+border-style: solid;
+
+border: 3px solid darkblue;
+
+border-radius: 8px;
+}
+QTextEdit {
+
+padding: 1px;
+
+border-style: solid;
+
+border: 3px solid darkblue;
+
+border-radius: 8px;
+}
+
+QComboBox {
+    border: 3px solid darkblue;
+    border-radius: 3px;
+    padding: 1px 18px 1px 3px;
+    min-width: 6em;
+}
+QPushButton {
+
+color:white;
+
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0#91BACF, stop: 0.1#371F57, stop: 0.49#371F57 , stop: 0.5#371F57, stop: 1#91BACF);
+
+border-width: 1px;
+
+border-color: #500;
+
+border-style: solid;
+
+border-radius: 7;
+
+padding: 3px;
+
+font-size: 20px;
+
+padding-left: 5px;
+
+padding-right: 5px;
+
+min-width: 100px;
+
+max-width: 1000px;
+
+min-height: 20px;
+
+max-height: 200px;
+
+}</string>
+      </property>
+      <property name="text">
+       <string>Menu Principal</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="maintenancemateriel">
@@ -7530,9 +7612,6 @@ max-height: 200px;
      </widget>
     </widget>
    </widget>
-   <zorder>tabWidget_2</zorder>
-   <zorder>pushButton_menu</zorder>
-   <zorder>pushButton_quitter</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
