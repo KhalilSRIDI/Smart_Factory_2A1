@@ -1945,7 +1945,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="Projet">
        <attribute name="title">
@@ -2823,6 +2823,7 @@
       </widget>
      </widget>
     </widget>
+    <widget class="QWidget" name="page_5"/>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
