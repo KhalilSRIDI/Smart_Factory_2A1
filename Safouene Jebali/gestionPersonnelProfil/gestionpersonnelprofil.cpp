@@ -6,7 +6,9 @@ GestionPersonnelProfil::GestionPersonnelProfil(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::GestionPersonnelProfil)
 {
+    //on_comboBox_currentIndexChanged(ui->comboBox->currentText());
     ui->setupUi(this);
+    ui->stackedWidget->setCurrentIndex(0);
 
     chaine=QRegExp("[a-zA-Z]{3,15}$");
     numeroCin=QRegExp("[0-9]{8}$");
@@ -45,6 +47,8 @@ GestionPersonnelProfil::GestionPersonnelProfil(QWidget *parent)
     etendreAnimation->setEndValue(500);
     ui->reduire->setText("Reduire");
     etendreAnimation->start();
+
+
 
 
 }
@@ -447,4 +451,174 @@ void GestionPersonnelProfil::on_Afficher1Pers_clicked()
     afficherUnPersonnel afficherUnPersonnel;
     afficherUnPersonnel.setModal(true);
     afficherUnPersonnel.exec();
+}
+
+
+
+//void GestionPersonnelProfil::on_langueBox_currentTextChanged(const QString &arg1)
+//{
+//    if(arg1=="English")
+//    {
+//        QTranslator translator;
+//        translator.load("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/gestionpersonnelprofil_english");
+//        qApp->installTranslator(&translator);
+//        ui->retranslateUi(this);
+
+//    }
+//    else  if(arg1=="Français")
+//    {
+
+
+//    }
+//    else  if(arg1=="العربية")
+//    {
+//        QTranslator translator;
+//        translator.load("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/gestionpersonnelprofil_arabic");
+//        qApp->installTranslator(&translator);
+//        ui->retranslateUi(this);
+
+//    }
+//}
+
+//void GestionPersonnelProfil::on_langueBox_currentIndexChanged(const QString &arg1)
+//{
+//    if(arg1=="English")
+//    {
+//        QTranslator translator;
+//        translator.load("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/gestionpersonnelprofil_english");
+//        qApp->installTranslator(&translator);
+//        ui->retranslateUi(this);
+
+//    }
+//    else  if(arg1=="Français")
+//    {
+
+
+//    }
+//    else  if(arg1=="العربية")
+//    {
+//        QTranslator translator;
+//        translator.load("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/gestionpersonnelprofil_arabic");
+//        qApp->installTranslator(&translator);
+//        ui->retranslateUi(this);
+
+//    }
+
+//}
+// void GestionPersonnelProfil::traduire(QString index)
+// {
+//     if(index=="English")
+//         {
+//             QTranslator translator;
+//             translator.load("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/gestionpersonnelprofil_english");
+//             qApp->installTranslator(&translator);
+//             ui->retranslateUi(this);
+
+//         }
+//         else  if(index=="Français")
+//         {
+
+
+//         }
+//         else  if(index=="العربية")
+//         {
+//             QTranslator translator;
+//             translator.load("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/gestionpersonnelprofil_arabic");
+//             qApp->installTranslator(&translator);
+//             ui->retranslateUi(this);
+
+//         }
+
+// }
+
+void GestionPersonnelProfil::on_langueBox_currentTextChanged(const QString &arg1)
+{
+    if(arg1=="English")
+    {
+        QTranslator translator;
+        translator.load("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/gestionpersonnelprofil_english");
+        qApp->installTranslator(&translator);
+        ui->retranslateUi(this);
+
+    }
+    else  if(arg1=="Français")
+    {
+
+
+    }
+    else  if(arg1=="العربية")
+    {
+        QTranslator translator;
+        translator.load("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/gestionpersonnelprofil_arabic");
+        qApp->installTranslator(&translator);
+        ui->retranslateUi(this);
+
+    }
+
+}
+
+void GestionPersonnelProfil::on_ajouterImgPers_3_clicked()
+{
+
+}
+
+
+void GestionPersonnelProfil::on_ajouterImgPers_clicked()
+{
+    QString filename = QFileDialog::getOpenFileName(this,"Choisir Une Image","","Images(*.png *.jpg *.jpeg *.bmp)");
+    if(QString::compare(filename,QString())!=0)
+    {
+        QImage image;
+        bool valid = image.load(filename);
+        if(valid)
+        {
+            QDir path = QFileInfo(filename).absoluteDir();
+            QString filePath=path.absolutePath();
+            image = image.scaledToWidth(ui->imagePers->width(),Qt::SmoothTransformation);
+            ui->imagePers->setPixmap(QPixmap::fromImage(image));
+            ui->statusbar->showMessage(filename);
+
+        }
+    }
+        QByteArray byte;
+        QFile file(filename);
+        if(file.open(QIODevice::ReadOnly))
+        {
+            byte = file.readAll();
+            file.close();
+        }
+        else
+            QMessageBox :: critical(this,"Error",filename);
+        QSqlQuery query;
+        query.prepare("insert into image(img) "
+                      "values (:image)");
+        //query.bindValue(":image",byte);
+        query.bindValue(":image", byte, QSql::In | QSql::Binary);
+        if(query.exec())
+        {
+             QMessageBox :: information(this,"Save","Data Inserted successfully", QMessageBox ::Ok);
+        }
+        else
+        {
+             QMessageBox :: critical(this,"Error","Couldn't insert data");
+        }
+
+}
+
+void GestionPersonnelProfil::on_resetImgPers_clicked()
+{
+    QSqlQuery query ;
+    query.prepare ( "SELECT IMG FROM image WHERE id = :id" );
+    query.bindValue ( ":id", 2 );
+    query.exec();
+    QSqlQueryModel * model = new QSqlQueryModel;
+    model->setQuery(query);
+    QSqlRecord rec = model->record(0);
+    QByteArray outByteArray = rec.value( "IMG" ).toByteArray();
+    //QByteArray outByteArray = query.value( 1 ).toByteArray();
+    QPixmap outPixmap = QPixmap();
+   outPixmap.loadFromData( outByteArray );
+   outPixmap= outPixmap.scaledToWidth(ui->label->width(),Qt::SmoothTransformation);
+    ui->label->setPixmap(outPixmap);
+
 }

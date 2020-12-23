@@ -16,6 +16,7 @@
 #include <QMessageBox>
 #include <QPropertyAnimation>
 #include <QRegularExpression>
+#include <QDir>
 QT_BEGIN_NAMESPACE
 namespace Ui { class GestionPersonnelProfil; }
 QT_END_NAMESPACE
@@ -61,6 +62,23 @@ private slots:
     void on_statistiques_clicked();
 
     void on_Afficher1Pers_clicked();
+
+//    void traduire(QString );
+
+//    void on_langueBox_currentTextChanged(const QString &arg1);
+
+//    void on_langueBox_currentIndexChanged(const QString &arg1);
+
+
+
+    void on_langueBox_currentTextChanged(const QString &arg1);
+
+    void on_ajouterImgPers_3_clicked();
+
+
+    void on_ajouterImgPers_clicked();
+
+    void on_resetImgPers_clicked();
 
 private:
     Ui::GestionPersonnelProfil *ui;

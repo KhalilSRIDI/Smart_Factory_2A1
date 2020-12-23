@@ -36,4 +36,6 @@ FORMS += \
     afficherunpersonnel.ui \
     gestionpersonnelprofil.ui \
     statistiques.ui
+TRANSLATIONS = gestionpersonnelprofil_arabic.ts gestionpersonnelprofil_english.ts
 
+RESOURCES +=
