@@ -1,7 +1,5 @@
 #ifndef FORMATION_H
 #define FORMATION_H
-
-
 #include<QString>
 #include<qstring.h>
 #include<QDate>

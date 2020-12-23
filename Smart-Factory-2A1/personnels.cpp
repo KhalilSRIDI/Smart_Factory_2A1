@@ -205,8 +205,8 @@ QSqlQueryModel * personnels::chercher(int matricule){
     int num = rec.value("matricule").toInt();
     if( num == matricule){
         return model;
-    }
-    return nullptr;
+      }
+        return nullptr;
 }
 QSqlQueryModel * personnels::chercherFonction(QString fonction){
     QSqlQuery qry;
@@ -236,7 +236,7 @@ QSqlQueryModel * personnels::chercherFonction(QString fonction){
     QString fct = rec.value("fonction").toString();
     if( fct == fonction)
         return model;
-    return nullptr;
+     return nullptr;
 }
 QSqlQueryModel * personnels::chercher(QDate date1,QDate date2){
     QSqlQuery qry;
@@ -297,7 +297,7 @@ QSqlQueryModel * personnels::chercher(QString sexe,QString etatCivile,int age){
     QString eC = rec.value("ETAT_CIVILE").toString();
     if( s == sexe and eC == etatCivile)
         return model;
-    return nullptr;
+     return nullptr;
 }
 int personnels::calculerTC(QString tc)
 {
