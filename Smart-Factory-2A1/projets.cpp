@@ -203,4 +203,3 @@ int projets::calculRevenus(QString departement)
     }
     return totalRevenus;
 }
-

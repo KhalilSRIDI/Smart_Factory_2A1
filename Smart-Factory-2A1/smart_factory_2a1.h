@@ -26,6 +26,8 @@
 #include <QRegularExpression>
 #include <QDir>
 #include <QMediaPlayer>
+#include <QPrinter>
+#include <QTextDocument>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Smart_Factory_2A1; }
@@ -146,6 +148,8 @@ private slots:
     void on_pushButton_stat_clicked();
 
     void on_pushButton_quitter_clicked();
+
+    void on_pushButtonExportPDFP_clicked();
 
 private:
     Ui::Smart_Factory_2A1 *ui;

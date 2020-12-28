@@ -12,6 +12,8 @@
 #include<qtableview.h>
 #include<QFileDialog>
 #include<QCoreApplication>
+#include<QPrinter>
+#include <QTextDocument>
 
 class projets {
 public:
