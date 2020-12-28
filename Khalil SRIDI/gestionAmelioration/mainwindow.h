@@ -15,7 +15,9 @@
 #include <QDate>
 #include <QDateTimeEdit>
 #include <QSound>
-
+#include <QPrinter>
+#include <QTextDocument>
+#include <QPrintDialog>
 
 
 
@@ -61,6 +63,8 @@ private slots:
     void on_pushTrierF_clicked();
 
     void on_pushButtonStat_clicked();
+
+    void on_pushButtonExportP_2_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui sql serialport printsupport network charts multimedia
 QT += sql
 QT += charts
 

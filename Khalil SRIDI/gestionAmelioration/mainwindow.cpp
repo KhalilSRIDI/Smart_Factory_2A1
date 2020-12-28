@@ -531,3 +531,31 @@ void MainWindow::on_pushTrierF_clicked()
     ui->tableViewF->setModel(tmp_formation.trier(critere,order));
 
 }
+
+void MainWindow::on_pushButtonExportP_2_clicked()
+{
+    QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Export PDF", QString(), "*.pdf");
+       if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append("liste_invites.pdf"); }
+
+       QPrinter printer(QPrinter::PrinterResolution);
+       printer.setOutputFormat(QPrinter::PdfFormat);
+       printer.setPaperSize(QPrinter::A4);
+       printer.setOutputFileName(fileName);
+
+       QTextDocument doc;
+       QSqlQuery q;
+       q.prepare("SELECT * FROM PROJETS ");
+       q.exec();
+       QString pdf="<br> <img src='C:/Users/khali/Downloads/download.jpg' height='84' width='288'/> <h1  style='color:red'>       tableau projets  <br></h1>\n <br> <table>  <tr>  <th>IDPROJET </th> <th>NOM </th>  <th>DEPARTEMENT </th> <th>TEAM_LEADER </th>  <th>DATE_LANCEMENT </th> <th>COUTS_PREVUS </th> <th>REVENUS_PROJETES </th> </tr> " ;
+
+
+       while ( q.next()) {
+
+           pdf= pdf+ " <br> <tr> <td>"+ q.value(0).toString()+"    </td>  <td>   " + q.value(1).toString() +"</td>  <td>" +q.value(2).toString() +"  "" " "</td>      <td>     "+q.value(3).toString()+"--------"+"</td>       <td>"+q.value(4).toString()+"       </td>" ;
+
+       }
+       doc.setHtml(pdf);
+       doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
+       doc.print(&printer);
+
+}

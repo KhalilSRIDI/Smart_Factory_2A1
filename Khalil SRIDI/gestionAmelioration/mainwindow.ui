@@ -517,6 +517,19 @@
         </property>
        </item>
       </widget>
+      <widget class="QPushButton" name="pushButtonExportP_2">
+       <property name="geometry">
+        <rect>
+         <x>650</x>
+         <y>80</y>
+         <width>70</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Export</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="verticalLayoutWidget">
       <property name="geometry">
