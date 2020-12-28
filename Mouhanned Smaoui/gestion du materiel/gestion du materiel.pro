@@ -1,5 +1,9 @@
-QT       += core gui sql multimedia
-
+QT += core gui serialport
+QT +=core gui serialport
+QT += core gui
+QT +=sql
+QT +=sql network
+QT +=multimedia
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -18,42 +22,32 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     arduino.cpp \
     arduinoobstacle.cpp \
-    connexionsql.cpp \
+    connexion.cpp \
     email.cpp \
-    formation.cpp \
     gestionmaintenance.cpp \
     gestionmateriel.cpp \
-    login.cpp \
     main.cpp \
-    personnels.cpp \
-    profils.cpp \
-    projets.cpp \
+    mainwindow.cpp \
     qcustomplot.cpp \
-    smart_factory_2a1.cpp \
     smtp.cpp \
     statis.cpp
 
 HEADERS += \
     arduino.h \
     arduinoobstacle.h \
-    connexionsql.h \
+    connexion.h \
     email.h \
-    formation.h \
     gestionmaintenance.h \
     gestionmateriel.h \
-    login.h \
-    personnels.h \
-    profils.h \
-    projets.h \
+    mainwindow.h \
     qcustomplot.h \
-    smart_factory_2a1.h \
     smtp.h \
     statis.h
 
 FORMS += \
     arduinoobstacle.ui \
     email.ui \
-    smart_factory_2a1.ui \
+    mainwindow.ui \
     statis.ui
 
 # Default rules for deployment.
