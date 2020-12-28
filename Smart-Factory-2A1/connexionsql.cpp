@@ -7,9 +7,9 @@ bool connexionSQL::ouvrirConnexion()
     bool testOuverture=false;
     QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
 
-    db.setDatabaseName("gestionPersonnelProfil");
-    db.setUserName("safwen");
-    db.setPassword("safwen");
+    db.setDatabaseName("SmartFactory");
+    db.setUserName("khalil2");
+    db.setPassword("khalil2");
     if (db.open())
         testOuverture=true;
     return  testOuverture;
