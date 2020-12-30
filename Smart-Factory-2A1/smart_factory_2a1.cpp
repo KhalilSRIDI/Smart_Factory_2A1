@@ -1761,3 +1761,29 @@ void Smart_Factory_2A1::on_pushButtonExportPDFP_clicked()
        doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
        doc.print(&printer);
 }
+
+void Smart_Factory_2A1::on_pushButtonExportPDFF_clicked()
+{
+    QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Export PDF", QString(), "*.pdf");
+       if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
+
+       QPrinter printer(QPrinter::PrinterResolution);
+       printer.setOutputFormat(QPrinter::PdfFormat);
+       printer.setPaperSize(QPrinter::A4);
+       printer.setOutputFileName(fileName);
+
+       QTextDocument doc;
+       QSqlQuery q;
+       q.prepare("SELECT * FROM formations ");
+       q.exec();
+       QString pdf="<br><h1  style='color:pink'>tableau formations  <br></h1>\n <br> <table>  <tr>  <th>IDFORMATION </th> <th>NOM </th>  <th>PROJET </th> <th>FORMATEUR </th>  <th>DATEDEBUT </th> <th>DUREE </th> <th>COUT </th> </tr> " ;
+
+
+       while ( q.next()) {
+   pdf= pdf+ " <br> <tr> <td>"+ q.value(0).toString()+"</td>   <td> " + q.value(1).toString() +"</td>   <td>" +q.value(2).toString() +" </td>   <td>"+q.value(3).toString()+"</td> <td>"+q.value(4).toString()+"<td> <td>"+q.value(5).toString()+" </td> <td> "+q.value(6).toString()+" </td> </td>";
+
+       }
+       doc.setHtml(pdf);
+       doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
+       doc.print(&printer);
+}

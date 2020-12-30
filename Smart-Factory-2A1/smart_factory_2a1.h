@@ -151,6 +151,8 @@ private slots:
 
     void on_pushButtonExportPDFP_clicked();
 
+    void on_pushButtonExportPDFF_clicked();
+
 private:
     Ui::Smart_Factory_2A1 *ui;
     login authentification;

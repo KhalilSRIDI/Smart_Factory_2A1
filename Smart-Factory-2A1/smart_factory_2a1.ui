@@ -1946,7 +1946,7 @@
          <enum>QFrame::WinPanel</enum>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="gestionProjets">
          <layout class="QGridLayout" name="gridLayout_7">
@@ -2803,6 +2803,19 @@
               </property>
               <property name="text">
                <string>Refresh</string>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="pushButtonExportPDFF">
+              <property name="geometry">
+               <rect>
+                <x>650</x>
+                <y>80</y>
+                <width>70</width>
+                <height>30</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Export PDF</string>
               </property>
              </widget>
             </widget>
