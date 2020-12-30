@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="loginpage">
      <widget class="QWidget" name="layoutWidget">
@@ -5816,7 +5816,7 @@ td, th
            <rect>
             <x>120</x>
             <y>50</y>
-            <width>771</width>
+            <width>891</width>
             <height>30</height>
            </rect>
           </property>
@@ -5846,6 +5846,30 @@ td, th
             <widget class="QRadioButton" name="radioButton_tri_nbrmaint">
              <property name="text">
               <string>Nombre De Maintenance</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_trier">
+             <property name="text">
+              <string>Trier</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>../../../icons/TriMan-300x300.png</normaloff>../../../icons/TriMan-300x300.png</iconset>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButtonExporterEquip">
+             <property name="text">
+              <string>Exporter</string>
              </property>
             </widget>
            </item>
@@ -5892,29 +5916,6 @@ td, th
             </widget>
            </item>
           </layout>
-         </widget>
-         <widget class="QPushButton" name="pushButton_trier">
-          <property name="geometry">
-           <rect>
-            <x>912</x>
-            <y>50</y>
-            <width>111</width>
-            <height>31</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Trier</string>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../../../icons/TriMan-300x300.png</normaloff>../../../icons/TriMan-300x300.png</iconset>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-          <property name="checked">
-           <bool>false</bool>
-          </property>
          </widget>
          <widget class="QPushButton" name="pushButton_stat">
           <property name="geometry">
@@ -6414,7 +6415,7 @@ td, th
             <x>120</x>
             <y>50</y>
             <width>901</width>
-            <height>30</height>
+            <height>31</height>
            </rect>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_61">
@@ -6471,6 +6472,13 @@ td, th
              </property>
              <property name="checkable">
               <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButtonExporterMain">
+             <property name="text">
+              <string>Exporter</string>
              </property>
             </widget>
            </item>

@@ -1787,3 +1787,21 @@ void Smart_Factory_2A1::on_pushButtonExportPDFF_clicked()
        doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
        doc.print(&printer);
 }
+
+void Smart_Factory_2A1::on_pushButtonExporterEquip_clicked()
+{
+    /* click = new QMediaPlayer();
+             click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
+              click->play();*/
+        exporter(ui->tableView_materiel);
+        ui->statusbar->showMessage("Export De Tableau Personnel ",5000);
+}
+
+void Smart_Factory_2A1::on_pushButtonExporterMain_clicked()
+{
+    /* click = new QMediaPlayer();
+            click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
+             click->play();*/
+       exporter(ui->tableView_maint);
+       ui->statusbar->showMessage("Export De Tableau Personnel ",5000);
+}
