@@ -1177,7 +1177,7 @@ void Smart_Factory_2A1::on_gestionAmeliorations_clicked()
 
 void Smart_Factory_2A1::on_pushButton_gestion_materiel_clicked()
 {
-    ui->smartFactory->setCurrentIndex(6);
+    ui->smartFactory->setCurrentIndex(4);
 
 }
 

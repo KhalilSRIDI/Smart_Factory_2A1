@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.13.2, 2020-12-30T22:05:10. -->
+<!-- Written by QtCreator 4.13.2, 2021-01-03T13:47:27. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -337,7 +337,7 @@
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory"></value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/build-Smart-Factory-2A1-Desktop_Qt_5_9_9_MSVC2015_32bit-Debug</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default"></value>
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>

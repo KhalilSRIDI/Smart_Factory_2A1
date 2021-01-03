@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="loginpage">
      <widget class="QWidget" name="layoutWidget">
@@ -168,58 +168,6 @@
        <string>Options</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_5">
-      <property name="geometry">
-       <rect>
-        <x>170</x>
-        <y>250</y>
-        <width>93</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Gestion Achats</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_6">
-      <property name="geometry">
-       <rect>
-        <x>410</x>
-        <y>250</y>
-        <width>93</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Gestion Ventes</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_gestion_materiel">
-      <property name="geometry">
-       <rect>
-        <x>190</x>
-        <y>330</y>
-        <width>161</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Gestion Du Materiel</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_8">
-      <property name="geometry">
-       <rect>
-        <x>360</x>
-        <y>330</y>
-        <width>131</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Gestion Stock</string>
-      </property>
-     </widget>
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
@@ -241,6 +189,58 @@
         <widget class="QPushButton" name="gestionAmeliorations">
          <property name="text">
           <string>Gestion Amelioration</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>210</y>
+        <width>300</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_57">
+       <item>
+        <widget class="QPushButton" name="pushButton_6">
+         <property name="text">
+          <string>Gestion Ventes</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_5">
+         <property name="text">
+          <string>Gestion Achats</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>260</y>
+        <width>300</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_63">
+       <item>
+        <widget class="QPushButton" name="pushButton_8">
+         <property name="text">
+          <string>Gestion Stock</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_gestion_materiel">
+         <property name="text">
+          <string>Gestion Du Materiel</string>
          </property>
         </widget>
        </item>
@@ -301,7 +301,7 @@
              </size>
             </property>
             <property name="currentIndex">
-             <number>2</number>
+             <number>1</number>
             </property>
             <property name="usesScrollButtons">
              <bool>false</bool>
