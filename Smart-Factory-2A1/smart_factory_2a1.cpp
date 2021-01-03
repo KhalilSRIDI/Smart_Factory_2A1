@@ -912,10 +912,10 @@ void Smart_Factory_2A1::on_pushTrierP_clicked()
 
 void Smart_Factory_2A1::on_pushButtonStat_clicked()
 {
-//    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Khalil SRIDI/gestionAmelioration/src/mouseclick.wav");
-//    statistiques *a= new statistiques() ;
+  QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Khalil SRIDI/gestionAmelioration/src/mouseclick.wav");
+   statAmelioration *a= new statAmelioration() ;
 
-//    a->show();
+   a->show();
 }
 
 //formations UI

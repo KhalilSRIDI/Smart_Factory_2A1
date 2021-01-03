@@ -31,6 +31,7 @@ SOURCES += \
     qcustomplot.cpp \
     smart_factory_2a1.cpp \
     smtp.cpp \
+    statamelioration.cpp \
     statis.cpp
 
 HEADERS += \
@@ -48,12 +49,14 @@ HEADERS += \
     qcustomplot.h \
     smart_factory_2a1.h \
     smtp.h \
+    statamelioration.h \
     statis.h
 
 FORMS += \
     arduinoobstacle.ui \
     email.ui \
     smart_factory_2a1.ui \
+    statamelioration.ui \
     statis.ui
 
 # Default rules for deployment.
