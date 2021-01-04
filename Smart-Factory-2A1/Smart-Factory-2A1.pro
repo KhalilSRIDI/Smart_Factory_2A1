@@ -31,8 +31,8 @@ SOURCES += \
     qcustomplot.cpp \
     smart_factory_2a1.cpp \
     smtp.cpp \
-    statamelioration.cpp \
-    statis.cpp
+    statis.cpp \
+    statistiques.cpp
 
 HEADERS += \
     arduino.h \
@@ -49,15 +49,15 @@ HEADERS += \
     qcustomplot.h \
     smart_factory_2a1.h \
     smtp.h \
-    statamelioration.h \
-    statis.h
+    statis.h \
+    statistiques.h
 
 FORMS += \
     arduinoobstacle.ui \
     email.ui \
     smart_factory_2a1.ui \
-    statamelioration.ui \
-    statis.ui
+    statis.ui \
+    statistiques.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

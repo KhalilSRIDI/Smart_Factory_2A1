@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>statistiques</class>
+ <widget class="QWidget" name="statistiques">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>806</width>
-    <height>519</height>
+    <width>1071</width>
+    <height>597</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QWidget" name="statamelioration" native="true">
+  <widget class="QWidget" name="widgetamelioration" native="true">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>790</width>
-     <height>500</height>
+     <width>1050</width>
+     <height>580</height>
     </rect>
    </property>
   </widget>

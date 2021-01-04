@@ -39,3 +39,7 @@ build-Smart-Factory-2A1-Desktop_Qt_5_9_9_MinGW_32bit-Debug/ui_arduinoobstacle.h
 build-Smart-Factory-2A1-Desktop_Qt_5_9_9_MinGW_32bit-Debug/ui_email.h
 build-Smart-Factory-2A1-Desktop_Qt_5_9_9_MinGW_32bit-Debug/ui_smart_factory_2a1.h
 build-Smart-Factory-2A1-Desktop_Qt_5_9_9_MinGW_32bit-Debug/ui_statis.h
+build-Smart-Factory-2A1-Desktop_Qt_5_9_9_MinGW_32bit-Debug/debug/moc_statistiques.cpp
+build-Smart-Factory-2A1-Desktop_Qt_5_9_9_MinGW_32bit-Debug/debug/moc_statistiques.o
+build-Smart-Factory-2A1-Desktop_Qt_5_9_9_MinGW_32bit-Debug/debug/statistiques.o
+build-Smart-Factory-2A1-Desktop_Qt_5_9_9_MinGW_32bit-Debug/ui_statistiques.h

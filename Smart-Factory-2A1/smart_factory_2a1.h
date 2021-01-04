@@ -28,7 +28,7 @@
 #include <QMediaPlayer>
 #include <QPrinter>
 #include <QTextDocument>
-#include "statamelioration.h"
+#include "statistiques.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Smart_Factory_2A1; }

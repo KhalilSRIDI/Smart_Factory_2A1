@@ -1,5 +1,5 @@
-#ifndef STATAMELIORATION_H
-#define STATAMELIORATION_H
+#ifndef STATISTIQUES_H
+#define STATISTIQUES_H
 
 #include<QWidget>
 #include<QtCharts/QChartView>
@@ -15,20 +15,20 @@
 QT_CHARTS_USE_NAMESPACE
 
 namespace Ui {
-class statamelioration;
+class statistiques;
 }
 
-class statamelioration: public QWidget
+class statistiques : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit statamelioration(QWidget *parent = nullptr);
-    ~statamelioration();
+    explicit statistiques(QWidget *parent = nullptr);
+    ~statistiques();
 
 private:
-    Ui::statamelioration *ui;
+    Ui::statistiques *ui;
     projets tmp_projet;
 };
 
-#endif // STATAMELIORATION_H
+#endif // STATISTIQUES_H

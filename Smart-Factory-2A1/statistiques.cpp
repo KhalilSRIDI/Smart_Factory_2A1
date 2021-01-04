@@ -1,9 +1,9 @@
-#include "statamelioration.h"
-#include "ui_statamelioration.h"
+#include "statistiques.h"
+#include "ui_statistiques.h"
 
-statamelioration::statamelioration(QWidget *parent) :
+statistiques::statistiques(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::statamelioration)
+    ui(new Ui::statistiques)
 {
     ui->setupUi(this);
 
@@ -36,7 +36,7 @@ statamelioration::statamelioration(QWidget *parent) :
     setLayout(mainLayout);
 }
 
-statAmelioration::~statAmelioration()
+statistiques::~statistiques()
 {
     delete ui;
 }
