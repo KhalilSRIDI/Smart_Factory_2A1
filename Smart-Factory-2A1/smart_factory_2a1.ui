@@ -1910,14 +1910,14 @@
       <item row="0" column="0">
        <layout class="QHBoxLayout" name="horizontalLayoutAmelioration">
         <item>
-         <widget class="QPushButton" name="gestionProfil_2">
+         <widget class="QPushButton" name="gestionProjets_2">
           <property name="text">
            <string>Gestion Des Projets</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="gestionPersonnel_2">
+         <widget class="QPushButton" name="gestionFormations_2">
           <property name="text">
            <string>Gestion Des Formations</string>
           </property>
@@ -1946,7 +1946,7 @@
          <enum>QFrame::WinPanel</enum>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="gestionProjets">
          <layout class="QGridLayout" name="gridLayout_7">

@@ -158,6 +158,10 @@ private slots:
 
     void on_pushButtonExporterMain_clicked();
 
+    void on_gestionProjets_2_clicked();
+
+    void on_gestionFormations_2_clicked();
+
 private:
     Ui::Smart_Factory_2A1 *ui;
     login authentification;

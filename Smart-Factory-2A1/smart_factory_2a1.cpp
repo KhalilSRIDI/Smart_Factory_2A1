@@ -1805,3 +1805,13 @@ void Smart_Factory_2A1::on_pushButtonExporterMain_clicked()
        exporter(ui->tableView_maint);
        ui->statusbar->showMessage("Export De Tableau Personnel ",5000);
 }
+
+void Smart_Factory_2A1::on_gestionProjets_2_clicked()
+{
+    ui->stackedWidgetAmelioration->setCurrentIndex(0);
+}
+
+void Smart_Factory_2A1::on_gestionFormations_2_clicked()
+{
+    ui->stackedWidgetAmelioration->setCurrentIndex(1);
+}
