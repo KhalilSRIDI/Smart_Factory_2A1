@@ -5645,7 +5645,7 @@
         <x>0</x>
         <y>0</y>
         <width>1121</width>
-        <height>651</height>
+        <height>751</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -5663,8 +5663,8 @@
          <rect>
           <x>20</x>
           <y>20</y>
-          <width>1051</width>
-          <height>541</height>
+          <width>1071</width>
+          <height>711</height>
          </rect>
         </property>
         <property name="currentIndex">
@@ -5677,9 +5677,9 @@
          <widget class="QPushButton" name="pushButton_modifier">
           <property name="geometry">
            <rect>
-            <x>580</x>
+            <x>570</x>
             <y>470</y>
-            <width>221</width>
+            <width>231</width>
             <height>28</height>
            </rect>
           </property>
@@ -6152,9 +6152,9 @@ td, th
          <widget class="QPushButton" name="pushButton_modifiermaint">
           <property name="geometry">
            <rect>
-            <x>490</x>
+            <x>570</x>
             <y>470</y>
-            <width>261</width>
+            <width>231</width>
             <height>28</height>
            </rect>
           </property>
@@ -6172,9 +6172,9 @@ td, th
          <widget class="QPushButton" name="pushButton_supprimermaint">
           <property name="geometry">
            <rect>
-            <x>760</x>
+            <x>810</x>
             <y>470</y>
-            <width>281</width>
+            <width>231</width>
             <height>28</height>
            </rect>
           </property>
@@ -6199,7 +6199,7 @@ td, th
          <widget class="QPushButton" name="pushButton_email">
           <property name="geometry">
            <rect>
-            <x>80</x>
+            <x>140</x>
             <y>470</y>
             <width>181</width>
             <height>28</height>
@@ -6839,6 +6839,32 @@ td, th
         </widget>
        </widget>
       </widget>
+     </widget>
+     <widget class="QPushButton" name="quitter_4">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>760</y>
+        <width>596</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Quitter</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="MenuPrincipal_2">
+      <property name="geometry">
+       <rect>
+        <x>-2</x>
+        <y>760</y>
+        <width>596</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Menu Principal</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="page_7"/>
