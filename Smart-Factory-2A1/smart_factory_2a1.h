@@ -148,7 +148,7 @@ private slots:
     void on_pushButton_email_clicked();
     void on_pushButton_stat_clicked();
 
-    void on_pushButton_quitter_clicked();
+    void on_pushButton_arduinoobstacle_clicked();
 
     void on_pushButtonExportPDFP_clicked();
 
@@ -161,6 +161,10 @@ private slots:
     void on_gestionProjets_2_clicked();
 
     void on_gestionFormations_2_clicked();
+
+    void on_pushButtonExporterMain_2_clicked();
+
+    void on_pushButtonExporterEquip_2_clicked();
 
 private:
     Ui::Smart_Factory_2A1 *ui;

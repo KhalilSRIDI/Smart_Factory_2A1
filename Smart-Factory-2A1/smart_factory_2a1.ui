@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="loginpage">
      <widget class="QWidget" name="layoutWidget">
@@ -5652,7 +5652,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="consultermateriel">
        <attribute name="title">
@@ -5668,7 +5668,7 @@
          </rect>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="affichermateriel">
          <attribute name="title">
@@ -5718,9 +5718,9 @@
           <property name="geometry">
            <rect>
             <x>50</x>
-            <y>90</y>
-            <width>931</width>
-            <height>361</height>
+            <y>120</y>
+            <width>981</width>
+            <height>331</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -5866,13 +5866,6 @@ td, th
              </property>
             </widget>
            </item>
-           <item>
-            <widget class="QPushButton" name="pushButtonExporterEquip">
-             <property name="text">
-              <string>Exporter</string>
-             </property>
-            </widget>
-           </item>
           </layout>
          </widget>
          <widget class="QWidget" name="layoutWidget_8">
@@ -5934,7 +5927,7 @@ td, th
             <normaloff>../../../icons/stat.png</normaloff>../../../icons/stat.png</iconset>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_quitter">
+         <widget class="QPushButton" name="pushButton_arduinoobstacle">
           <property name="geometry">
            <rect>
             <x>300</x>
@@ -5945,6 +5938,32 @@ td, th
           </property>
           <property name="text">
            <string>Arduino</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButtonExporterEquip">
+          <property name="geometry">
+           <rect>
+            <x>840</x>
+            <y>90</y>
+            <width>91</width>
+            <height>28</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Exporter Excel</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButtonExporterEquip_2">
+          <property name="geometry">
+           <rect>
+            <x>940</x>
+            <y>90</y>
+            <width>91</width>
+            <height>28</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Exporter PDF</string>
           </property>
          </widget>
         </widget>
@@ -6109,32 +6128,6 @@ td, th
          </widget>
         </widget>
        </widget>
-       <widget class="QPushButton" name="pushButton_quitter_2">
-        <property name="geometry">
-         <rect>
-          <x>940</x>
-          <y>580</y>
-          <width>121</width>
-          <height>28</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Quitter</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_menu">
-        <property name="geometry">
-         <rect>
-          <x>780</x>
-          <y>580</y>
-          <width>141</width>
-          <height>28</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Menu Principal</string>
-        </property>
-       </widget>
       </widget>
       <widget class="QWidget" name="maintenancemateriel">
        <attribute name="title">
@@ -6197,9 +6190,9 @@ td, th
           <property name="geometry">
            <rect>
             <x>50</x>
-            <y>90</y>
-            <width>931</width>
-            <height>361</height>
+            <y>120</y>
+            <width>981</width>
+            <height>331</height>
            </rect>
           </property>
          </widget>
@@ -6475,13 +6468,6 @@ td, th
              </property>
             </widget>
            </item>
-           <item>
-            <widget class="QPushButton" name="pushButtonExporterMain">
-             <property name="text">
-              <string>Exporter</string>
-             </property>
-            </widget>
-           </item>
           </layout>
          </widget>
          <widget class="QWidget" name="layoutWidget_10">
@@ -6545,6 +6531,32 @@ td, th
             </widget>
            </item>
           </layout>
+         </widget>
+         <widget class="QPushButton" name="pushButtonExporterMain">
+          <property name="geometry">
+           <rect>
+            <x>840</x>
+            <y>90</y>
+            <width>91</width>
+            <height>28</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Exporter Excel</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButtonExporterMain_2">
+          <property name="geometry">
+           <rect>
+            <x>940</x>
+            <y>90</y>
+            <width>93</width>
+            <height>28</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Exporter PDF</string>
+          </property>
          </widget>
         </widget>
         <widget class="QWidget" name="faireunemaintenance">
@@ -6839,7 +6851,7 @@ td, th
      <x>0</x>
      <y>0</y>
      <width>1280</width>
-     <height>25</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

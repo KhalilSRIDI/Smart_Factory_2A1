@@ -1725,7 +1725,7 @@ void Smart_Factory_2A1::on_pushButton_stat_clicked()
     obj->show();
 }
 
-void Smart_Factory_2A1::on_pushButton_quitter_clicked()
+void Smart_Factory_2A1::on_pushButton_arduinoobstacle_clicked()
 {
     /* click = new QMediaPlayer();
          click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
@@ -1814,4 +1814,57 @@ void Smart_Factory_2A1::on_gestionProjets_2_clicked()
 void Smart_Factory_2A1::on_gestionFormations_2_clicked()
 {
     ui->stackedWidgetAmelioration->setCurrentIndex(1);
+}
+
+void Smart_Factory_2A1::on_pushButtonExporterEquip_2_clicked()
+{
+    QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Export PDF", QString(), "*.pdf");
+    if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
+
+    QPrinter printer(QPrinter::PrinterResolution);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setPaperSize(QPrinter::A4);
+    printer.setOutputFileName(fileName);
+
+    QTextDocument doc;
+    QSqlQuery q;
+    q.prepare("SELECT * FROM MATERIEL ");
+    q.exec();
+    QString pdf="<br><h1  style='color:pink'>tableau materiel  <br></h1>\n <br> <table>  <tr>  <th>REFERENCE </th> <th>MODELE </th> <th>DATE_ACHAT </th>  <th>NOMBRE_MAINTENANCE </th> </tr> " ;
+
+
+    while ( q.next()) {
+pdf= pdf+ " <br> <tr> <td>"+ q.value(0).toString()+"</td>   <td> " + q.value(1).toString() +"</td>   <td>" +q.value(2).toString() +" </td>   <td>"+q.value(3).toString()+"</td> </td>";
+
+    }
+    doc.setHtml(pdf);
+    doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
+    doc.print(&printer);
+
+}
+
+void Smart_Factory_2A1::on_pushButtonExporterMain_2_clicked()
+{
+    QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Export PDF", QString(), "*.pdf");
+       if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
+
+       QPrinter printer(QPrinter::PrinterResolution);
+       printer.setOutputFormat(QPrinter::PdfFormat);
+       printer.setPaperSize(QPrinter::A4);
+       printer.setOutputFileName(fileName);
+
+       QTextDocument doc;
+       QSqlQuery q;
+       q.prepare("SELECT * FROM MAINTENANCE ");
+       q.exec();
+       QString pdf="<br><h1  style='color:pink'>tableau maintenance  <br></h1>\n <br> <table>  <tr>  <th>ID_MAINTENANCE </th> <th>REFERENCE </th>  <th>MODELE </th> <th>MATRICULE </th>  <th>DATE_ACHAT </th> <th>DATE_DE_MAINTENANCE </th> <th>DERNIER_PROBLEME </th> <th>TYPE_DE_MAINTENANCE </th> </tr> " ;
+
+
+       while ( q.next()) {
+   pdf= pdf+ " <br> <tr> <td>"+ q.value(0).toString()+"</td>   <td> " + q.value(1).toString() +"</td>   <td>" +q.value(2).toString() +" </td>   <td>"+q.value(3).toString()+"</td> <td>"+q.value(4).toString()+"</td> <td>"+q.value(5).toString()+" </td> <td> "+q.value(6).toString()+" </td> <td>"+ q.value(7).toString()+"</td> </td>" ;
+
+       }
+       doc.setHtml(pdf);
+       doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
+       doc.print(&printer);
 }
