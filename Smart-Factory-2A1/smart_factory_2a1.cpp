@@ -1868,3 +1868,8 @@ void Smart_Factory_2A1::on_pushButtonExporterMain_2_clicked()
        doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
        doc.print(&printer);
 }
+
+void Smart_Factory_2A1::on_envoyerMailFormations_clicked()
+{
+    QDialog *mailF=new email;
+}

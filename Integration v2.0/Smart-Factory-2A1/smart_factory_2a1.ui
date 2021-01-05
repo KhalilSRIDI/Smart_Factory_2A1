@@ -1,0 +1,2151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Smart_Factory_2A1</class>
+ <widget class="QMainWindow" name="Smart_Factory_2A1">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1863</width>
+    <height>979</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Smart_Factory_2A1</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QStackedWidget" name="smartFactory">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>10</y>
+      <width>1697</width>
+      <height>790</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>6</number>
+    </property>
+    <widget class="QWidget" name="page">
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>110</y>
+        <width>242</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Nom Utilisateur :</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="nomUC"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="layoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>240</y>
+        <width>194</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QPushButton" name="login">
+         <property name="text">
+          <string>LOGIN</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="annulerC">
+         <property name="text">
+          <string>Annuler</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="quitterP">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>410</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Quitter</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="layoutWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>140</y>
+        <width>232</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Mot De Passe :</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="mdpC">
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_3">
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="1">
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QPushButton" name="gestionProfil">
+          <property name="text">
+           <string>Gestion Des Profils</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="gestionPersonnel">
+          <property name="text">
+           <string>Gestion Des Personnels</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="2" column="1">
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QPushButton" name="deconnecter">
+          <property name="text">
+           <string>Déconnecter</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="quitter">
+          <property name="text">
+           <string>Quitter</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="1">
+       <widget class="QStackedWidget" name="stackedWidget">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>700</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>1200</width>
+          <height>700</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::WinPanel</enum>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="gestionPers">
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="0">
+           <widget class="QTabWidget" name="actionPers">
+            <property name="minimumSize">
+             <size>
+              <width>754</width>
+              <height>471</height>
+             </size>
+            </property>
+            <property name="currentIndex">
+             <number>0</number>
+            </property>
+            <property name="usesScrollButtons">
+             <bool>false</bool>
+            </property>
+            <property name="tabsClosable">
+             <bool>false</bool>
+            </property>
+            <property name="movable">
+             <bool>true</bool>
+            </property>
+            <property name="tabBarAutoHide">
+             <bool>false</bool>
+            </property>
+            <widget class="QWidget" name="tab">
+             <attribute name="title">
+              <string>Ajouter Un Personnel</string>
+             </attribute>
+             <layout class="QGridLayout" name="gridLayout_3">
+              <item row="1" column="2">
+               <layout class="QHBoxLayout" name="horizontalLayout_10">
+                <item>
+                 <widget class="QPushButton" name="vAjouterPers">
+                  <property name="text">
+                   <string>Valider</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="annulerAjoutPers">
+                  <property name="text">
+                   <string>Annuler</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="0" column="0">
+               <widget class="QGroupBox" name="groupBox">
+                <property name="title">
+                 <string>Informations Générales</string>
+                </property>
+                <layout class="QFormLayout" name="formLayout">
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="label_19">
+                   <property name="text">
+                    <string>CIN :</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QLineEdit" name="cin">
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QLabel" name="label_5">
+                   <property name="text">
+                    <string>Nom:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QLineEdit" name="nom"/>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QLabel" name="label_6">
+                   <property name="text">
+                    <string>Prenom :</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QLineEdit" name="prenom"/>
+                 </item>
+                 <item row="3" column="0">
+                  <widget class="QLabel" name="label_20">
+                   <property name="text">
+                    <string>Numero Tel :</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="1">
+                  <widget class="QLineEdit" name="numTel"/>
+                 </item>
+                 <item row="4" column="0" colspan="2">
+                  <widget class="QGroupBox" name="groupBox_7">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>60</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>200</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="title">
+                    <string> Sexe :</string>
+                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_6">
+                    <item>
+                     <widget class="QRadioButton" name="masculin">
+                      <property name="text">
+                       <string>Masculin</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QRadioButton" name="feminin">
+                      <property name="text">
+                       <string>Feminin</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item row="5" column="0">
+                  <widget class="QGroupBox" name="groupBox_10">
+                   <property name="title">
+                    <string> Etat Civile :</string>
+                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_7">
+                    <item>
+                     <widget class="QRadioButton" name="marie">
+                      <property name="text">
+                       <string>Marie</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QRadioButton" name="celeb">
+                      <property name="text">
+                       <string>Celebataire</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QRadioButton" name="divorce">
+                      <property name="text">
+                       <string>Divorce</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item row="6" column="0">
+                  <widget class="QLabel" name="label_7">
+                   <property name="text">
+                    <string> Date De Naissance :</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="6" column="1">
+                  <widget class="QDateEdit" name="dateNaissance"/>
+                 </item>
+                 <item row="7" column="0">
+                  <widget class="QLabel" name="label_9">
+                   <property name="text">
+                    <string> Gouvernorat D'Origin :</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="7" column="1">
+                  <widget class="QComboBox" name="gouvernoratHabitation">
+                   <item>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Ariana</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Beja</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Ben Arous</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Bizerte</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Gabes</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Gafsa</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Jendouba</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Kairouan</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Kasserine</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Kebili</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Le Kef</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Mahdia</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>La Manouba</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Medenine</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Monastir</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Nabeul</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Sfax</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Sidi Bouzid</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Siliana</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Sousse</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Tataouine</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Tozeur</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Tunis</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Zaghouan</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                 <item row="8" column="0">
+                  <widget class="QLabel" name="label_8">
+                   <property name="text">
+                    <string> Gouvernorat D'Habitation :</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="8" column="1">
+                  <widget class="QComboBox" name="gouvernoratOrigin">
+                   <item>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Ariana</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Beja</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Ben Arous</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Bizerte</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Gabes</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Gafsa</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Jendouba</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Kairouan</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Kasserine</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Kebili</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Le Kef</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Mahdia</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>La Manouba</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Medenine</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Monastir</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Nabeul</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Sfax</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Sidi Bouzid</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Siliana</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Sousse</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Tataouine</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Tozeur</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Tunis</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Zaghouan</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QGroupBox" name="grpPhotoPers_2">
+                <property name="minimumSize">
+                 <size>
+                  <width>400</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="title">
+                 <string>Photo</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_4">
+                 <item>
+                  <widget class="QLabel" name="imagePers">
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="ajouterImgPers">
+                   <property name="text">
+                    <string>Ajouter Image</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="resetImgPers">
+                   <property name="text">
+                    <string>Reset</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QGroupBox" name="groupBox_2">
+                <property name="title">
+                 <string>Cursus Professionnel</string>
+                </property>
+                <layout class="QFormLayout" name="formLayout_2">
+                 <item row="0" column="0">
+                  <widget class="QGroupBox" name="groupBox_11">
+                   <property name="title">
+                    <string> Diplome D'Etude :</string>
+                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_8">
+                    <item>
+                     <widget class="QRadioButton" name="bac">
+                      <property name="text">
+                       <string>BAC</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QRadioButton" name="technicien">
+                      <property name="text">
+                       <string>Technicien</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QRadioButton" name="ingenieur">
+                      <property name="text">
+                       <string>Ingenieur</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QRadioButton" name="doctorant">
+                      <property name="text">
+                       <string>Doctorant</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QGroupBox" name="groupBox_12">
+                   <property name="title">
+                    <string> Type De Contrat :</string>
+                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_9">
+                    <item>
+                     <widget class="QRadioButton" name="cdi">
+                      <property name="text">
+                       <string>CDI</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QRadioButton" name="sivp">
+                      <property name="text">
+                       <string>SIVP</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QRadioButton" name="cdd">
+                      <property name="text">
+                       <string>CDD</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <layout class="QHBoxLayout" name="horizontalLayout_27">
+                   <item>
+                    <widget class="QLabel" name="label_13">
+                     <property name="text">
+                      <string> Date De Recrutement :</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QDateEdit" name="dateRecrutement"/>
+                   </item>
+                  </layout>
+                 </item>
+                 <item row="3" column="0">
+                  <layout class="QHBoxLayout" name="horizontalLayout_28">
+                   <item>
+                    <widget class="QLabel" name="label_17">
+                     <property name="text">
+                      <string>Département :</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="departement">
+                     <item>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Ressources Humaines</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Stock</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Achats</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Ventes</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Ameliorations</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Materiel</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item row="4" column="0">
+                  <layout class="QHBoxLayout" name="horizontalLayout_29">
+                   <item>
+                    <widget class="QLabel" name="label_12">
+                     <property name="text">
+                      <string>Unité :</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="unite">
+                     <item>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Personnels</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Profils</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Matieres Premieres</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Produits Finis</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Fournisseurs</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Commandes Achats</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Clients</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Commandes Ventes</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Projets</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Formations</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Equipements</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Maintenances</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item row="5" column="0">
+                  <layout class="QHBoxLayout" name="horizontalLayout_30">
+                   <item>
+                    <widget class="QLabel" name="label_15">
+                     <property name="text">
+                      <string>  Fonction :</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="fonction">
+                     <item>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Chef De Departement</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Chef D Unite</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Ingenieur</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Technicien</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Ouvrier</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Chercheur</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Commercial</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item row="6" column="0">
+                  <layout class="QHBoxLayout" name="horizontalLayout_31">
+                   <item>
+                    <widget class="QLabel" name="label_16">
+                     <property name="text">
+                      <string>Salaire Mensuel (en Dt) :</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QSpinBox" name="salaire"/>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="afficherPers">
+             <attribute name="title">
+              <string>Afficher Les Personnels</string>
+             </attribute>
+             <layout class="QGridLayout" name="gridLayout_5">
+              <item row="0" column="0">
+               <layout class="QVBoxLayout" name="verticalLayout_5">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_19">
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_12">
+                    <item>
+                     <widget class="QLabel" name="label_24">
+                      <property name="text">
+                       <string>Chercher Un Personnel Par Matricule</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="matCh"/>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer_3">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_11">
+                    <property name="text">
+                     <string>Par Nom</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="nomCh"/>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>54</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_13">
+                    <item>
+                     <widget class="QLabel" name="label_27">
+                      <property name="text">
+                       <string>Chercher Les Personnels Recrutés Entre :</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QDateEdit" name="dateCh1"/>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_28">
+                      <property name="text">
+                       <string>Et</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QDateEdit" name="dateCh2"/>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="chercherDate">
+                      <property name="text">
+                       <string>Chercher</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer_2">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_15">
+                    <item>
+                     <widget class="QLabel" name="label_29">
+                      <property name="text">
+                       <string>Chercher Les </string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="fonctionCh">
+                      <item>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Chef De Departement</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Chef D Unite</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Ingenieur</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Technicien</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Ouvrier</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Chercheur</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Commercial</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_18">
+                  <item>
+                   <widget class="QLabel" name="label_30">
+                    <property name="text">
+                     <string>Chercher Les Personnels </string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QGroupBox" name="groupBox_8">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>60</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="title">
+                     <string> Sexe :</string>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_16">
+                     <item>
+                      <widget class="QRadioButton" name="masculinCh">
+                       <property name="text">
+                        <string>Masculin</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QRadioButton" name="femininCh">
+                       <property name="text">
+                        <string>Feminin</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_31">
+                    <property name="text">
+                     <string>Qui Sont</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QGroupBox" name="groupBox_13">
+                    <property name="title">
+                     <string> Etat Civile :</string>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_17">
+                     <item>
+                      <widget class="QRadioButton" name="marieCh">
+                       <property name="text">
+                        <string>Marie</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QRadioButton" name="celebCh">
+                       <property name="text">
+                        <string>Celebataire</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QRadioButton" name="divorceCh">
+                       <property name="text">
+                        <string>Divorce</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_32">
+                    <property name="text">
+                     <string>Et Agés Plus Que</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="ageCh">
+                    <item>
+                     <property name="text">
+                      <string/>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>18</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>19</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>20</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>21</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>22</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>23</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>24</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>25</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>30</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>35</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>40</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>45</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>50</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>55</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>60</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>65</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="chercherTripleC">
+                    <property name="text">
+                     <string>Chercher</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+              <item row="1" column="0">
+               <layout class="QHBoxLayout" name="horizontalLayout_22">
+                <item>
+                 <widget class="QLabel" name="label_23">
+                  <property name="text">
+                   <string>Trier Par :</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QRadioButton" name="matTP">
+                  <property name="text">
+                   <string>Matricule</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QRadioButton" name="nomT">
+                  <property name="text">
+                   <string>Nom</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QRadioButton" name="ageT">
+                  <property name="text">
+                   <string>Age</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QRadioButton" name="ancienneteT">
+                  <property name="text">
+                   <string>Ancienneté</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QRadioButton" name="salaireT">
+                  <property name="text">
+                   <string>Salaire</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="AD_3">
+                  <item>
+                   <property name="text">
+                    <string>ASC</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>DESC</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="trierS">
+                  <property name="text">
+                   <string>Trier</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="2" column="0">
+               <layout class="QHBoxLayout" name="horizontalLayout_23">
+                <item>
+                 <widget class="QLabel" name="label_25">
+                  <property name="text">
+                   <string>Trier Par :</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="departementT">
+                  <property name="text">
+                   <string>Departement</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="UniteT">
+                  <property name="text">
+                   <string>Unite</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="FonctionT">
+                  <property name="text">
+                   <string>Fonction</string>
+                  </property>
+                  <property name="tristate">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="salaireTM">
+                  <property name="text">
+                   <string>Salaire</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="AD_2">
+                  <item>
+                   <property name="text">
+                    <string>ASC</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>DESC</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="trierM">
+                  <property name="text">
+                   <string>Trier</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="3" column="0">
+               <widget class="QTableView" name="tablePers"/>
+              </item>
+              <item row="4" column="0">
+               <layout class="QHBoxLayout" name="horizontalLayout_11">
+                <item>
+                 <widget class="QPushButton" name="pushButton_3">
+                  <property name="text">
+                   <string>Envoyer Mail</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="statistiques">
+                  <property name="text">
+                   <string>Statistiques </string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="Afficher1Pers">
+                  <property name="text">
+                   <string>Afficher Un Personnel</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="afficherTablePers">
+                  <property name="text">
+                   <string>Afficher Tout</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="modifierPers">
+                  <property name="styleSheet">
+                   <string notr="true">&lt;button type=&quot;button&quot; class=&quot;btn btn-dark&quot;&gt;Dark&lt;/button&gt;</string>
+                  </property>
+                  <property name="text">
+                   <string>Modifier Le Tableau Des Personnels</string>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
+                  <property name="checked">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="supprimerPers">
+                  <property name="enabled">
+                   <bool>true</bool>
+                  </property>
+                  <property name="text">
+                   <string>Supprimer Un Personnel </string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="exportExcel">
+                  <property name="text">
+                   <string>Export Excel</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="tab_5">
+             <attribute name="title">
+              <string>Pointage Des Personnels</string>
+             </attribute>
+             <layout class="QGridLayout" name="gridLayout_6">
+              <item row="0" column="0">
+               <layout class="QVBoxLayout" name="verticalLayout">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_14">
+                  <item>
+                   <widget class="QLabel" name="label_33">
+                    <property name="text">
+                     <string>Matricule :</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="recherchePers"/>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="QTableView" name="tablePointagePers"/>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_20">
+                  <item>
+                   <widget class="QPushButton" name="convoquer">
+                    <property name="text">
+                     <string>Convoquer</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="avertir">
+                    <property name="text">
+                     <string>Avertir</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="envoyerMail">
+                    <property name="text">
+                     <string>Envoyer Mail</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="gestionPro">
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="3" column="2" colspan="2">
+           <layout class="QHBoxLayout" name="horizontalLayout_21">
+            <item>
+             <widget class="QPushButton" name="afficherTablePro">
+              <property name="text">
+               <string>Afficher Tout</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="modifierPro">
+              <property name="styleSheet">
+               <string notr="true">&lt;button type=&quot;button&quot; class=&quot;btn btn-dark&quot;&gt;Dark&lt;/button&gt;</string>
+              </property>
+              <property name="text">
+               <string>Modifier Le Tableau Des Profils</string>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="supprimerPro">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string>Supprimer Un Profil</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="0" rowspan="3">
+           <widget class="QGroupBox" name="groupProfil">
+            <property name="title">
+             <string>Profil</string>
+            </property>
+            <layout class="QFormLayout" name="formLayout_3">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_21">
+               <property name="text">
+                <string>Matricule</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="matriculeP">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_14">
+               <property name="text">
+                <string>Nom Utilisateur :</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="nomUP"/>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_18">
+               <property name="text">
+                <string>E-mail</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="email"/>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="label_22">
+               <property name="text">
+                <string>Mot De Passe :</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLineEdit" name="motDePasseP"/>
+             </item>
+             <item row="4" column="0">
+              <layout class="QHBoxLayout" name="horizontalLayout_24">
+               <item>
+                <widget class="QPushButton" name="reduire">
+                 <property name="text">
+                  <string>Réduire</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="vAjouterPro">
+                 <property name="text">
+                  <string>Valider</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="annulerAjoutPers_2">
+                 <property name="text">
+                  <string>Annuler</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <layout class="QHBoxLayout" name="horizontalLayout_25">
+            <item>
+             <widget class="QLabel" name="label_26">
+              <property name="text">
+               <string>Trier Par :</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="idT">
+              <property name="text">
+               <string>ID</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="matT">
+              <property name="text">
+               <string>Matricule</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="nomUT">
+              <property name="text">
+               <string>Nom Utilisateur</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="AD">
+              <item>
+               <property name="text">
+                <string>ASC</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>DESC</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="trier">
+              <property name="text">
+               <string>Trier</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="2" column="1" colspan="3">
+           <widget class="QTableView" name="tablePro"/>
+          </item>
+          <item row="1" column="1">
+           <widget class="QPushButton" name="exportExcelP">
+            <property name="text">
+             <string>Export Excel</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_7">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <item>
+             <widget class="QLabel" name="imageProfil">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="nomProfil">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Nom Prenom</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_26">
+            <item>
+             <widget class="QPushButton" name="pushButton">
+              <property name="text">
+               <string>Modifier Profil</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_2">
+              <property name="text">
+               <string>Options</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QPushButton" name="gestionPersonnelProfil">
+          <property name="text">
+           <string>Gestion Personnel et Profil</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="gestionStock">
+          <property name="text">
+           <string>Gestion Stock</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="gestionAchats">
+          <property name="text">
+           <string>Gestion Achats</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="gestionVentes">
+          <property name="text">
+           <string>Gestion Ventes</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="gestionEquipements">
+          <property name="text">
+           <string>Gestion Equipement</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="gestionAmeliorations">
+          <property name="text">
+           <string>Gestion Amelioration</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="page_7"/>
+    <widget class="QWidget" name="page_5"/>
+    <widget class="QWidget" name="page_8"/>
+    <widget class="QWidget" name="page_2"/>
+    <widget class="QWidget" name="page_4"/>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1863</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>resetImgPers</sender>
+   <signal>clicked()</signal>
+   <receiver>imagePers</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1345</x>
+     <y>702</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1319</x>
+     <y>489</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>annulerAjoutPers</sender>
+   <signal>clicked()</signal>
+   <receiver>cin</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1418</x>
+     <y>746</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>635</x>
+     <y>161</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>annulerAjoutPers</sender>
+   <signal>clicked()</signal>
+   <receiver>nom</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1401</x>
+     <y>740</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>664</x>
+     <y>197</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>annulerAjoutPers</sender>
+   <signal>clicked()</signal>
+   <receiver>prenom</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1464</x>
+     <y>747</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>679</x>
+     <y>225</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>annulerAjoutPers</sender>
+   <signal>clicked()</signal>
+   <receiver>numTel</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1396</x>
+     <y>746</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>648</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>annulerAjoutPers</sender>
+   <signal>clicked()</signal>
+   <receiver>dateNaissance</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1428</x>
+     <y>742</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>675</x>
+     <y>643</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>annulerAjoutPers</sender>
+   <signal>clicked()</signal>
+   <receiver>gouvernoratHabitation</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1311</x>
+     <y>728</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>669</x>
+     <y>673</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>annulerAjoutPers</sender>
+   <signal>clicked()</signal>
+   <receiver>gouvernoratOrigin</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1461</x>
+     <y>741</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>665</x>
+     <y>701</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>annulerAjoutPers</sender>
+   <signal>clicked()</signal>
+   <receiver>dateRecrutement</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1468</x>
+     <y>743</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>901</x>
+     <y>323</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>annulerAjoutPers</sender>
+   <signal>clicked()</signal>
+   <receiver>departement</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1485</x>
+     <y>741</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>900</x>
+     <y>418</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>annulerAjoutPers</sender>
+   <signal>clicked()</signal>
+   <receiver>unite</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1486</x>
+     <y>748</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>816</x>
+     <y>496</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>annulerAjoutPers</sender>
+   <signal>clicked()</signal>
+   <receiver>fonction</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1487</x>
+     <y>735</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>916</x>
+     <y>575</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>annulerAjoutPers</sender>
+   <signal>clicked()</signal>
+   <receiver>salaire</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1445</x>
+     <y>742</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>915</x>
+     <y>663</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>quitter</sender>
+   <signal>clicked()</signal>
+   <receiver>Smart_Factory_2A1</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1220</x>
+     <y>805</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1537</x>
+     <y>794</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>annulerC</sender>
+   <signal>clicked()</signal>
+   <receiver>nomUC</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>678</x>
+     <y>288</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>541</x>
+     <y>156</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>annulerC</sender>
+   <signal>clicked()</signal>
+   <receiver>mdpC</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>647</x>
+     <y>295</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>525</x>
+     <y>187</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>quitterP</sender>
+   <signal>clicked()</signal>
+   <receiver>Smart_Factory_2A1</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>717</x>
+     <y>454</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1538</x>
+     <y>460</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

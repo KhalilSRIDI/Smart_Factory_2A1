@@ -4,14 +4,10 @@
 #include "login.h"
 #include "personnels.h"
 #include "profils.h"
+#include "statistiques.h"
+#include "afficherunpersonnel.h"
 #include "projets.h"
 #include "formation.h"
-#include "gestionmateriel.h"
-#include "gestionmaintenance.h"
-#include "email.h"
-#include "statis.h"
-#include "arduino.h"
-#include "arduinoobstacle.h"
 #include <QMainWindow>
 #include <QStatusBar>
 #include <QSound>
@@ -25,11 +21,7 @@
 #include <QPropertyAnimation>
 #include <QRegularExpression>
 #include <QDir>
-#include <QMediaPlayer>
-#include <QPrinter>
-#include <QTextDocument>
-#include "statistiques.h"
-#include "smtp.h"
+#include <QTranslator>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Smart_Factory_2A1; }
@@ -98,76 +90,57 @@ private slots:
     void on_ajouterImgPers_clicked();
 
     void on_resetImgPers_clicked();
-    void on_pushButtonAjouter_clicked();
+//    void on_pushButtonAjouter_clicked();
 
-    void on_pushButtonSupprimer_clicked();
+//    void on_pushButtonSupprimer_clicked();
 
-    void on_pushButtonModifier_clicked();
+//    void on_pushButtonModifier_clicked();
 
-    void on_pushButtonAjouterF_clicked();
+//    void on_pushButtonAjouterF_clicked();
 
-    void on_pushButtonSupprimerF_clicked();
+//    void on_pushButtonSupprimerF_clicked();
 
-    void on_pushButtonModifierF_clicked();
+//    void on_pushButtonModifierF_clicked();
 
-    void on_pushButtonRechercheF_clicked();
+//    void on_pushButtonRechercheF_clicked();
 
-    void on_pushButtonRechercheP_clicked();
+//    void on_pushButtonRechercheP_clicked();
 
-    void on_pushButtonRefreshP_clicked();
+//    void on_pushButtonRefreshP_clicked();
 
-    void on_pushButtonRefreshF_clicked();
+//    void on_pushButtonRefreshF_clicked();
 
-    void on_pushButtonExportF_clicked();
+//    void on_pushButtonExportF_clicked();
 
-    void on_pushButtonExportP_clicked();
+//    void on_pushButtonExportP_clicked();
 
-    void on_pushTrierP_clicked();
+//    void on_pushTrierP_clicked();
 
-    void on_pushTrierF_clicked();
+//    void on_pushTrierF_clicked();
 
-    void on_pushButtonStat_clicked();
+//    void on_pushButtonStat_clicked();
 
 
 
     void on_gestionAmeliorations_clicked();
 
-    void on_pushButton_gestion_materiel_clicked();
 
-    void on_pushButton_valider_clicked();
-    void on_pushButton_supprimer_clicked();
-    void on_pushButton_modifier_clicked();
-    void on_pushButton_recherche_clicked();
-    void on_pushButton_trier_clicked();
 
-    void on_pushButton_validermaint_clicked();
-    void on_pushButton_supprimermaint_clicked();
-    void on_pushButton_modifiermaint_clicked();
-    void on_pushButton_recherche_2_clicked();
-    void on_pushButton_trier_2_clicked();
 
-    void on_pushButton_email_clicked();
-    void on_pushButton_stat_clicked();
 
-    void on_pushButton_arduinoobstacle_clicked();
+    void on_gestionStock_clicked();
 
-    void on_pushButtonExportPDFP_clicked();
+    void on_gestionAchats_clicked();
 
-    void on_pushButtonExportPDFF_clicked();
+    void on_gestionVentes_clicked();
 
-    void on_pushButtonExporterEquip_clicked();
+    void on_gestionEquipements_clicked();
 
-    void on_pushButtonExporterMain_clicked();
+    void on_deconnecter_clicked();
 
-    void on_gestionProjets_2_clicked();
+    void on_pushButton_2_clicked();
 
-    void on_gestionFormations_2_clicked();
-
-    void on_pushButtonExporterMain_2_clicked();
-
-    void on_pushButtonExporterEquip_2_clicked();
-
-    void on_envoyerMailFormations_clicked();
+    void on_pushButton_clicked();
 
 private:
     Ui::Smart_Factory_2A1 *ui;
@@ -184,9 +157,6 @@ private:
     QRegExp mdp;
     projets tmp_projet;
     formation tmp_formation;
-    materiel etmp;
-    maintenance mtmp;
-// QMediaPlayer *click;
 
 };
 #endif // SMART_FACTORY_2A1_H
