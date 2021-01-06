@@ -75,51 +75,12 @@ private slots:
 
     void on_Afficher1Pers_clicked();
 
-//    void traduire(QString );
-
-//    void on_langueBox_currentTextChanged(const QString &arg1);
-
-//    void on_langueBox_currentIndexChanged(const QString &arg1);
-
-
-
-    void on_langueBox_currentTextChanged(const QString &arg1);
-
-    void on_ajouterImgPers_3_clicked();
 
 
 
 
-    void on_resetImgPers_clicked();
-//    void on_pushButtonAjouter_clicked();
 
-//    void on_pushButtonSupprimer_clicked();
 
-//    void on_pushButtonModifier_clicked();
-
-//    void on_pushButtonAjouterF_clicked();
-
-//    void on_pushButtonSupprimerF_clicked();
-
-//    void on_pushButtonModifierF_clicked();
-
-//    void on_pushButtonRechercheF_clicked();
-
-//    void on_pushButtonRechercheP_clicked();
-
-//    void on_pushButtonRefreshP_clicked();
-
-//    void on_pushButtonRefreshF_clicked();
-
-//    void on_pushButtonExportF_clicked();
-
-//    void on_pushButtonExportP_clicked();
-
-//    void on_pushTrierP_clicked();
-
-//    void on_pushTrierF_clicked();
-
-//    void on_pushButtonStat_clicked();
 
 
 
@@ -138,10 +99,6 @@ private slots:
     void on_gestionEquipements_clicked();
 
     void on_deconnecter_3_clicked();
-
-    void on_pushButton_2_clicked();
-
-    void on_pushButton_clicked();
 
     void on_envoyerMail_2_clicked();
 
