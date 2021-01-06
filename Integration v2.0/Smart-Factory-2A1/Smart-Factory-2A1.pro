@@ -18,13 +18,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     afficherunpersonnel.cpp \
     arduino.cpp \
-    arduinoobstacle.cpp \
     connexionsql.cpp \
     dialog.cpp \
-    email.cpp \
     formation.cpp \
-    gestionmaintenance.cpp \
-    gestionmateriel.cpp \
     login.cpp \
     main.cpp \
     modifierprofil.cpp \
@@ -32,45 +28,34 @@ SOURCES += \
     personnels.cpp \
     profils.cpp \
     projets.cpp \
-    qcustomplot.cpp \
     smart_factory_2a1.cpp \
     smtp.cpp \
-    statis.cpp \
     statistique2.cpp \
     statistiques.cpp
 
 HEADERS += \
     afficherunpersonnel.h \
     arduino.h \
-    arduinoobstacle.h \
     connexionsql.h \
     dialog.h \
-    email.h \
     formation.h \
-    gestionmaintenance.h \
-    gestionmateriel.h \
     login.h \
     modifierprofil.h \
     options.h \
     personnels.h \
     profils.h \
     projets.h \
-    qcustomplot.h \
     smart_factory_2a1.h \
     smtp.h \
-    statis.h \
     statistique2.h \
     statistiques.h
 
 FORMS += \
     afficherunpersonnel.ui \
-    arduinoobstacle.ui \
     dialog.ui \
-    email.ui \
     modifierprofil.ui \
     options.ui \
     smart_factory_2a1.ui \
-    statis.ui \
     statistique2.ui \
     statistiques.ui
 
