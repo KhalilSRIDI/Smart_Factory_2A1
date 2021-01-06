@@ -11,6 +11,12 @@
 #include "projets.h"
 #include "formation.h"
 #include "dialog.h"
+#include "gestionmateriel.h"
+#include "gestionmaintenance.h"
+#include "email.h"
+#include "statis.h"
+#include "arduino.h"
+#include "arduinoobstacle.h"
 #include <QMainWindow>
 #include <QStatusBar>
 #include<QSound>
@@ -151,6 +157,31 @@ private slots:
 
     void on_afficherToutF_clicked();
 
+    void on_pushButton_valider_clicked();
+    void on_pushButton_supprimer_clicked();
+    void on_pushButton_modifier_clicked();
+    void on_pushButton_recherche_clicked();
+    void on_pushButton_trier_clicked();
+
+    void on_pushButton_validermaint_clicked();
+    void on_pushButton_supprimermaint_clicked();
+    void on_pushButton_modifiermaint_clicked();
+    void on_pushButton_recherche_2_clicked();
+    void on_pushButton_trier_2_clicked();
+
+    void on_pushButton_email_clicked();
+    void on_pushButton_stat_clicked();
+
+    void on_pushButton_arduinoobstacle_clicked();
+
+    void on_pushButtonExporterEquip_clicked();
+
+    void on_pushButtonExporterMain_clicked();
+
+    void on_pushButtonExporterEquip_2_clicked();
+
+    void on_pushButtonExporterMain_2_clicked();
+
 private:
     Ui::Smart_Factory_2A1 *ui;
     login authentification;
@@ -166,6 +197,8 @@ private:
     QRegExp mdp;
     projets tmp_projet;
     formation tmp_formation;
+    materiel etmp;
+    maintenance mtmp;
 
 };
 #endif // SMART_FACTORY_2A1_H
