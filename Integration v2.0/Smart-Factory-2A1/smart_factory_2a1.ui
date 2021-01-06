@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1477</width>
-    <height>879</height>
+    <height>881</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,7 +27,7 @@
           <x>790</x>
           <y>340</y>
           <width>232</width>
-          <height>24</height>
+          <height>26</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -66,7 +66,7 @@
           <x>820</x>
           <y>310</y>
           <width>242</width>
-          <height>24</height>
+          <height>26</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout">
@@ -260,7 +260,7 @@
         <item row="0" column="1">
          <widget class="QStackedWidget" name="smartFactory">
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="page_4">
            <layout class="QGridLayout" name="gridLayout_7">
@@ -1925,7 +1925,7 @@
                <enum>QFrame::WinPanel</enum>
               </property>
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="gestionProjets">
                <layout class="QGridLayout" name="gridLayout_8">
@@ -2323,19 +2323,6 @@
                      <string>Revenus</string>
                     </property>
                    </widget>
-                   <widget class="QPushButton" name="pushButtonRefreshP">
-                    <property name="geometry">
-                     <rect>
-                      <x>110</x>
-                      <y>520</y>
-                      <width>110</width>
-                      <height>30</height>
-                     </rect>
-                    </property>
-                    <property name="text">
-                     <string>Refresh</string>
-                    </property>
-                   </widget>
                    <widget class="QPushButton" name="pushTrierP">
                     <property name="geometry">
                      <rect>
@@ -2380,6 +2367,19 @@
                     </property>
                     <property name="text">
                      <string>Export PDF</string>
+                    </property>
+                   </widget>
+                   <widget class="QPushButton" name="afficherToutP">
+                    <property name="geometry">
+                     <rect>
+                      <x>120</x>
+                      <y>520</y>
+                      <width>90</width>
+                      <height>30</height>
+                     </rect>
+                    </property>
+                    <property name="text">
+                     <string>Afficher Tout</string>
                     </property>
                    </widget>
                   </widget>
@@ -2771,19 +2771,6 @@
                      <string>Trier</string>
                     </property>
                    </widget>
-                   <widget class="QPushButton" name="pushButtonRefreshF">
-                    <property name="geometry">
-                     <rect>
-                      <x>110</x>
-                      <y>520</y>
-                      <width>110</width>
-                      <height>30</height>
-                     </rect>
-                    </property>
-                    <property name="text">
-                     <string>Refresh</string>
-                    </property>
-                   </widget>
                    <widget class="QPushButton" name="pushButtonExportPDFF">
                     <property name="geometry">
                      <rect>
@@ -2808,6 +2795,19 @@
                     </property>
                     <property name="text">
                      <string>Envoyer Mail</string>
+                    </property>
+                   </widget>
+                   <widget class="QPushButton" name="afficherToutF">
+                    <property name="geometry">
+                     <rect>
+                      <x>120</x>
+                      <y>520</y>
+                      <width>90</width>
+                      <height>30</height>
+                     </rect>
+                    </property>
+                    <property name="text">
+                     <string>Afficher Tout</string>
                     </property>
                    </widget>
                   </widget>
@@ -3088,7 +3088,7 @@
                     </property>
                     <property name="icon">
                      <iconset>
-                      <normaloff>E:/icons/loop.png</normaloff>E:/icons/loop.png</iconset>
+                      <normaloff>../../../../../../../../icons/loop.png</normaloff>../../../../../../../../icons/loop.png</iconset>
                     </property>
                    </widget>
                    <widget class="QPushButton" name="pushButton_validermaint">
@@ -3105,7 +3105,7 @@
                     </property>
                     <property name="icon">
                      <iconset>
-                      <normaloff>E:/icons/check.png</normaloff>E:/icons/check.png</iconset>
+                      <normaloff>../../../../../../../../icons/check.png</normaloff>../../../../../../../../icons/check.png</iconset>
                     </property>
                     <property name="checkable">
                      <bool>false</bool>
@@ -3125,7 +3125,7 @@
                     </property>
                     <property name="icon">
                      <iconset>
-                      <normaloff>E:/icons/not check.png</normaloff>E:/icons/not check.png</iconset>
+                      <normaloff>../../../../../../../../icons/not check.png</normaloff>../../../../../../../../icons/not check.png</iconset>
                     </property>
                    </widget>
                   </widget>
@@ -3147,7 +3147,7 @@
                     </property>
                     <property name="icon">
                      <iconset>
-                      <normaloff>E:/icons/modifierpanne.png</normaloff>E:/icons/modifierpanne.png</iconset>
+                      <normaloff>../../../../../../../../icons/modifierpanne.png</normaloff>../../../../../../../../icons/modifierpanne.png</iconset>
                     </property>
                     <property name="checkable">
                      <bool>true</bool>
@@ -3167,7 +3167,7 @@
                     </property>
                     <property name="icon">
                      <iconset>
-                      <normaloff>E:/icons/supppanne.png</normaloff>E:/icons/supppanne.png</iconset>
+                      <normaloff>../../../../../../../../icons/supppanne.png</normaloff>../../../../../../../../icons/supppanne.png</iconset>
                     </property>
                    </widget>
                    <widget class="QTableView" name="tableView_maint">
@@ -3194,7 +3194,7 @@
                     </property>
                     <property name="icon">
                      <iconset>
-                      <normaloff>E:/icons/mail.png</normaloff>E:/icons/mail.png</iconset>
+                      <normaloff>../../../../../../../../icons/mail.png</normaloff>../../../../../../../../icons/mail.png</iconset>
                     </property>
                    </widget>
                    <widget class="QLabel" name="label_106">
@@ -3367,7 +3367,7 @@
                     </property>
                     <property name="icon">
                      <iconset>
-                      <normaloff>E:/icons/loop.png</normaloff>E:/icons/loop.png</iconset>
+                      <normaloff>../../../../../../../../icons/loop.png</normaloff>../../../../../../../../icons/loop.png</iconset>
                     </property>
                     <property name="checkable">
                      <bool>true</bool>
@@ -3445,7 +3445,7 @@
                        </property>
                        <property name="icon">
                         <iconset>
-                         <normaloff>E:/icons/TriMan-300x300.png</normaloff>E:/icons/TriMan-300x300.png</iconset>
+                         <normaloff>../../../../../../../../icons/TriMan-300x300.png</normaloff>../../../../../../../../icons/TriMan-300x300.png</iconset>
                        </property>
                        <property name="checkable">
                         <bool>true</bool>
@@ -3578,7 +3578,7 @@
                   </property>
                   <property name="icon">
                    <iconset>
-                    <normaloff>E:/icons/modifier.png</normaloff>E:/icons/modifier.png</iconset>
+                    <normaloff>../../../../../../../../icons/modifier.png</normaloff>../../../../../../../../icons/modifier.png</iconset>
                   </property>
                   <property name="checkable">
                    <bool>true</bool>
@@ -3601,7 +3601,7 @@
                   </property>
                   <property name="icon">
                    <iconset>
-                    <normaloff>E:/icons/supprimer.png</normaloff>E:/icons/supprimer.png</iconset>
+                    <normaloff>../../../../../../../../icons/supprimer.png</normaloff>../../../../../../../../icons/supprimer.png</iconset>
                   </property>
                  </widget>
                  <widget class="QTableView" name="tableView_materiel">
@@ -3695,7 +3695,7 @@ td, th
                   </property>
                   <property name="icon">
                    <iconset>
-                    <normaloff>E:/icons/loop.png</normaloff>E:/icons/loop.png</iconset>
+                    <normaloff>../../../../../../../../icons/loop.png</normaloff>../../../../../../../../icons/loop.png</iconset>
                   </property>
                   <property name="checkable">
                    <bool>true</bool>
@@ -3746,7 +3746,7 @@ td, th
                      </property>
                      <property name="icon">
                       <iconset>
-                       <normaloff>E:/icons/TriMan-300x300.png</normaloff>E:/icons/TriMan-300x300.png</iconset>
+                       <normaloff>../../../../../../../../icons/TriMan-300x300.png</normaloff>../../../../../../../../icons/TriMan-300x300.png</iconset>
                      </property>
                      <property name="checkable">
                       <bool>true</bool>
@@ -3814,7 +3814,7 @@ td, th
                   </property>
                   <property name="icon">
                    <iconset>
-                    <normaloff>E:/icons/stat.png</normaloff>E:/icons/stat.png</iconset>
+                    <normaloff>../../../../../../../../icons/stat.png</normaloff>../../../../../../../../icons/stat.png</iconset>
                   </property>
                  </widget>
                  <widget class="QPushButton" name="pushButton_arduinoobstacle">
@@ -3888,7 +3888,7 @@ td, th
                   </property>
                   <property name="icon">
                    <iconset>
-                    <normaloff>E:/icons/check.png</normaloff>E:/icons/check.png</iconset>
+                    <normaloff>../../../../../../../../icons/check.png</normaloff>../../../../../../../../icons/check.png</iconset>
                   </property>
                  </widget>
                  <widget class="QPushButton" name="pushButton_annuler">
@@ -3905,7 +3905,7 @@ td, th
                   </property>
                   <property name="icon">
                    <iconset>
-                    <normaloff>E:/icons/not check.png</normaloff>E:/icons/not check.png</iconset>
+                    <normaloff>../../../../../../../../icons/not check.png</normaloff>../../../../../../../../icons/not check.png</iconset>
                   </property>
                  </widget>
                  <widget class="QWidget" name="formLayoutWidget">
@@ -4073,7 +4073,7 @@ td, th
      <x>0</x>
      <y>0</y>
      <width>1477</width>
-     <height>26</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

@@ -114,6 +114,42 @@ private slots:
 
 
 
+    void on_pushButtonRechercheP_clicked();
+
+    void on_pushButtonStat_clicked();
+
+    void on_pushButtonExportP_clicked();
+
+    void on_pushButtonExportPDFP_clicked();
+
+    void on_pushTrierP_clicked();
+
+    void on_pushButtonAjouter_clicked();
+
+    void on_pushButtonModifier_clicked();
+
+    void on_pushButtonSupprimer_clicked();
+
+    void on_pushButtonAjouterF_clicked();
+
+    void on_pushButtonRechercheF_clicked();
+
+    void on_envoyerMailFormations_clicked();
+
+    void on_pushButtonExportF_clicked();
+
+    void on_pushButtonExportPDFF_clicked();
+
+    void on_pushTrierF_clicked();
+
+    void on_pushButtonModifierF_clicked();
+
+    void on_pushButtonSupprimerF_clicked();
+
+    void on_afficherToutP_clicked();
+
+    void on_afficherToutF_clicked();
+
 private:
     Ui::Smart_Factory_2A1 *ui;
     login authentification;
