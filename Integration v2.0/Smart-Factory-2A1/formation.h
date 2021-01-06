@@ -17,11 +17,11 @@ class formation
 public:
     formation();
 
-    formation(QString n,int p,QString f,QString date,QString d,QString c):NOM(n),PROJET(p),FORMATEUR(f),DATEDEBUT(date),DUREE(d),COUT(c) {}
+    formation(QString n,QString p,QString f,QString date,QString d,QString c):NOM(n),PROJET(p),FORMATEUR(f),DATEDEBUT(date),DUREE(d),COUT(c) {}
 
     //getters
     QString getNom(){return NOM;};
-    int getProjet(){return PROJET;};
+    QString getProjet(){return PROJET;};
     QString getFormateur(){return FORMATEUR;};
     QString getDateD(){return DATEDEBUT;};
     QString getDuree(){return DUREE;};
@@ -46,7 +46,7 @@ public:
 
 private:
     QString NOM;
-    int PROJET;
+    QString PROJET;
     QString FORMATEUR;
     QString DATEDEBUT;
     QString DUREE;

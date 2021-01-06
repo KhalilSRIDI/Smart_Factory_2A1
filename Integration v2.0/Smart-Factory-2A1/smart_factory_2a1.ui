@@ -285,7 +285,7 @@
                <enum>QFrame::WinPanel</enum>
               </property>
               <property name="currentIndex">
-               <number>1</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="gestionPers">
                <layout class="QGridLayout" name="gridLayout">
@@ -1925,7 +1925,7 @@
                <enum>QFrame::WinPanel</enum>
               </property>
               <property name="currentIndex">
-               <number>1</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="gestionProjets">
                <layout class="QGridLayout" name="gridLayout_8">
@@ -2014,16 +2014,6 @@
                     <rect>
                      <x>220</x>
                      <y>40</y>
-                     <width>150</width>
-                     <height>20</height>
-                    </rect>
-                   </property>
-                  </widget>
-                  <widget class="QLineEdit" name="lineEditTeamLeaderP">
-                   <property name="geometry">
-                    <rect>
-                     <x>220</x>
-                     <y>120</y>
                      <width>150</width>
                      <height>20</height>
                     </rect>
@@ -2383,6 +2373,16 @@
                     </property>
                    </widget>
                   </widget>
+                  <widget class="QComboBox" name="comboBoxTeamLeader">
+                   <property name="geometry">
+                    <rect>
+                     <x>220</x>
+                     <y>120</y>
+                     <width>150</width>
+                     <height>20</height>
+                    </rect>
+                   </property>
+                  </widget>
                  </widget>
                 </item>
                </layout>
@@ -2479,16 +2479,6 @@
                     </rect>
                    </property>
                   </widget>
-                  <widget class="QLineEdit" name="lineEditFormateur">
-                   <property name="geometry">
-                    <rect>
-                     <x>220</x>
-                     <y>120</y>
-                     <width>150</width>
-                     <height>20</height>
-                    </rect>
-                   </property>
-                  </widget>
                   <widget class="QLineEdit" name="lineEditDureeF">
                    <property name="geometry">
                     <rect>
@@ -2533,16 +2523,6 @@
                    </property>
                    <property name="text">
                     <string>Ajouter</string>
-                   </property>
-                  </widget>
-                  <widget class="QLineEdit" name="lineEditProjet">
-                   <property name="geometry">
-                    <rect>
-                     <x>220</x>
-                     <y>80</y>
-                     <width>150</width>
-                     <height>20</height>
-                    </rect>
                    </property>
                   </widget>
                   <widget class="QGroupBox" name="groupBoxConsulterP_4">
@@ -2810,6 +2790,26 @@
                      <string>Afficher Tout</string>
                     </property>
                    </widget>
+                  </widget>
+                  <widget class="QComboBox" name="comboBoxPC">
+                   <property name="geometry">
+                    <rect>
+                     <x>220</x>
+                     <y>80</y>
+                     <width>150</width>
+                     <height>20</height>
+                    </rect>
+                   </property>
+                  </widget>
+                  <widget class="QLineEdit" name="lineEditFormateur">
+                   <property name="geometry">
+                    <rect>
+                     <x>220</x>
+                     <y>120</y>
+                     <width>150</width>
+                     <height>20</height>
+                    </rect>
+                   </property>
                   </widget>
                  </widget>
                 </item>

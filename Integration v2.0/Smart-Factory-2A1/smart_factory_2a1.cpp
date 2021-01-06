@@ -9,6 +9,21 @@ Smart_Factory_2A1::Smart_Factory_2A1(QWidget *parent)
     ui->smartFactory->setCurrentIndex(1);
     ui->stackedWidget->setCurrentIndex(1);
 
+    //charger comboboxPC
+    QSqlQueryModel * modal=new QSqlQueryModel ();
+    QSqlQuery *qry=new QSqlQuery  ();
+    qry->prepare("select nom from projets");
+    qry->exec();
+    modal->setQuery(*qry);
+    ui->comboBoxPC->setModel(modal);
+    //charger comboBoxTeamLeader
+    QSqlQueryModel * modal2=new QSqlQueryModel ();
+    QSqlQuery *qry2=new QSqlQuery  ();
+    qry2->prepare("select nom from personnels where fonction = 'Chef De Departement' or fonction = 'Chef D Unite' or fonction = 'Ingenieur' ");
+    qry2->exec();
+    modal2->setQuery(*qry2);
+    ui->comboBoxTeamLeader->setModel(modal2);
+
     chaine=QRegExp("[a-zA-Z]{3,15}$");
     numeroCin=QRegExp("[0-9]{8}$");
     numeroTelephone=QRegExp("[1-9]{8}$");
@@ -873,7 +888,7 @@ void Smart_Factory_2A1::on_pushButtonAjouter_clicked()
 
     QString NOM=ui->lineEditNomP->text();
     QString DEPARTEMENT=ui->comboBoxDepartementP->currentText();
-    QString TEAM_LEADER=ui->lineEditTeamLeaderP->text();
+    QString TEAM_LEADER=ui->comboBoxTeamLeader->currentText();
     QString DATE_LANCEMENT=ui->dateEditLancementP->date().toString("dd/MM/yyyy");
     QString COUTS_PREVUS=ui->lineEditCoutP->text();
     QString REVENUS_PROJETES=ui->lineEditRevenuesP->text();
@@ -884,7 +899,6 @@ void Smart_Factory_2A1::on_pushButtonAjouter_clicked()
         ui->tableViewP->setModel(tmp_projet.afficher());
         ui->statusbar->showMessage("AJOUT : SUCCESS");
         ui->lineEditNomP->setText("");
-        ui->lineEditTeamLeaderP->setText("");
         ui->lineEditCoutP->setText("");
         ui->lineEditRevenuesP->setText("");
     }
@@ -923,7 +937,7 @@ void Smart_Factory_2A1::on_pushButtonAjouterF_clicked()
 {
     QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Khalil SRIDI/gestionAmelioration/src/mouseclick.wav");
     QString NOM=ui->lineEditNomF->text();
-    int PROJET=ui->lineEditProjet->text().toInt();
+    QString PROJET=ui->comboBoxPC->currentText();
     QString FORMATEUR=ui->lineEditFormateur->text();
     QString DATEDEBUT=ui->dateEditDateF->date().toString("dd/MM/yyyy");
     QString DUREE=ui->lineEditDureeF->text();

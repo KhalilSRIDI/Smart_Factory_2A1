@@ -265,7 +265,6 @@ public:
     QLabel *label_50;
     QDateEdit *dateEditLancementP;
     QLineEdit *lineEditNomP;
-    QLineEdit *lineEditTeamLeaderP;
     QLineEdit *lineEditCoutP;
     QLineEdit *lineEditRevenuesP;
     QLabel *label_51;
@@ -290,6 +289,7 @@ public:
     QComboBox *comboBoxP;
     QPushButton *pushButtonExportPDFP;
     QPushButton *afficherToutP;
+    QComboBox *comboBoxTeamLeader;
     QWidget *gestionFormations;
     QGridLayout *gridLayout_12;
     QGroupBox *groupBoxAjouterP_4;
@@ -300,12 +300,10 @@ public:
     QLabel *label_57;
     QDateEdit *dateEditDateF;
     QLineEdit *lineEditNomF;
-    QLineEdit *lineEditFormateur;
     QLineEdit *lineEditDureeF;
     QLineEdit *lineEditCoutF;
     QLabel *label_58;
     QPushButton *pushButtonAjouterF;
-    QLineEdit *lineEditProjet;
     QGroupBox *groupBoxConsulterP_4;
     QLineEdit *lineEditRF;
     QPushButton *pushButtonRechercheF;
@@ -325,6 +323,8 @@ public:
     QPushButton *pushButtonExportPDFF;
     QPushButton *envoyerMailFormations;
     QPushButton *afficherToutF;
+    QComboBox *comboBoxPC;
+    QLineEdit *lineEditFormateur;
     QWidget *page_5;
     QGridLayout *gridLayout_11;
     QStackedWidget *stackedWidget_3;
@@ -1465,9 +1465,6 @@ public:
         lineEditNomP = new QLineEdit(groupBoxAjouterP);
         lineEditNomP->setObjectName(QStringLiteral("lineEditNomP"));
         lineEditNomP->setGeometry(QRect(220, 40, 150, 20));
-        lineEditTeamLeaderP = new QLineEdit(groupBoxAjouterP);
-        lineEditTeamLeaderP->setObjectName(QStringLiteral("lineEditTeamLeaderP"));
-        lineEditTeamLeaderP->setGeometry(QRect(220, 120, 150, 20));
         lineEditCoutP = new QLineEdit(groupBoxAjouterP);
         lineEditCoutP->setObjectName(QStringLiteral("lineEditCoutP"));
         lineEditCoutP->setGeometry(QRect(220, 200, 150, 20));
@@ -1545,6 +1542,9 @@ public:
         afficherToutP = new QPushButton(groupBoxConsulterP);
         afficherToutP->setObjectName(QStringLiteral("afficherToutP"));
         afficherToutP->setGeometry(QRect(120, 520, 90, 30));
+        comboBoxTeamLeader = new QComboBox(groupBoxAjouterP);
+        comboBoxTeamLeader->setObjectName(QStringLiteral("comboBoxTeamLeader"));
+        comboBoxTeamLeader->setGeometry(QRect(220, 120, 150, 20));
 
         gridLayout_8->addWidget(groupBoxAjouterP, 1, 0, 1, 1);
 
@@ -1576,9 +1576,6 @@ public:
         lineEditNomF = new QLineEdit(groupBoxAjouterP_4);
         lineEditNomF->setObjectName(QStringLiteral("lineEditNomF"));
         lineEditNomF->setGeometry(QRect(220, 40, 150, 20));
-        lineEditFormateur = new QLineEdit(groupBoxAjouterP_4);
-        lineEditFormateur->setObjectName(QStringLiteral("lineEditFormateur"));
-        lineEditFormateur->setGeometry(QRect(220, 120, 150, 20));
         lineEditDureeF = new QLineEdit(groupBoxAjouterP_4);
         lineEditDureeF->setObjectName(QStringLiteral("lineEditDureeF"));
         lineEditDureeF->setGeometry(QRect(220, 200, 150, 20));
@@ -1591,9 +1588,6 @@ public:
         pushButtonAjouterF = new QPushButton(groupBoxAjouterP_4);
         pushButtonAjouterF->setObjectName(QStringLiteral("pushButtonAjouterF"));
         pushButtonAjouterF->setGeometry(QRect(280, 300, 80, 25));
-        lineEditProjet = new QLineEdit(groupBoxAjouterP_4);
-        lineEditProjet->setObjectName(QStringLiteral("lineEditProjet"));
-        lineEditProjet->setGeometry(QRect(220, 80, 150, 20));
         groupBoxConsulterP_4 = new QGroupBox(groupBoxAjouterP_4);
         groupBoxConsulterP_4->setObjectName(QStringLiteral("groupBoxConsulterP_4"));
         groupBoxConsulterP_4->setGeometry(QRect(420, 0, 741, 674));
@@ -1657,6 +1651,12 @@ public:
         afficherToutF = new QPushButton(groupBoxConsulterP_4);
         afficherToutF->setObjectName(QStringLiteral("afficherToutF"));
         afficherToutF->setGeometry(QRect(120, 520, 90, 30));
+        comboBoxPC = new QComboBox(groupBoxAjouterP_4);
+        comboBoxPC->setObjectName(QStringLiteral("comboBoxPC"));
+        comboBoxPC->setGeometry(QRect(220, 80, 150, 20));
+        lineEditFormateur = new QLineEdit(groupBoxAjouterP_4);
+        lineEditFormateur->setObjectName(QStringLiteral("lineEditFormateur"));
+        lineEditFormateur->setGeometry(QRect(220, 120, 150, 20));
 
         gridLayout_12->addWidget(groupBoxAjouterP_4, 0, 1, 1, 1);
 
@@ -2223,9 +2223,9 @@ public:
 
         stackedWidget->setCurrentIndex(1);
         smartFactory->setCurrentIndex(1);
-        stackedWidget_2->setCurrentIndex(1);
+        stackedWidget_2->setCurrentIndex(0);
         actionPers->setCurrentIndex(0);
-        stackedWidgetAmelioration->setCurrentIndex(1);
+        stackedWidgetAmelioration->setCurrentIndex(0);
         stackedWidget_3->setCurrentIndex(1);
         tabWidget_5->setCurrentIndex(0);
         tabWidget_4->setCurrentIndex(0);
