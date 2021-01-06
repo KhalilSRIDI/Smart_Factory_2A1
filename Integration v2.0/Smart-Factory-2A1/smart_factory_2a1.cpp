@@ -6,23 +6,12 @@ Smart_Factory_2A1::Smart_Factory_2A1(QWidget *parent)
     , ui(new Ui::Smart_Factory_2A1)
 {
     ui->setupUi(this);
-    ui->smartFactory->setCurrentIndex(1);
-    ui->stackedWidget->setCurrentIndex(1);
+    ui->smartFactory->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(0);
 
-    //charger comboboxPC
-    QSqlQueryModel * modal=new QSqlQueryModel ();
-    QSqlQuery *qry=new QSqlQuery  ();
-    qry->prepare("select nom from projets");
-    qry->exec();
-    modal->setQuery(*qry);
-    ui->comboBoxPC->setModel(modal);
-    //charger comboBoxTeamLeader
-    QSqlQueryModel * modal2=new QSqlQueryModel ();
-    QSqlQuery *qry2=new QSqlQuery  ();
-    qry2->prepare("select nom from personnels where fonction = 'Chef De Departement' or fonction = 'Chef D Unite' or fonction = 'Ingenieur' ");
-    qry2->exec();
-    modal2->setQuery(*qry2);
-    ui->comboBoxTeamLeader->setModel(modal2);
+    ui->comboBoxTeamLeader->setModel(tmp_projet.loadTL());
+    ui->comboBoxPC->setModel(tmp_formation.loadPC());
+
 
     chaine=QRegExp("[a-zA-Z]{3,15}$");
     numeroCin=QRegExp("[0-9]{8}$");
@@ -73,6 +62,9 @@ Smart_Factory_2A1::Smart_Factory_2A1(QWidget *parent)
     ui->gestionVentes->setDisabled(1);
     ui->gestionEquipements->setDisabled(1);
     ui->gestionAmeliorations->setDisabled(1);
+
+    //controle de saisie nom utilisatuer profil
+
 }
 
 Smart_Factory_2A1::~Smart_Factory_2A1()
@@ -259,13 +251,15 @@ void Smart_Factory_2A1::on_vAjouterPro_clicked()
     bool verifEmail = email.exactMatch(ui->email->text());
     bool verifNU = nomUtilisateur.exactMatch(ui->nomUP->text());
 
+
     QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
     int matricule = ui->matriculeP->text().toInt();
     QString nomUP = ui->nomUP->text();
     QString email = ui->email->text();;
     QString mdp = ui->motDePasseP->text();
+    int verif=tmpProfils.verifUsername(matricule,nomUP);
     profils p(matricule,nomUP,email,mdp);
-    if(verifEmail /*and verifNU*/)
+    if(verifEmail && verif==1/*and verifNU*/)
     {
         p.ajouter();
         ui->tablePro->setModel(tmpProfils.afficher());
@@ -904,7 +898,8 @@ void Smart_Factory_2A1::on_pushButtonAjouter_clicked()
     }
     else
         ui->statusbar->showMessage("AJOUT : UNSUCCESS");
-
+    ui->comboBoxTeamLeader->setModel(tmp_projet.loadTL());
+    ui->comboBoxPC->setModel(tmp_formation.loadPC());
 }
 
 void Smart_Factory_2A1::on_pushButtonModifier_clicked()
@@ -951,7 +946,8 @@ void Smart_Factory_2A1::on_pushButtonAjouterF_clicked()
     }
     else
         ui->statusbar->showMessage("AJOUT : UNSUCCESS");
-
+    ui->comboBoxTeamLeader->setModel(tmp_projet.loadTL());
+    ui->comboBoxPC->setModel(tmp_formation.loadPC());
 }
 
 void Smart_Factory_2A1::on_pushButtonRechercheF_clicked()

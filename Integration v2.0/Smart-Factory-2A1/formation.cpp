@@ -176,3 +176,14 @@ QSqlQueryModel * formation::trier(QString critere,QString order)
 
     return model;
 }
+
+//charger comboboxPC
+QSqlQueryModel *formation::loadPC()
+{
+    QSqlQueryModel * modal=new QSqlQueryModel ();
+    QSqlQuery *qry=new QSqlQuery  ();
+    qry->prepare("select nom from projets");
+    qry->exec();
+    modal->setQuery(*qry);
+    return modal;
+}

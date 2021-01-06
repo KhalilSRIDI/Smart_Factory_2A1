@@ -43,7 +43,7 @@ public:
     QSqlQueryModel *chercher(QString input,int critere);
     void exporterExcel(QTableView *table);
     QSqlQueryModel *trier(QString critere,QString order);
-
+    QSqlQueryModel *loadPC();
 private:
     QString NOM;
     QString PROJET;

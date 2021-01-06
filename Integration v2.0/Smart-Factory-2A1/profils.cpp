@@ -29,8 +29,9 @@ QSqlQueryModel * profils::afficher()
     model->setQuery("select * from profils cross Join personnels where profils.matricule = personnels.matricule");
     model->setHeaderData(0,Qt::Horizontal,QObject::tr("Id"));
     model->setHeaderData(1,Qt::Horizontal,QObject::tr("Matricule"));
-    model->setHeaderData(2,Qt::Horizontal,QObject::tr("E-mail"));
-    model->setHeaderData(3,Qt::Horizontal,QObject::tr("Mot De Passe"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("Nom utilisateur"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("E-mail"));
+    model->setHeaderData(4,Qt::Horizontal,QObject::tr("Mot De Passe"));
     return model;
 }
 bool profils::supprimer(int id)
@@ -65,3 +66,21 @@ QSqlQueryModel *profils::trier(QString critere,QString AD)
     return model;
 }
 
+int profils::verifUsername(int matricule,QString nomUtilisateur)
+{
+    QSqlQuery qry;
+    qry.prepare("select nom,prenom from personnels where matricule=:matricule");
+    qry.bindValue(":matricule",matricule);
+    qry.exec();
+    QSqlQueryModel * model = new QSqlQueryModel;
+    model->setQuery(qry);
+    QSqlRecord rec = model->record(0);
+    QString nom = rec.value("nom").toString();
+    QString prenom = rec.value("prenom").toString();
+    QString test=nom+'.'+prenom;
+    if(nomUtilisateur==test)
+        return 1;
+    else
+        return 0;
+
+}

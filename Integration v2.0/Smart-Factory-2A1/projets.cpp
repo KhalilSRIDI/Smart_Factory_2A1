@@ -204,3 +204,13 @@ int projets::calculRevenus(QString departement)
     return totalRevenus;
 }
 
+QSqlQueryModel *projets::loadTL()
+{
+    //charger comboBoxTeamLeader
+    QSqlQueryModel * model=new QSqlQueryModel ();
+    QSqlQuery *qry2=new QSqlQuery  ();
+    qry2->prepare("select nom from personnels where fonction = 'Chef De Departement' or fonction = 'Chef D Unite' or fonction = 'Ingenieur' ");
+    qry2->exec();
+    model->setQuery(*qry2);
+    return model;
+}

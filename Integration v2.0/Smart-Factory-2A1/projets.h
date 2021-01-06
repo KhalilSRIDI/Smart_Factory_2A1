@@ -44,6 +44,7 @@ public:
     QSqlQueryModel *trier(QString critere,QString order);
     int calculCout(QString departement);
     int calculRevenus(QString departement);
+    QSqlQueryModel *loadTL();
 
 private:
     QString NOM;

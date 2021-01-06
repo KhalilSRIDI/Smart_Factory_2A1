@@ -26,5 +26,6 @@ public:
     bool supprimer(int);
 
     QSqlQueryModel *trier(QString,QString);
+    int verifUsername(int matricule,QString nomUtilisateur);
 };
 #endif // PROFILS_H

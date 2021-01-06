@@ -2222,8 +2222,8 @@ public:
         retranslateUi(Smart_Factory_2A1);
 
         stackedWidget->setCurrentIndex(1);
-        smartFactory->setCurrentIndex(1);
-        stackedWidget_2->setCurrentIndex(0);
+        smartFactory->setCurrentIndex(0);
+        stackedWidget_2->setCurrentIndex(1);
         actionPers->setCurrentIndex(0);
         stackedWidgetAmelioration->setCurrentIndex(0);
         stackedWidget_3->setCurrentIndex(1);
