@@ -687,7 +687,7 @@ void Smart_Factory_2A1::on_pushButtonRechercheP_clicked()
 void Smart_Factory_2A1::on_pushButtonStat_clicked()
 {
     QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Khalil SRIDI/gestionAmelioration/src/mouseclick.wav");
-    statistiques *a= new statistiques() ;
+    statistique2 *a= new statistique2() ;
 
     a->show();
 }
@@ -986,7 +986,12 @@ void Smart_Factory_2A1::on_pushButtonRechercheF_clicked()
 
 void Smart_Factory_2A1::on_envoyerMailFormations_clicked()
 {
+    QItemSelectionModel *select = ui->tablePers->selectionModel();
+    QString email =select->selectedRows(4).value(0).data().toString();
 
+    QDialog *d=new Dialog(email,"","",this);
+    d->show();
+    d->exec();
 }
 
 void Smart_Factory_2A1::on_pushButtonExportF_clicked()

@@ -30,6 +30,7 @@ SOURCES += \
     projets.cpp \
     smart_factory_2a1.cpp \
     smtp.cpp \
+    statistique2.cpp \
     statistiques.cpp
 
 HEADERS += \
@@ -46,6 +47,7 @@ HEADERS += \
     projets.h \
     smart_factory_2a1.h \
     smtp.h \
+    statistique2.h \
     statistiques.h
 
 FORMS += \
@@ -54,6 +56,7 @@ FORMS += \
     modifierprofil.ui \
     options.ui \
     smart_factory_2a1.ui \
+    statistique2.ui \
     statistiques.ui
 
 # Default rules for deployment.

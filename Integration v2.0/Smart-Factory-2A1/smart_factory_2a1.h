@@ -6,6 +6,7 @@
 #include "personnels.h"
 #include "profils.h"
 #include "statistiques.h"
+#include "statistique2.h"
 #include "afficherunpersonnel.h"
 #include "projets.h"
 #include "formation.h"
