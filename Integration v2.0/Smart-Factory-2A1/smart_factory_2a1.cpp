@@ -6,7 +6,7 @@ Smart_Factory_2A1::Smart_Factory_2A1(QWidget *parent)
     , ui(new Ui::Smart_Factory_2A1)
 {
     ui->setupUi(this);
-    ui->smartFactory->setCurrentIndex(1);
+    ui->smartFactory->setCurrentIndex(0);
     ui->stackedWidget->setCurrentIndex(0);
 
     chaine=QRegExp("[a-zA-Z]{3,15}$");
@@ -44,8 +44,14 @@ Smart_Factory_2A1::Smart_Factory_2A1(QWidget *parent)
     etendreAnimation->setDuration(400);
     etendreAnimation->setStartValue(100);
     etendreAnimation->setEndValue(500);
-    ui->reduire->setText(tr("Reduire"));
+    ui->reduire->setText("Reduire");
     etendreAnimation->start();
+    ui->gestionPersonnelProfil->setDisabled(1);
+    ui->gestionStock->setDisabled(1);
+    ui->gestionAchats->setDisabled(1);
+    ui->gestionVentes->setDisabled(1);
+    ui->gestionEquipements->setDisabled(1);
+    ui->gestionAmeliorations->setDisabled(1);
 
     //    //**********************************
     //    //projets TableView
@@ -67,28 +73,67 @@ Smart_Factory_2A1::~Smart_Factory_2A1()
 
 void Smart_Factory_2A1::on_login_clicked()
 {
-    if(authentification.connecter(ui->nomUC->text(),ui->mdpC->text()))
-        ui->smartFactory->setCurrentIndex(1);
+    if(authentification.connecter(ui->nomUC->text(),ui->mdpC->text())!=0)
+    {
+        ui->stackedWidget->setCurrentIndex(1);
+        ui->nomProfil->setText(authentification.infoSession(authentification.connecter(ui->nomUC->text(),ui->mdpC->text())));
+
+        QPixmap outPixmap = QPixmap();
+        outPixmap.loadFromData(authentification.recupererImage(authentification.connecter(ui->nomUC->text(),ui->mdpC->text())),"PNG");
+        outPixmap = outPixmap.scaledToWidth(ui->imageProfil->width(),Qt::SmoothTransformation);
+        ui->imageProfil->setPixmap(outPixmap);
+
+        switch(authentification.recupererDepartement(authentification.connecter(ui->nomUC->text(),ui->mdpC->text())))
+        {
+        case 1:
+            ui->gestionPersonnelProfil->setEnabled(1);
+            break;
+        case 2:
+            ui->gestionStock->setEnabled(1);
+            break;
+        case 3:
+            ui->gestionAchats->setEnabled(1);
+            break;
+        case 4:
+            ui->gestionVentes->setEnabled(1);
+            break;
+        case 5:
+            ui->gestionAmeliorations->setEnabled(1);
+            break;
+        case 6:
+            ui->gestionEquipements->setEnabled(1);
+            break;
+        case 7:
+            ui->gestionPersonnelProfil->setEnabled(1);
+            ui->gestionStock->setEnabled(1);
+            ui->gestionAchats->setEnabled(1);
+            ui->gestionVentes->setEnabled(1);
+            ui->gestionEquipements->setEnabled(1);
+            ui->gestionAmeliorations->setEnabled(1);
+            break;
+        }
+    }
     else
-        ui->statusbar->showMessage(tr("Failed To Connect"));
+        ui->statusbar->showMessage("Failed To Connect",5000);
+
 }
 
 void Smart_Factory_2A1::on_gestionPersonnelProfil_clicked()
 {
-    ui->smartFactory->setCurrentIndex(1);
+    ui->smartFactory->setCurrentIndex(0);
 }
 void Smart_Factory_2A1::on_gestionPersonnel_clicked()
 {
     QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
-    ui->stackedWidget->setCurrentIndex(0);
-    ui->statusbar->showMessage(tr("Gestion Personnel"),5000);
+    ui->stackedWidget_2->setCurrentIndex(0);
+    ui->statusbar->showMessage("Gestion Personnel",5000);
 }
 
 void Smart_Factory_2A1::on_gestionProfil_clicked()
 {
     QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
-    ui->stackedWidget->setCurrentIndex(1);
-    ui->statusbar->showMessage(tr("Gestion Profil"),5000);
+    ui->stackedWidget_2->setCurrentIndex(1);
+    ui->statusbar->showMessage("Gestion Profil",5000);
 }
 void Smart_Factory_2A1::on_vAjouterPers_clicked()
 {
@@ -138,7 +183,7 @@ void Smart_Factory_2A1::on_vAjouterPers_clicked()
     QString unite = ui->unite->currentText();
     QString fonction = ui->fonction->currentText();
     int salaire = ui->salaire->value();
-    QString filename = QFileDialog::getOpenFileName(this,"Choisir Une Image","","Images(*.png *.jpg *.jpeg *.bmp)");
+    QString filename = QFileDialog::getOpenFileName(this,"Choisir Une Image","","Images(*.png)");
     if(QString::compare(filename,QString())!=0)
     {
         QImage image;
@@ -159,13 +204,11 @@ void Smart_Factory_2A1::on_vAjouterPers_clicked()
         byte = file.readAll();
         file.close();
     }
-    else
-        QMessageBox :: critical(this,"Error",filename);
     personnels p(cin,nom,prenom,numTel,sexe,etatcivile,dateNaissance,gouvernoratOrigin,gouvernoratHabitation,diplomeEtude,dateRecrutement,typeContrat,departement,unite,fonction,salaire,byte);
-    if(verifCin and verifTel and verifNom and verifPrenom)
+    if(verifCin and verifTel and verifNom and verifPrenom and byte != nullptr)
     {
         p.ajouter();
-        ui->statusbar->showMessage(tr("Personnel Ajouté "),5000);
+        ui->statusbar->showMessage("Personnel Ajouté ",5000);
         ui->tablePers->setModel(tmpPersonnels.afficher());
     }
     else
@@ -180,14 +223,14 @@ void Smart_Factory_2A1::on_modifierPers_clicked()
     {
 
         ui->tablePers->setModel(tmpPersonnels.modifier());
-        ui->modifierPers->setText(tr("Tableau Modifiable"));
-        ui->statusbar->showMessage(tr("Tableau Modifiable "),5000);
+        ui->modifierPers->setText("Tableau Modifiable");
+        ui->statusbar->showMessage("Tableau Modifiable ",5000);
     }
     else
     {
         ui->tablePers->setModel(tmpPersonnels.afficher());
-        ui->modifierPers->setText(tr("Tableau Non Modifiable"));
-        ui->statusbar->showMessage(tr("Tableau Non Modifiable "),5000);
+        ui->modifierPers->setText("Tableau Non Modifiable");
+        ui->statusbar->showMessage("Tableau Non Modifiable ",5000);
     }
 }
 void Smart_Factory_2A1::on_supprimerPers_clicked()
@@ -198,7 +241,7 @@ void Smart_Factory_2A1::on_supprimerPers_clicked()
     if(tmpPersonnels.supprimer(matricule))
     {
         ui->tablePers->setModel(tmpPersonnels.afficher());
-        ui->statusbar->showMessage(tr("Personnel Supprimé "),5000);
+        ui->statusbar->showMessage("Personnel Supprimé ",5000);
     }
 }
 void Smart_Factory_2A1::on_vAjouterPro_clicked()
@@ -216,7 +259,7 @@ void Smart_Factory_2A1::on_vAjouterPro_clicked()
     {
         p.ajouter();
         ui->tablePro->setModel(tmpProfils.afficher());
-        ui->statusbar->showMessage(tr("Profil Ajouté "),5000);
+        ui->statusbar->showMessage("Profil Ajouté ",5000);
     }
     else
         QMessageBox::critical(this,"Ajouter Profil !","Erreur lors de l'Ajout de ce Profil\nVeuillez réssayer de Nouveau");
@@ -228,14 +271,14 @@ void Smart_Factory_2A1::on_modifierPro_clicked()
     if(ui->modifierPro->isChecked())
     {
         ui->tablePro->setModel(tmpProfils.modifier());
-        ui->modifierPro->setText(tr("Tableau Modifiable"));
-        ui->statusbar->showMessage(tr("Tableau Modifiable "),5000);
+        ui->modifierPro->setText("Tableau Modifiable");
+        ui->statusbar->showMessage("Tableau Modifiable ",5000);
     }
     else
     {
         ui->tablePro->setModel(tmpProfils.afficher());
-        ui->modifierPro->setText(tr("Tableau Non Modifiable"));
-        ui->statusbar->showMessage(tr("Tableau Non Modifiable "),5000);
+        ui->modifierPro->setText("Tableau Non Modifiable");
+        ui->statusbar->showMessage("Tableau Non Modifiable ",5000);
     }
 }
 void Smart_Factory_2A1::on_supprimerPro_clicked()
@@ -246,18 +289,18 @@ void Smart_Factory_2A1::on_supprimerPro_clicked()
     if(tmpProfils.supprimer(id))
     {
         ui->tablePro->setModel(tmpProfils.afficher());
-        ui->statusbar->showMessage(tr("Profil Supprimé "),5000);
+        ui->statusbar->showMessage("Profil Supprimé ",5000);
     }
 }
 void Smart_Factory_2A1::on_afficherTablePro_clicked()
 {
     ui->tablePro->setModel(tmpProfils.afficher());
-    ui->statusbar->showMessage(tr("Tableau Des Profils"));
+    ui->statusbar->showMessage("Tableau Des Profils");
 }
 void Smart_Factory_2A1::on_afficherTablePers_clicked()
 {
     ui->tablePers->setModel(tmpPersonnels.afficher());
-    ui->statusbar->showMessage(tr("Tableau Des Personnels"));
+    ui->statusbar->showMessage("Tableau Des Personnels");
 }
 void Smart_Factory_2A1::exporter(QTableView *table)
 {
@@ -295,13 +338,13 @@ void Smart_Factory_2A1::on_exportExcel_clicked()
 {
     QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
     exporter(ui->tablePers);
-    ui->statusbar->showMessage(tr("Export De Tableau Personnel "),5000);
+    ui->statusbar->showMessage("Export De Tableau Personnel ",5000);
 }
 void Smart_Factory_2A1::on_exportExcelP_clicked()
 {
     QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
     exporter(ui->tablePro);
-    ui->statusbar->showMessage(tr("Export De Tableau Profil "),5000);
+    ui->statusbar->showMessage("Export De Tableau Profil ",5000);
 }
 void Smart_Factory_2A1::on_trier_clicked()
 {
@@ -309,17 +352,17 @@ void Smart_Factory_2A1::on_trier_clicked()
     if(ui->matT->isChecked())
     {
         ui->tablePro->setModel(tmpProfils.trier("matricule",ui->AD->currentText()));
-        ui->statusbar->showMessage(tr("Tableau Profils Trié Selon Matricule"));
+        ui->statusbar->showMessage("Tableau Profils Trié Selon Matricule");
     }
     else if(ui->nomUT->isChecked())
     {
         ui->tablePro->setModel(tmpProfils.trier("nom_utilisateur",ui->AD->currentText()));
-        ui->statusbar->showMessage(tr("Tableau Profils Trié Selon Nom Utilisateur"));
+        ui->statusbar->showMessage("Tableau Profils Trié Selon Nom Utilisateur");
     }
     else if(ui->idT->isChecked())
     {
         ui->tablePro->setModel(tmpProfils.trier("id",ui->AD->currentText()));
-        ui->statusbar->showMessage(tr("Tableau Profils Trié Selon Id"));
+        ui->statusbar->showMessage("Tableau Profils Trié Selon Id");
     }
 }
 void Smart_Factory_2A1::on_trierM_clicked()
@@ -384,7 +427,7 @@ void Smart_Factory_2A1::on_matCh_returnPressed()
     if(tmpPersonnels.chercher(matricule)!= nullptr)
     {
         ui->tablePers->setModel(tmpPersonnels.chercher(matricule));
-        ui->statusbar->showMessage(tr("Personnel Trouvé"),5000);
+        ui->statusbar->showMessage("Personnel Trouvé",5000);
     }
     else
         QMessageBox::critical(this,"Recherche Personnel !","Erreur lors de Recherche:\nPersonnel Non Trouvé");
@@ -394,7 +437,7 @@ void Smart_Factory_2A1::on_fonctionCh_currentIndexChanged(int index)
     if(tmpPersonnels.chercherFonction(ui->fonctionCh->currentText()) != nullptr)
     {
         ui->tablePers->setModel(tmpPersonnels.chercherFonction(ui->fonctionCh->currentText()));
-        ui->statusbar->showMessage(tr("Personnel Trouvé"),5000);
+        ui->statusbar->showMessage("Personnel Trouvé",5000);
     }
     else
         QMessageBox::critical(this,"Recherche Fonctionnaire !","Erreur lors de Recherche:\nFonctionnaire Non Trouvé");
@@ -407,7 +450,7 @@ void Smart_Factory_2A1::on_chercherDate_clicked()
     if(tmpPersonnels.chercher(date1,date2) != nullptr)
     {
         ui->tablePers->setModel(tmpPersonnels.chercher(date1,date2));
-        ui->statusbar->showMessage(tr("Personnel Trouvé"),5000);
+        ui->statusbar->showMessage("Personnel Trouvé",5000);
     }
     else
         QMessageBox::critical(this,"Recherche Personnel !","Erreur lors de Recherche:\nPersonnel Non Trouvé");
@@ -431,7 +474,7 @@ void Smart_Factory_2A1::on_chercherTripleC_clicked()
     if(tmpPersonnels.chercher(sexe,etatcivile,age) != nullptr)
     {
         ui->tablePers->setModel(tmpPersonnels.chercher(sexe,etatcivile,age));
-        ui->statusbar->showMessage(tr("Personnel Trouvé"),5000);
+        ui->statusbar->showMessage("Personnel Trouvé",5000);
     }
     else
         QMessageBox::critical(this,"Recherche Personnel !","Erreur lors de Recherche:\nPersonnel Non Trouvé");
@@ -473,12 +516,12 @@ void Smart_Factory_2A1::on_reduire_clicked()
     if (turn==1)
     {
         reduireAnimation->start();
-        ui->reduire->setText(tr("Etendre"));
+        ui->reduire->setText("Etendre");
     }
     else
     {
         etendreAnimation->start();
-        ui->reduire->setText(tr("Reduire"));
+        ui->reduire->setText("Reduire");
     }
     turn*=-1;
 }
@@ -528,12 +571,6 @@ void Smart_Factory_2A1::on_Afficher1Pers_clicked()
 //{
 //    if(arg1=="English")
 //    {
-//      QTranslator translator;
-//      translator.load("smart_factory_2a1_en");
-//        a.installTranslator(&translator);
-//        qApp->installTranslator(&translator);
-//        ui->retranslateui(this);
-
 //        QTranslator translator;
 //        translator.load("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/gestionpersonnelprofil_english");
 //        qApp->installTranslator(&translator);
@@ -613,48 +650,6 @@ void Smart_Factory_2A1::on_ajouterImgPers_3_clicked()
 }
 
 
-void Smart_Factory_2A1::on_ajouterImgPers_clicked()
-{
-    QString filename = QFileDialog::getOpenFileName(this,"Choisir Une Image","","Images(*.png *.jpg *.jpeg *.bmp)");
-    if(QString::compare(filename,QString())!=0)
-    {
-        QImage image;
-        bool valid = image.load(filename);
-        if(valid)
-        {
-            QDir path = QFileInfo(filename).absoluteDir();
-            QString filePath=path.absolutePath();
-            image = image.scaledToWidth(ui->imagePers->width(),Qt::SmoothTransformation);
-            ui->imagePers->setPixmap(QPixmap::fromImage(image));
-            ui->statusbar->showMessage(filename);
-        }
-    }
-    QByteArray byte;
-    QFile file(filename);
-    if(file.open(QIODevice::ReadOnly))
-    {
-        byte = file.readAll();
-        file.close();
-    }
-    else
-        QMessageBox :: critical(this,"Error",filename);
-    //        QSqlQuery query;
-    //        query.prepare("insert into image(img) "
-    //                      "values (:image)");
-    //        //query.bindValue(":image",byte);
-    //        query.bindValue(":image", byte, QSql::In | QSql::Binary);
-    //        if(query.exec())
-    //        {
-    //             QMessageBox :: information(this,"Save","Data Inserted successfully", QMessageBox ::Ok);
-    //        }
-    //        else
-    //        {
-    //             QMessageBox :: critical(this,"Error","Couldn't insert data");
-    //        }
-
-
-}
-
 void Smart_Factory_2A1::on_resetImgPers_clicked()
 {
     QSqlQuery query ;
@@ -692,14 +687,14 @@ void Smart_Factory_2A1::on_resetImgPers_clicked()
 //    if(projet.ajouter())
 //    {
 //        ui->tableViewP->setModel(tmp_projet.afficher());
-//        ui->statusbar->showMessage(tr("AJOUT : SUCCESS"));
-//        ui->lineEditNomP->setText(tr(""));
-//        ui->lineEditTeamLeaderP->setText(tr(""));
-//        ui->lineEditCoutP->setText(tr(""));
-//        ui->lineEditRevenuesP->setText(tr(""));
+//        ui->statusbar->showMessage("AJOUT : SUCCESS");
+//        ui->lineEditNomP->setText("");
+//        ui->lineEditTeamLeaderP->setText("");
+//        ui->lineEditCoutP->setText("");
+//        ui->lineEditRevenuesP->setText("");
 //    }
 //    else
-//        ui->statusbar->showMessage(tr("AJOUT : UNSUCCESS"));
+//        ui->statusbar->showMessage("AJOUT : UNSUCCESS");
 //}
 
 
@@ -712,21 +707,21 @@ void Smart_Factory_2A1::on_resetImgPers_clicked()
 //    if(tmp_projet.supprimer(idprojet))
 //    {
 //        ui->tableViewP->setModel(tmp_projet.afficher());
-//        ui->statusbar->showMessage(tr("SUPPRESSION : SUCCESS"));
+//        ui->statusbar->showMessage("SUPPRESSION : SUCCESS");
 //    }
 
 //}
 
 //void Smart_Factory_2A1::on_pushButtonModifier_clicked()
 //{
-//    ui->pushButtonModifier->setText(tr("Modifier"));
+//    ui->pushButtonModifier->setText("Modifier");
 //    if(ui->pushButtonModifier->isChecked())
 //    {
 //        QSqlTableModel *tableModel= new QSqlTableModel();
 //        tableModel->setTable("PROJETS");
 //        tableModel->select();
 //        ui->tableViewP->setModel(tableModel);
-//        ui->pushButtonModifier->setText(tr("Tableau Modifiable"));
+//        ui->pushButtonModifier->setText("Tableau Modifiable");
 //    }
 
 //}
@@ -775,7 +770,7 @@ void Smart_Factory_2A1::on_resetImgPers_clicked()
 //void Smart_Factory_2A1::on_pushButtonExportP_clicked()
 //{
 //    tmp_projet.exporterExcel(ui->tableViewP);
-//    ui->statusbar->showMessage(tr("EXPORT TABLE "),5000);
+//    ui->statusbar->showMessage("EXPORT TABLE ",5000);
 //}
 
 
@@ -951,10 +946,10 @@ void Smart_Factory_2A1::on_resetImgPers_clicked()
 //    if(formation.ajouter())
 //    {
 //        ui->tableViewF->setModel(tmp_formation.afficher());
-//        ui->statusbar->showMessage(tr("AJOUT : SUCCESS"));
+//        ui->statusbar->showMessage("AJOUT : SUCCESS");
 //    }
 //    else
-//        ui->statusbar->showMessage(tr("AJOUT : UNSUCCESS"));
+//        ui->statusbar->showMessage("AJOUT : UNSUCCESS");
 
 //}
 
@@ -966,13 +961,13 @@ void Smart_Factory_2A1::on_resetImgPers_clicked()
 //    if(tmp_formation.supprimer(idformation))
 //    {
 //        ui->tableViewF->setModel(tmp_formation.afficher());
-//        ui->statusbar->showMessage(tr("SUPPRESSION : SUCCESS"));
+//        ui->statusbar->showMessage("SUPPRESSION : SUCCESS");
 //    }
 //}
 
 //void Smart_Factory_2A1::on_pushButtonModifierF_clicked()
 //{
-//    ui->pushButtonModifierF->setText(tr("Modifier"));
+//    ui->pushButtonModifierF->setText("Modifier");
 
 //    if(ui->pushButtonModifierF->isChecked())
 //    {
@@ -980,7 +975,7 @@ void Smart_Factory_2A1::on_resetImgPers_clicked()
 //        tableModelF->setTable("FORMATIONS");
 //        tableModelF->select();
 //        ui->tableViewF->setModel(tableModelF);
-//        ui->pushButtonModifierF->setText(tr("Tableau Modifiable"));
+//        ui->pushButtonModifierF->setText("Tableau Modifiable");
 //    }
 
 //}
@@ -1029,7 +1024,7 @@ void Smart_Factory_2A1::on_resetImgPers_clicked()
 //void Smart_Factory_2A1::on_pushButtonExportF_clicked()
 //{
 //    tmp_formation.exporterExcel(ui->tableViewF);
-//    ui->statusbar->showMessage(tr("EXPORT TABLE "),5000);
+//    ui->statusbar->showMessage("EXPORT TABLE ",5000);
 //}
 
 
@@ -1174,7 +1169,7 @@ void Smart_Factory_2A1::on_resetImgPers_clicked()
 //    }
 //    else
 //    {
-//        ui->statusbar->showMessage(tr("ERROR : AUCUN CRITERE CHOISI"));
+//        ui->statusbar->showMessage("ERROR : AUCUN CRITERE CHOISI");
 
 //    }
 
@@ -1185,18 +1180,18 @@ void Smart_Factory_2A1::on_resetImgPers_clicked()
 
 void Smart_Factory_2A1::on_gestionAmeliorations_clicked()
 {
-    ui->smartFactory->setCurrentIndex(6);
+    ui->smartFactory->setCurrentIndex(1);
 }
 
 
 void Smart_Factory_2A1::on_gestionStock_clicked()
 {
-    ui->smartFactory->setCurrentIndex(2);
+    ui->smartFactory->setCurrentIndex(5);
 }
 
 void Smart_Factory_2A1::on_gestionAchats_clicked()
 {
-    ui->smartFactory->setCurrentIndex(3);
+    ui->smartFactory->setCurrentIndex(6);
 }
 
 void Smart_Factory_2A1::on_gestionVentes_clicked()
@@ -1206,12 +1201,20 @@ void Smart_Factory_2A1::on_gestionVentes_clicked()
 
 void Smart_Factory_2A1::on_gestionEquipements_clicked()
 {
-    ui->smartFactory->setCurrentIndex(5);
+    ui->smartFactory->setCurrentIndex(2);
 }
 
-void Smart_Factory_2A1::on_deconnecter_clicked()
+void Smart_Factory_2A1::on_deconnecter_3_clicked()
 {
-    ui->smartFactory->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(0);
+    ui->gestionPersonnelProfil->setDisabled(1);
+    ui->gestionStock->setDisabled(1);
+    ui->gestionAchats->setDisabled(1);
+    ui->gestionVentes->setDisabled(1);
+    ui->gestionEquipements->setDisabled(1);
+    ui->gestionAmeliorations->setDisabled(1);
+    ui->nomUC->setText("");
+    ui->mdpC->setText("");
 }
 
 void Smart_Factory_2A1::on_pushButton_2_clicked()
@@ -1223,3 +1226,66 @@ void Smart_Factory_2A1::on_pushButton_clicked()
 {
 
 }
+
+void Smart_Factory_2A1::on_envoyerMail_2_clicked()
+{
+    QItemSelectionModel *select = ui->tablePers->selectionModel();
+    QString email =select->selectedRows(4).value(0).data().toString();
+
+    QDialog *d=new Dialog(email,"","",this);
+    d->show();
+    d->exec();
+
+}
+
+QByteArray Smart_Factory_2A1::on_ajouterImgPers_clicked()
+{
+    QString filename = QFileDialog::getOpenFileName(this,"Choisir Une Image","","Images(*.png)");
+    if(QString::compare(filename,QString())!=0)
+    {
+        QImage image;
+        bool valid = image.load(filename);
+        if(valid)
+        {
+            QDir path = QFileInfo(filename).absoluteDir();
+            QString filePath=path.absolutePath();
+            image = image.scaledToWidth(ui->imagePers->width(),Qt::SmoothTransformation);
+            ui->imagePers->setPixmap(QPixmap::fromImage(image));
+            ui->statusbar->showMessage(filename);
+        }
+    }
+    QByteArray byte;
+    QFile file(filename);
+    if(file.open(QIODevice::ReadOnly))
+    {
+        byte = file.readAll();
+        file.close();
+    }
+    else
+        QMessageBox :: critical(this,"Error",filename);
+    return byte;
+
+}
+
+void Smart_Factory_2A1::on_gestionProjet_clicked()
+{
+ ui->stackedWidgetAmelioration->setCurrentIndex(1);
+}
+
+void Smart_Factory_2A1::on_gestionFormation_clicked()
+{
+    ui->stackedWidgetAmelioration->setCurrentIndex(0);
+
+}
+
+void Smart_Factory_2A1::on_gestionEquipement_clicked()
+{
+    ui->stackedWidget_3->setCurrentIndex(0);
+}
+
+void Smart_Factory_2A1::on_gestionMaintenances_clicked()
+{
+    ui->stackedWidget_3->setCurrentIndex(1);
+}
+
+

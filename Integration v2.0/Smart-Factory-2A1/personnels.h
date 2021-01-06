@@ -63,6 +63,7 @@ public:
     int calculerTC(QString);
     int calculerSE(QString,QString);
     int calculerSF(QString,QString);
+
 private:
 
 };

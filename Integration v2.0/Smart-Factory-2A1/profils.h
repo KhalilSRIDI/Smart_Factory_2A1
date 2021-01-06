@@ -1,6 +1,7 @@
 #ifndef PROFILS_H
 #define PROFILS_H
 #include "connexionsql.h"
+#include "login.h"
 #include <QSqlTableModel>
 #include <QString>
 class profils

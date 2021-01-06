@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     afficherunpersonnel.cpp \
     connexionsql.cpp \
+    dialog.cpp \
     formation.cpp \
     login.cpp \
     main.cpp \
@@ -27,11 +28,13 @@ SOURCES += \
     profils.cpp \
     projets.cpp \
     smart_factory_2a1.cpp \
+    smtp.cpp \
     statistiques.cpp
 
 HEADERS += \
     afficherunpersonnel.h \
     connexionsql.h \
+    dialog.h \
     formation.h \
     login.h \
     modifierprofil.h \
@@ -40,15 +43,16 @@ HEADERS += \
     profils.h \
     projets.h \
     smart_factory_2a1.h \
+    smtp.h \
     statistiques.h
 
 FORMS += \
     afficherunpersonnel.ui \
+    dialog.ui \
     modifierprofil.ui \
     options.ui \
     smart_factory_2a1.ui \
     statistiques.ui
-TRANSLATIONS = smart_factory_2a1_en.ts
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

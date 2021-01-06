@@ -1,6 +1,7 @@
 #ifndef SMART_FACTORY_2A1_H
 #define SMART_FACTORY_2A1_H
 #include "connexionsql.h"
+#include "smtp.h"
 #include "login.h"
 #include "personnels.h"
 #include "profils.h"
@@ -8,9 +9,10 @@
 #include "afficherunpersonnel.h"
 #include "projets.h"
 #include "formation.h"
+#include "dialog.h"
 #include <QMainWindow>
 #include <QStatusBar>
-#include <QSound>
+#include<QSound>
 #include <QFileDialog>
 #include <QTableView>
 #include <QItemSelectionModel>
@@ -21,7 +23,6 @@
 #include <QPropertyAnimation>
 #include <QRegularExpression>
 #include <QDir>
-#include <QTranslator>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Smart_Factory_2A1; }
@@ -87,7 +88,7 @@ private slots:
     void on_ajouterImgPers_3_clicked();
 
 
-    void on_ajouterImgPers_clicked();
+
 
     void on_resetImgPers_clicked();
 //    void on_pushButtonAjouter_clicked();
@@ -136,11 +137,25 @@ private slots:
 
     void on_gestionEquipements_clicked();
 
-    void on_deconnecter_clicked();
+    void on_deconnecter_3_clicked();
 
     void on_pushButton_2_clicked();
 
     void on_pushButton_clicked();
+
+    void on_envoyerMail_2_clicked();
+
+    QByteArray on_ajouterImgPers_clicked();
+
+    void on_gestionProjet_clicked();
+
+    void on_gestionFormation_clicked();
+
+    void on_gestionEquipement_clicked();
+
+    void on_gestionMaintenances_clicked();
+
+
 
 private:
     Ui::Smart_Factory_2A1 *ui;

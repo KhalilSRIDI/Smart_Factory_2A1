@@ -13,13 +13,14 @@ profils::profils(int m,QString nU,QString e,QString mdp)
 }
 bool profils::ajouter()
 {
+    login l;
     QSqlQuery qry;
     qry.prepare("INSERT INTO PROFILS (MATRICULE,NOM_UTILISATEUR,MDP,email)"
                 "VALUES (:MATRICULE,:NOM_UTILISATEUR,:MDP,:email)");
     qry.bindValue(":MATRICULE",matricule);
     qry.bindValue(":NOM_UTILISATEUR",nomUtilisateur);
     qry.bindValue(":email",email);
-    qry.bindValue(":MDP",motDePasse);
+    qry.bindValue(":MDP",l.hash(motDePasse));
     return qry.exec();
 }
 QSqlQueryModel * profils::afficher()

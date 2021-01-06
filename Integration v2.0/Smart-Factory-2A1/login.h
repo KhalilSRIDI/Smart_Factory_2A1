@@ -9,6 +9,10 @@ public:
     login();
     int connecter(QString,QString);
     int recupererDepartement(int);
+    QString infoSession(int);
+    QByteArray recupererImage(int);
+    int hash(QString);
+
 };
 
 #endif // LOGIN_H
