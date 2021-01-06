@@ -42,7 +42,5 @@ void Dialog::on_envoyer_dialog_clicked()
 
     smtp->sendMail(ui->uname->text(), ui->recipient->text() , ui->subjectLineEdit->text() ,ui->message->toPlainText());
 
-    /*if(status == "Message sent")
-        QMessageBox::warning( 0, tr( "Qt Simple SMTP client" ), tr( "Message sent!\n\n" ) );*/
 
 }

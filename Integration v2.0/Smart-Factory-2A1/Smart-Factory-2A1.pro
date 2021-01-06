@@ -28,7 +28,6 @@ SOURCES += \
     login.cpp \
     main.cpp \
     modifierprofil.cpp \
-    options.cpp \
     personnels.cpp \
     profils.cpp \
     projets.cpp \
@@ -51,7 +50,6 @@ HEADERS += \
     gestionmateriel.h \
     login.h \
     modifierprofil.h \
-    options.h \
     personnels.h \
     profils.h \
     projets.h \
@@ -68,11 +66,11 @@ FORMS += \
     dialog.ui \
     email.ui \
     modifierprofil.ui \
-    options.ui \
     smart_factory_2a1.ui \
     statis.ui \
     statistique2.ui \
     statistiques.ui
+
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

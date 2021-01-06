@@ -1214,34 +1214,34 @@ void Smart_Factory_2A1::on_afficherToutF_clicked()
 
 void Smart_Factory_2A1::on_pushButton_valider_clicked()
 {
-  QString referene = ui->lineEdit_ref->text();
-  QString modele = ui->lineEdit_modele->text();
-  QDate date_achat = ui->dateEdit_achat->date();
-  int nombre_maintenance = ui->lineEdit_nombre_maintenance->text().toInt();
-  materiel m(referene,modele,date_achat,nombre_maintenance);
-  bool test=m.ajouter();
-  /* click = new QMediaPlayer();
+    QString referene = ui->lineEdit_ref->text();
+    QString modele = ui->lineEdit_modele->text();
+    QDate date_achat = ui->dateEdit_achat->date();
+    int nombre_maintenance = ui->lineEdit_nombre_maintenance->text().toInt();
+    materiel m(referene,modele,date_achat,nombre_maintenance);
+    bool test=m.ajouter();
+    /* click = new QMediaPlayer();
        click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
         click->play();*/
-  if (test)
-  {
+    if (test)
+    {
 
-      ui->tableView_materiel->setModel(etmp.afficher());
-      QMessageBox::information(nullptr, QObject::tr("ajouter un materiel"),
-                     QObject::tr("materiel ajouté.\n"
+        ui->tableView_materiel->setModel(etmp.afficher());
+        QMessageBox::information(nullptr, QObject::tr("ajouter un materiel"),
+                                 QObject::tr("materiel ajouté.\n"
                                  "click ok to continue."), QMessageBox::Ok);
-}
-  else QMessageBox::critical(nullptr,QObject::tr("Not Ok"),
-                     QObject::tr("ajout non effectué.\n"
+    }
+    else QMessageBox::critical(nullptr,QObject::tr("Not Ok"),
+                               QObject::tr("ajout non effectué.\n"
                                  "click cancel to exit."),QMessageBox::Cancel);
 }
 
 void Smart_Factory_2A1::on_pushButton_supprimer_clicked()
 {
     QItemSelectionModel *select = ui->tableView_materiel->selectionModel();
-        QString reference =select->selectedRows(0).value(0).data().toString();
+    QString reference =select->selectedRows(0).value(0).data().toString();
     bool test=etmp.supprimer(reference);
-   /* click = new QMediaPlayer();
+    /* click = new QMediaPlayer();
         click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
          click->play();*/
     if (test)
@@ -1263,27 +1263,27 @@ void Smart_Factory_2A1::on_pushButton_modifier_clicked()
 {
 
     if (ui->pushButton_modifier->isChecked())
-            {
+    {
 
-                ui->pushButton_modifier->setText("Modifiable");
-                QSqlTableModel *tableModel= new QSqlTableModel();
-                tableModel->setTable("MATERIEL");
-                tableModel->select();
-                ui->tableView_materiel->setModel(tableModel);
-                /* click = new QMediaPlayer();
+        ui->pushButton_modifier->setText("Modifiable");
+        QSqlTableModel *tableModel= new QSqlTableModel();
+        tableModel->setTable("MATERIEL");
+        tableModel->select();
+        ui->tableView_materiel->setModel(tableModel);
+        /* click = new QMediaPlayer();
                      click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
                       click->play();*/
 
-            }
-            else
-            {
-                ui->pushButton_modifier->setText("Modifier equipement");
-                ui->tableView_materiel->setModel(etmp.afficher());
-                /* click = new QMediaPlayer();
+    }
+    else
+    {
+        ui->pushButton_modifier->setText("Modifier equipement");
+        ui->tableView_materiel->setModel(etmp.afficher());
+        /* click = new QMediaPlayer();
                      click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
                       click->play();*/
 
-            }
+    }
 
 }
 
@@ -1291,7 +1291,7 @@ void Smart_Factory_2A1::on_pushButton_recherche_clicked()
 {
     if (ui->checkBox_search_ref->isChecked())
     {
-    QString reference = ui->lineEdit_recherche->text();
+        QString reference = ui->lineEdit_recherche->text();
         QSqlQueryModel * test=etmp.recherche_materiel(reference);
         if (ui->pushButton_recherche->isChecked()){
             ui->pushButton_recherche->setText("En cours");
@@ -1299,97 +1299,97 @@ void Smart_Factory_2A1::on_pushButton_recherche_clicked()
                  click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
                   click->play();*/
             if(test != nullptr)
-        {
-            QMessageBox::information(nullptr, QObject::tr("chercher un materiel"),
-                        QObject::tr("materiel trouvé.\n"
-                                    "Click ok to get informations."), QMessageBox::Ok);
-                ui->tableView_materiel->setModel(test);
-        }
-        else
-        {
-            QMessageBox::critical(nullptr, QObject::tr("chercher un materiel"),
-                        QObject::tr("Erreur , materiel introuvable !.\n"
-                                    "Click cancel to exit."), QMessageBox::Cancel);
-            ui->tableView_materiel->setModel(test);
-
-    }}
-            else
-            {
-                ui->pushButton_recherche->setText("Recherche");
-                ui->tableView_materiel->setModel(etmp.afficher());
-                /* click = new QMediaPlayer();
-                     click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
-                      click->play();*/
-
-            }
-     }
-    if (ui->checkBox_search_modele->isChecked())
-    {
-        QString modele = ui->lineEdit_recherche->text();
-            QSqlQueryModel * test=etmp.recherche_materiel_modele(modele);
-            if (ui->pushButton_recherche->isChecked()){
-                ui->pushButton_recherche->setText("En cours");
-                /* click = new QMediaPlayer();
-                     click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
-                      click->play();*/
-
-                if(test != nullptr)
             {
                 QMessageBox::information(nullptr, QObject::tr("chercher un materiel"),
-                            QObject::tr("materiel trouvé.\n"
-                                        "Click ok to get informations."), QMessageBox::Ok);
-                    ui->tableView_materiel->setModel(test);
+                                         QObject::tr("materiel trouvé.\n"
+                                    "Click ok to get informations."), QMessageBox::Ok);
+                ui->tableView_materiel->setModel(test);
             }
             else
             {
                 QMessageBox::critical(nullptr, QObject::tr("chercher un materiel"),
-                            QObject::tr("Erreur , materiel introuvable !.\n"
+                                      QObject::tr("Erreur , materiel introuvable !.\n"
+                                    "Click cancel to exit."), QMessageBox::Cancel);
+                ui->tableView_materiel->setModel(test);
+
+            }}
+        else
+        {
+            ui->pushButton_recherche->setText("Recherche");
+            ui->tableView_materiel->setModel(etmp.afficher());
+            /* click = new QMediaPlayer();
+                     click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
+                      click->play();*/
+
+        }
+    }
+    if (ui->checkBox_search_modele->isChecked())
+    {
+        QString modele = ui->lineEdit_recherche->text();
+        QSqlQueryModel * test=etmp.recherche_materiel_modele(modele);
+        if (ui->pushButton_recherche->isChecked()){
+            ui->pushButton_recherche->setText("En cours");
+            /* click = new QMediaPlayer();
+                     click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
+                      click->play();*/
+
+            if(test != nullptr)
+            {
+                QMessageBox::information(nullptr, QObject::tr("chercher un materiel"),
+                                         QObject::tr("materiel trouvé.\n"
+                                        "Click ok to get informations."), QMessageBox::Ok);
+                ui->tableView_materiel->setModel(test);
+            }
+            else
+            {
+                QMessageBox::critical(nullptr, QObject::tr("chercher un materiel"),
+                                      QObject::tr("Erreur , materiel introuvable !.\n"
                                         "Click cancel to exit."), QMessageBox::Cancel);
                 ui->tableView_materiel->setModel(test);
 
-        }}
-                else
-                {
-                    ui->pushButton_recherche->setText("Recherche");
-                    ui->tableView_materiel->setModel(etmp.afficher());
-                    /* click = new QMediaPlayer();
+            }}
+        else
+        {
+            ui->pushButton_recherche->setText("Recherche");
+            ui->tableView_materiel->setModel(etmp.afficher());
+            /* click = new QMediaPlayer();
                          click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
                           click->play();*/
 
-                }
+        }
     }
     if (ui->checkBox_search_nbr_maintenance->isChecked())
     {
         int nombre_maintenance = ui->lineEdit_recherche->text().toInt();
-            QSqlQueryModel * test=etmp.recherche_materiel_nbr_maintenance(nombre_maintenance);
-            if (ui->pushButton_recherche->isChecked()){
-                ui->pushButton_recherche->setText("En cours");
-                /* click = new QMediaPlayer();
+        QSqlQueryModel * test=etmp.recherche_materiel_nbr_maintenance(nombre_maintenance);
+        if (ui->pushButton_recherche->isChecked()){
+            ui->pushButton_recherche->setText("En cours");
+            /* click = new QMediaPlayer();
                      click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
                       click->play();*/
-                if(test != nullptr)
+            if(test != nullptr)
             {
                 QMessageBox::information(nullptr, QObject::tr("chercher un materiel"),
-                            QObject::tr("materiel trouvé.\n"
+                                         QObject::tr("materiel trouvé.\n"
                                         "Click ok to get informations."), QMessageBox::Ok);
-                    ui->tableView_materiel->setModel(test);
+                ui->tableView_materiel->setModel(test);
             }
             else
             {
                 QMessageBox::critical(nullptr, QObject::tr("chercher un materiel"),
-                            QObject::tr("Erreur , materiel introuvable !.\n"
+                                      QObject::tr("Erreur , materiel introuvable !.\n"
                                         "Click cancel to exit."), QMessageBox::Cancel);
                 ui->tableView_materiel->setModel(test);
-        }}
-                else
-                {
-                    ui->pushButton_recherche->setText("Recherche");
-                    ui->tableView_materiel->setModel(etmp.afficher());
-                    /* click = new QMediaPlayer();
+            }}
+        else
+        {
+            ui->pushButton_recherche->setText("Recherche");
+            ui->tableView_materiel->setModel(etmp.afficher());
+            /* click = new QMediaPlayer();
                          click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
                           click->play();*/
 
-                }
+        }
     }
 }
 
@@ -1397,29 +1397,29 @@ void Smart_Factory_2A1::on_pushButton_trier_clicked()
 {
     if (ui->radioButton_tri_ref->isChecked())
     {
-    ui->tableView_materiel->setModel( etmp.trier_materiel());
-    /* click = new QMediaPlayer();
+        ui->tableView_materiel->setModel( etmp.trier_materiel());
+        /* click = new QMediaPlayer();
          click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
           click->play();*/
     }
     if (ui->radioButton_tri_modele->isChecked())
     {
-    ui->tableView_materiel->setModel( etmp.trier_materielmodele());
-    /* click = new QMediaPlayer();
+        ui->tableView_materiel->setModel( etmp.trier_materielmodele());
+        /* click = new QMediaPlayer();
          click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
           click->play();*/
     }
     if (ui->radioButton_tri_date->isChecked())
     {
-    ui->tableView_materiel->setModel( etmp.trier_materiel_dateachat());
-    /* click = new QMediaPlayer();
+        ui->tableView_materiel->setModel( etmp.trier_materiel_dateachat());
+        /* click = new QMediaPlayer();
          click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
           click->play();*/
     }
     if (ui->radioButton_tri_nbrmaint->isChecked())
     {
-    ui->tableView_materiel->setModel( etmp.trier_materiel_nbr_maintenance());
-    /* click = new QMediaPlayer();
+        ui->tableView_materiel->setModel( etmp.trier_materiel_nbr_maintenance());
+        /* click = new QMediaPlayer();
          click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
           click->play();*/
     }
@@ -1456,33 +1456,33 @@ void Smart_Factory_2A1::on_pushButton_validermaint_clicked()
     {
         ui->tableView_maint->setModel(mtmp.afficher());
         QMessageBox::information(nullptr, QObject::tr("ajouter une maintenance"),
-                       QObject::tr("maintenance ajouté.\n"
+                                 QObject::tr("maintenance ajouté.\n"
                                    "click ok to continue."), QMessageBox::Ok);
-  }
+    }
     else QMessageBox::critical(nullptr,QObject::tr("Not Ok"),
-                       QObject::tr("ajout non effectué.\n"
+                               QObject::tr("ajout non effectué.\n"
                                    "click cancel to exit."),QMessageBox::Cancel);
 }
 
 
 void Smart_Factory_2A1::on_pushButton_supprimermaint_clicked()
 {
-        QItemSelectionModel *select = ui->tableView_maint->selectionModel();
-            QString ID_maintenance =select->selectedRows(0).value(0).data().toString();
-        bool test=mtmp.supprimer(ID_maintenance);
-        /* click = new QMediaPlayer();
+    QItemSelectionModel *select = ui->tableView_maint->selectionModel();
+    QString ID_maintenance =select->selectedRows(0).value(0).data().toString();
+    bool test=mtmp.supprimer(ID_maintenance);
+    /* click = new QMediaPlayer();
              click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
               click->play();*/
-        if (test)
-        {
-            ui->tableView_maint->setModel(mtmp.afficher());
-            QMessageBox::information(nullptr,QObject::tr("OK"),
-                                     QObject::tr("suppression effectuée\n"
+    if (test)
+    {
+        ui->tableView_maint->setModel(mtmp.afficher());
+        QMessageBox::information(nullptr,QObject::tr("OK"),
+                                 QObject::tr("suppression effectuée\n"
                                                  "click ok to continue."),QMessageBox::Ok);
-        }
-        else
-            QMessageBox::critical(nullptr,QObject::tr("not ok"),
-                                  QObject::tr("suppression non effectuée.\n"
+    }
+    else
+        QMessageBox::critical(nullptr,QObject::tr("not ok"),
+                              QObject::tr("suppression non effectuée.\n"
                                               "click cancel to exit."),QMessageBox::Cancel);
 
 }
@@ -1490,34 +1490,34 @@ void Smart_Factory_2A1::on_pushButton_supprimermaint_clicked()
 void Smart_Factory_2A1::on_pushButton_modifiermaint_clicked()
 {
     if (ui->pushButton_modifiermaint->isChecked())
-            {
+    {
 
-                ui->pushButton_modifiermaint->setText("Modifiable");
-                QSqlTableModel *tableModel= new QSqlTableModel();
-                tableModel->setTable("MAINTENANCE");
-                tableModel->select();
-                ui->tableView_maint->setModel(tableModel);
-                /* click = new QMediaPlayer();
+        ui->pushButton_modifiermaint->setText("Modifiable");
+        QSqlTableModel *tableModel= new QSqlTableModel();
+        tableModel->setTable("MAINTENANCE");
+        tableModel->select();
+        ui->tableView_maint->setModel(tableModel);
+        /* click = new QMediaPlayer();
                      click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
                       click->play();*/
 
-            }
-            else
-            {
-                ui->pushButton_modifiermaint->setText("Modifier une maintenance");
-                ui->tableView_maint->setModel(mtmp.afficher());
-                /* click = new QMediaPlayer();
+    }
+    else
+    {
+        ui->pushButton_modifiermaint->setText("Modifier une maintenance");
+        ui->tableView_maint->setModel(mtmp.afficher());
+        /* click = new QMediaPlayer();
                      click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
                       click->play();*/
 
-            }
+    }
 }
 
 void Smart_Factory_2A1::on_pushButton_recherche_2_clicked()
 {
     if (ui->checkBox_search_IDmaint->isChecked())
     {
-    QString ID_maintenance = ui->lineEdit_recherchemaint->text();
+        QString ID_maintenance = ui->lineEdit_recherchemaint->text();
         QSqlQueryModel * test=mtmp.recherche_maintenance(ID_maintenance);
         if (ui->pushButton_recherche_2->isChecked()){
             ui->pushButton_recherche_2->setText("En cours");
@@ -1526,32 +1526,32 @@ void Smart_Factory_2A1::on_pushButton_recherche_2_clicked()
                   click->play();*/
 
             if(test != nullptr)
-        {
-            QMessageBox::information(nullptr, QObject::tr("chercher une maintenance"),
-                        QObject::tr("maintenance trouvé.\n"
+            {
+                QMessageBox::information(nullptr, QObject::tr("chercher une maintenance"),
+                                         QObject::tr("maintenance trouvé.\n"
                                     "Click ok to get informations."), QMessageBox::Ok);
                 ui->tableView_maint->setModel(test);
-        }
-        else
-        {
-            QMessageBox::critical(nullptr, QObject::tr("chercher une maintenance"),
-                        QObject::tr("Erreur , maintenance introuvable !.\n"
-                                    "Click cancel to exit."), QMessageBox::Cancel);
-            ui->tableView_maint->setModel(test);
-    }}
+            }
             else
             {
-                ui->pushButton_recherche_2->setText("Recherche");
-                ui->tableView_maint->setModel(mtmp.afficher());
-                /* click = new QMediaPlayer();
+                QMessageBox::critical(nullptr, QObject::tr("chercher une maintenance"),
+                                      QObject::tr("Erreur , maintenance introuvable !.\n"
+                                    "Click cancel to exit."), QMessageBox::Cancel);
+                ui->tableView_maint->setModel(test);
+            }}
+        else
+        {
+            ui->pushButton_recherche_2->setText("Recherche");
+            ui->tableView_maint->setModel(mtmp.afficher());
+            /* click = new QMediaPlayer();
                      click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
                       click->play();*/
 
-            }
+        }
     }
     if (ui->checkBox_search_refmaint->isChecked())
     {
-    QString reference = ui->lineEdit_recherchemaint->text();
+        QString reference = ui->lineEdit_recherchemaint->text();
         QSqlQueryModel * test=mtmp.recherche_maintenance_reference(reference);
         if (ui->pushButton_recherche_2->isChecked()){
             ui->pushButton_recherche_2->setText("En cours");
@@ -1560,32 +1560,32 @@ void Smart_Factory_2A1::on_pushButton_recherche_2_clicked()
                   click->play();*/
 
             if(test != nullptr)
-        {
-            QMessageBox::information(nullptr, QObject::tr("chercher une maintenance"),
-                        QObject::tr("maintenance trouvé.\n"
+            {
+                QMessageBox::information(nullptr, QObject::tr("chercher une maintenance"),
+                                         QObject::tr("maintenance trouvé.\n"
                                     "Click ok to get informations."), QMessageBox::Ok);
                 ui->tableView_maint->setModel(test);
-        }
-        else
-        {
-            QMessageBox::critical(nullptr, QObject::tr("chercher une maintenance"),
-                        QObject::tr("Erreur , maintenance introuvable !.\n"
-                                    "Click cancel to exit."), QMessageBox::Cancel);
-            ui->tableView_maint->setModel(test);
-    }}
+            }
             else
             {
-                ui->pushButton_recherche_2->setText("Recherche");
-                ui->tableView_maint->setModel(mtmp.afficher());
-                /* click = new QMediaPlayer();
+                QMessageBox::critical(nullptr, QObject::tr("chercher une maintenance"),
+                                      QObject::tr("Erreur , maintenance introuvable !.\n"
+                                    "Click cancel to exit."), QMessageBox::Cancel);
+                ui->tableView_maint->setModel(test);
+            }}
+        else
+        {
+            ui->pushButton_recherche_2->setText("Recherche");
+            ui->tableView_maint->setModel(mtmp.afficher());
+            /* click = new QMediaPlayer();
                      click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
                       click->play();*/
 
-            }
+        }
     }
     if (ui->checkBox_search_modelemaint->isChecked())
     {
-    QString modele = ui->lineEdit_recherchemaint->text();
+        QString modele = ui->lineEdit_recherchemaint->text();
         QSqlQueryModel * test=mtmp.recherche_maintenance_modele(modele);
         if (ui->pushButton_recherche_2->isChecked()){
             ui->pushButton_recherche_2->setText("En cours");
@@ -1594,32 +1594,32 @@ void Smart_Factory_2A1::on_pushButton_recherche_2_clicked()
                   click->play();*/
 
             if(test != nullptr)
-        {
-            QMessageBox::information(nullptr, QObject::tr("chercher une maintenance"),
-                        QObject::tr("maintenance trouvé.\n"
+            {
+                QMessageBox::information(nullptr, QObject::tr("chercher une maintenance"),
+                                         QObject::tr("maintenance trouvé.\n"
                                     "Click ok to get informations."), QMessageBox::Ok);
                 ui->tableView_maint->setModel(test);
-        }
-        else
-        {
-            QMessageBox::critical(nullptr, QObject::tr("chercher une maintenance"),
-                        QObject::tr("Erreur , maintenance introuvable !.\n"
-                                    "Click cancel to exit."), QMessageBox::Cancel);
-            ui->tableView_maint->setModel(test);
-    }}
+            }
             else
             {
-                ui->pushButton_recherche_2->setText("Recherche");
-                ui->tableView_maint->setModel(mtmp.afficher());
-                /* click = new QMediaPlayer();
+                QMessageBox::critical(nullptr, QObject::tr("chercher une maintenance"),
+                                      QObject::tr("Erreur , maintenance introuvable !.\n"
+                                    "Click cancel to exit."), QMessageBox::Cancel);
+                ui->tableView_maint->setModel(test);
+            }}
+        else
+        {
+            ui->pushButton_recherche_2->setText("Recherche");
+            ui->tableView_maint->setModel(mtmp.afficher());
+            /* click = new QMediaPlayer();
                      click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
                       click->play();*/
 
-            }
+        }
     }
     if (ui->checkBox_search_matriculemaint->isChecked())
     {
-    QString matricule = ui->lineEdit_recherchemaint->text();
+        QString matricule = ui->lineEdit_recherchemaint->text();
         QSqlQueryModel * test=mtmp.recherche_maintenance_matricule(matricule);
         if (ui->pushButton_recherche_2->isChecked()){
             ui->pushButton_recherche_2->setText("En cours");
@@ -1628,32 +1628,32 @@ void Smart_Factory_2A1::on_pushButton_recherche_2_clicked()
                   click->play();*/
 
             if(test != nullptr)
-        {
-            QMessageBox::information(nullptr, QObject::tr("chercher une maintenance"),
-                        QObject::tr("maintenance trouvé.\n"
+            {
+                QMessageBox::information(nullptr, QObject::tr("chercher une maintenance"),
+                                         QObject::tr("maintenance trouvé.\n"
                                     "Click ok to get informations."), QMessageBox::Ok);
                 ui->tableView_maint->setModel(test);
-        }
-        else
-        {
-            QMessageBox::critical(nullptr, QObject::tr("chercher une maintenance"),
-                        QObject::tr("Erreur , maintenance introuvable !.\n"
-                                    "Click cancel to exit."), QMessageBox::Cancel);
-            ui->tableView_maint->setModel(test);
-    }}
+            }
             else
             {
-                ui->pushButton_recherche_2->setText("Recherche");
-                ui->tableView_maint->setModel(mtmp.afficher());
-                /* click = new QMediaPlayer();
+                QMessageBox::critical(nullptr, QObject::tr("chercher une maintenance"),
+                                      QObject::tr("Erreur , maintenance introuvable !.\n"
+                                    "Click cancel to exit."), QMessageBox::Cancel);
+                ui->tableView_maint->setModel(test);
+            }}
+        else
+        {
+            ui->pushButton_recherche_2->setText("Recherche");
+            ui->tableView_maint->setModel(mtmp.afficher());
+            /* click = new QMediaPlayer();
                      click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
                       click->play();*/
 
-            }
+        }
     }
     if (ui->checkBox_search_typemaint->isChecked())
     {
-    QString type_de_maintenance = ui->lineEdit_recherchemaint->text();
+        QString type_de_maintenance = ui->lineEdit_recherchemaint->text();
         QSqlQueryModel * test=mtmp.recherche_maintenance_type(type_de_maintenance);
         if (ui->pushButton_recherche_2->isChecked()){
             ui->pushButton_recherche_2->setText("En cours");
@@ -1662,28 +1662,28 @@ void Smart_Factory_2A1::on_pushButton_recherche_2_clicked()
                   click->play();*/
 
             if(test != nullptr)
-        {
-            QMessageBox::information(nullptr, QObject::tr("chercher une maintenance"),
-                        QObject::tr("maintenance trouvé.\n"
+            {
+                QMessageBox::information(nullptr, QObject::tr("chercher une maintenance"),
+                                         QObject::tr("maintenance trouvé.\n"
                                     "Click ok to get informations."), QMessageBox::Ok);
                 ui->tableView_maint->setModel(test);
-        }
-        else
-        {
-            QMessageBox::critical(nullptr, QObject::tr("chercher une maintenance"),
-                        QObject::tr("Erreur , maintenance introuvable !.\n"
-                                    "Click cancel to exit."), QMessageBox::Cancel);
-            ui->tableView_maint->setModel(test);
-    }}
+            }
             else
             {
-                ui->pushButton_recherche_2->setText("Recherche");
-                ui->tableView_maint->setModel(mtmp.afficher());
-                /* click = new QMediaPlayer();
+                QMessageBox::critical(nullptr, QObject::tr("chercher une maintenance"),
+                                      QObject::tr("Erreur , maintenance introuvable !.\n"
+                                    "Click cancel to exit."), QMessageBox::Cancel);
+                ui->tableView_maint->setModel(test);
+            }}
+        else
+        {
+            ui->pushButton_recherche_2->setText("Recherche");
+            ui->tableView_maint->setModel(mtmp.afficher());
+            /* click = new QMediaPlayer();
                      click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
                       click->play();*/
 
-            }
+        }
     }
 
 }
@@ -1693,43 +1693,43 @@ void Smart_Factory_2A1::on_pushButton_trier_2_clicked()
 {
     if (ui->radioButton_tri_IDmaint->isChecked())
     {
-    ui->tableView_maint->setModel( mtmp.trier_maintenance_ID());
-    /* click = new QMediaPlayer();
+        ui->tableView_maint->setModel( mtmp.trier_maintenance_ID());
+        /* click = new QMediaPlayer();
          click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
           click->play();*/
     }
     if (ui->radioButton_triref2->isChecked())
     {
-    ui->tableView_maint->setModel( mtmp.trier_maintenance_reference());
-    /* click = new QMediaPlayer();
+        ui->tableView_maint->setModel( mtmp.trier_maintenance_reference());
+        /* click = new QMediaPlayer();
          click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
           click->play();*/
     }
     if (ui->radioButton_trimod2->isChecked())
     {
-    ui->tableView_maint->setModel( mtmp.trier_maintenance_modele());
-    /* click = new QMediaPlayer();
+        ui->tableView_maint->setModel( mtmp.trier_maintenance_modele());
+        /* click = new QMediaPlayer();
          click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
           click->play();*/
     }
     if (ui->radioButton_trimatricule->isChecked())
     {
-    ui->tableView_maint->setModel( mtmp.trier_maintenance_matricule());
-    /* click = new QMediaPlayer();
+        ui->tableView_maint->setModel( mtmp.trier_maintenance_matricule());
+        /* click = new QMediaPlayer();
          click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
           click->play();*/
     }
     if (ui->radioButton_tridate2->isChecked())
     {
-    ui->tableView_maint->setModel( mtmp.trier_maintenance_dateachat());
-    /* click = new QMediaPlayer();
+        ui->tableView_maint->setModel( mtmp.trier_maintenance_dateachat());
+        /* click = new QMediaPlayer();
          click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
           click->play();*/
     }
     if (ui->radioButton_tridatemaint->isChecked())
     {
-    ui->tableView_maint->setModel( mtmp.trier_maintenance_date_derniere_maintenance());
-    /* click = new QMediaPlayer();
+        ui->tableView_maint->setModel( mtmp.trier_maintenance_date_derniere_maintenance());
+        /* click = new QMediaPlayer();
          click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
           click->play();*/
     }
@@ -1757,8 +1757,8 @@ void Smart_Factory_2A1::on_pushButton_arduinoobstacle_clicked()
     /* click = new QMediaPlayer();
          click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
           click->play();*/
-         arduinoobstacle *obj =new arduinoobstacle;
-         obj->show();
+    arduinoobstacle *obj =new arduinoobstacle;
+    obj->show();
 
 
 }
@@ -1768,8 +1768,8 @@ void Smart_Factory_2A1::on_pushButtonExporterEquip_clicked()
     /* click = new QMediaPlayer();
              click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
               click->play();*/
-        exporter(ui->tableView_materiel);
-        ui->statusbar->showMessage("Export De Tableau Materiel ",5000);
+    exporter(ui->tableView_materiel);
+    ui->statusbar->showMessage("Export De Tableau Materiel ",5000);
 }
 
 void Smart_Factory_2A1::on_pushButtonExporterMain_clicked()
@@ -1777,8 +1777,8 @@ void Smart_Factory_2A1::on_pushButtonExporterMain_clicked()
     /* click = new QMediaPlayer();
             click->setMedia(QUrl("C:/Users/user/Desktop/click.mp3"));
              click->play();*/
-       exporter(ui->tableView_maint);
-       ui->statusbar->showMessage("Export De Tableau maintenance ",5000);
+    exporter(ui->tableView_maint);
+    ui->statusbar->showMessage("Export De Tableau maintenance ",5000);
 }
 
 void Smart_Factory_2A1::on_pushButtonExporterEquip_2_clicked()
@@ -1799,7 +1799,7 @@ void Smart_Factory_2A1::on_pushButtonExporterEquip_2_clicked()
 
 
     while ( q.next()) {
-pdf= pdf+ " <br> <tr> <td>"+ q.value(0).toString()+"</td>   <td> " + q.value(1).toString() +"</td>   <td>" +q.value(2).toString() +" </td>   <td>"+q.value(3).toString()+"</td> </td>";
+        pdf= pdf+ " <br> <tr> <td>"+ q.value(0).toString()+"</td>   <td> " + q.value(1).toString() +"</td>   <td>" +q.value(2).toString() +" </td>   <td>"+q.value(3).toString()+"</td> </td>";
 
     }
     doc.setHtml(pdf);
@@ -1811,25 +1811,86 @@ pdf= pdf+ " <br> <tr> <td>"+ q.value(0).toString()+"</td>   <td> " + q.value(1).
 void Smart_Factory_2A1::on_pushButtonExporterMain_2_clicked()
 {
     QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Export PDF", QString(), "*.pdf");
-       if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
+    if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
 
-       QPrinter printer(QPrinter::PrinterResolution);
-       printer.setOutputFormat(QPrinter::PdfFormat);
-       printer.setPaperSize(QPrinter::A4);
-       printer.setOutputFileName(fileName);
+    QPrinter printer(QPrinter::PrinterResolution);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setPaperSize(QPrinter::A4);
+    printer.setOutputFileName(fileName);
 
-       QTextDocument doc;
-       QSqlQuery q;
-       q.prepare("SELECT * FROM MAINTENANCE ");
-       q.exec();
-       QString pdf="<br><h1  style='color:pink'>tableau maintenance  <br></h1>\n <br> <table>  <tr>  <th>ID_MAINTENANCE </th> <th>REFERENCE </th>  <th>MODELE </th> <th>MATRICULE </th>  <th>DATE_ACHAT </th> <th>DATE_DE_MAINTENANCE </th> <th>DERNIER_PROBLEME </th> <th>TYPE_DE_MAINTENANCE </th> </tr> " ;
+    QTextDocument doc;
+    QSqlQuery q;
+    q.prepare("SELECT * FROM MAINTENANCE ");
+    q.exec();
+    QString pdf="<br><h1  style='color:pink'>tableau maintenance  <br></h1>\n <br> <table>  <tr>  <th>ID_MAINTENANCE </th> <th>REFERENCE </th>  <th>MODELE </th> <th>MATRICULE </th>  <th>DATE_ACHAT </th> <th>DATE_DE_MAINTENANCE </th> <th>DERNIER_PROBLEME </th> <th>TYPE_DE_MAINTENANCE </th> </tr> " ;
 
 
-       while ( q.next()) {
-   pdf= pdf+ " <br> <tr> <td>"+ q.value(0).toString()+"</td>   <td> " + q.value(1).toString() +"</td>   <td>" +q.value(2).toString() +" </td>   <td>"+q.value(3).toString()+"</td> <td>"+q.value(4).toString()+"</td> <td>"+q.value(5).toString()+" </td> <td> "+q.value(6).toString()+" </td> <td>"+ q.value(7).toString()+"</td> </td>" ;
+    while ( q.next()) {
+        pdf= pdf+ " <br> <tr> <td>"+ q.value(0).toString()+"</td>   <td> " + q.value(1).toString() +"</td>   <td>" +q.value(2).toString() +" </td>   <td>"+q.value(3).toString()+"</td> <td>"+q.value(4).toString()+"</td> <td>"+q.value(5).toString()+" </td> <td> "+q.value(6).toString()+" </td> <td>"+ q.value(7).toString()+"</td> </td>" ;
 
+    }
+    doc.setHtml(pdf);
+    doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
+    doc.print(&printer);
+}
+
+void Smart_Factory_2A1::on_pushButtonOptions_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+
+}
+
+void Smart_Factory_2A1::on_pushButtonModifieProfil_clicked()
+{
+
+}
+
+void Smart_Factory_2A1::on_radioButtonNuit_toggled(bool checked)
+{
+    this->setStyleSheet("font: 8pt \"Pacifico\";"
+                           "background-color: rgb(43, 40, 38);"
+                           "color: rgb(255, 255, 255);");
+
+
+
+       QList<QPushButton *> butts = this->findChildren<QPushButton *>();
+
+       for (int i=0; i<butts.size();i++)
+       {
+           butts.at(i)->setStyleSheet("QPushButton { background-color: #444444; }");
        }
-       doc.setHtml(pdf);
-       doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
-       doc.print(&printer);
+
+
+       QList<QTabWidget *> tabs = this->findChildren<QTabWidget *>();
+
+       for (int i=0; i<tabs.size();i++)
+       {
+           tabs.at(i)->setStyleSheet("QTabBar::tab { background-color: rgb(68, 68, 68);}");
+       }
+
+}
+
+void Smart_Factory_2A1::on_radioButtonJour_toggled(bool checked)
+{
+    this->setStyleSheet("font: 8pt \"Pacifico\";");
+
+
+       QList<QPushButton *> butts = this->findChildren<QPushButton *>();
+
+       for (int i=0; i<butts.size();i++)
+       {
+           butts.at(i)->setStyleSheet("QPushButton { background-color: grey; }");
+       }
+       QList<QTabWidget *> tabs = this->findChildren<QTabWidget *>();
+
+       for (int i=0; i<tabs.size();i++)
+       {
+           tabs.at(i)->setStyleSheet("QTabBar::tab { background-color: grey;}");
+       }
+
+}
+
+void Smart_Factory_2A1::on_pushButton_2_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(1);
 }

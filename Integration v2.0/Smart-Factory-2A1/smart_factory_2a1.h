@@ -182,6 +182,16 @@ private slots:
 
     void on_pushButtonExporterMain_2_clicked();
 
+    void on_pushButtonOptions_clicked();
+
+    void on_pushButtonModifieProfil_clicked();
+
+    void on_radioButtonNuit_toggled(bool checked);
+
+    void on_radioButtonJour_toggled(bool checked);
+
+    void on_pushButton_2_clicked();
+
 private:
     Ui::Smart_Factory_2A1 *ui;
     login authentification;
