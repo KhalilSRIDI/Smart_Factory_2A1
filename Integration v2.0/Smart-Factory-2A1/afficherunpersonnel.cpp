@@ -28,7 +28,7 @@ void afficherUnPersonnel::on_rechAffPers_clicked()
         if(qry.next())
         {
             QString text;
-            text += "<br> <img src='C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/test.png' height='42' width='144'/>";
+            text += "<br> <img src='E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/test.png' height='42' width='144'/>";
             text += "<h1  style='color:red'>Nom :</h1><h1  style='color:black'>"+qry.value(2).toString()+"</h1>\n";
             text += "<h1  style='color:red'>Prenom :</h1><h1  style='color:black'>" + qry.value(3).toString() + "</h1>\n";
             text += "<h1  style='color:red'>Numero Cin :</h1><h1  style='color:black'>" + qry.value(1).toString() + "</h1>\n";

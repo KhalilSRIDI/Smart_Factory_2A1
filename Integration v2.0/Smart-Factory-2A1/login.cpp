@@ -45,7 +45,7 @@ int login::recupererDepartement(int matricule)
             return 4;
         else if(dep=="Ameliorations")
             return 5;
-        else if(dep=="Materiels")
+        else if(dep=="Materiel")
             return 6;
     }
     else

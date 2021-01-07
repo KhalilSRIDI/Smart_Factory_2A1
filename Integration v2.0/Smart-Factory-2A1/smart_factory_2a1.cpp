@@ -680,7 +680,8 @@ void Smart_Factory_2A1::on_gestionMaintenances_clicked()
 
 void Smart_Factory_2A1::on_pushButtonRechercheP_clicked()
 {
-    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Khalil SRIDI/gestionAmelioration/src/mouseclick.wav");
+        QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/clickSound.wav");
+
     int critere=0;
     if(ui->checkBoxIDP->isChecked())
         critere=0;
@@ -714,7 +715,8 @@ void Smart_Factory_2A1::on_pushButtonRechercheP_clicked()
 
 void Smart_Factory_2A1::on_pushButtonStat_clicked()
 {
-    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Khalil SRIDI/gestionAmelioration/src/mouseclick.wav");
+        QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/clickSound.wav");
+
     statistique2 *a= new statistique2() ;
     a->show();
 }
@@ -754,7 +756,8 @@ void Smart_Factory_2A1::on_pushButtonExportPDFP_clicked()
 
 void Smart_Factory_2A1::on_pushTrierP_clicked()
 {
-    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Khalil SRIDI/gestionAmelioration/src/mouseclick.wav");
+        QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/clickSound.wav");
+
     ui->tableViewP->setModel(tmp_projet.afficher());
     QString critere;
 
@@ -904,7 +907,8 @@ void Smart_Factory_2A1::on_pushTrierP_clicked()
 
 void Smart_Factory_2A1::on_pushButtonAjouter_clicked()
 {
-    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Khalil SRIDI/gestionAmelioration/src/mouseclick.wav");
+        QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/clickSound.wav");
+
 
 
     QString NOM=ui->lineEditNomP->text();
@@ -944,7 +948,8 @@ void Smart_Factory_2A1::on_pushButtonModifier_clicked()
 
 void Smart_Factory_2A1::on_pushButtonSupprimer_clicked()
 {
-    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Khalil SRIDI/gestionAmelioration/src/mouseclick.wav");
+        QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/clickSound.wav");
+
 
     QItemSelectionModel *select = ui->tableViewP->selectionModel();
     int idprojet =select->selectedRows(0).value(0).data().toInt();
@@ -957,7 +962,8 @@ void Smart_Factory_2A1::on_pushButtonSupprimer_clicked()
 
 void Smart_Factory_2A1::on_pushButtonAjouterF_clicked()
 {
-    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Khalil SRIDI/gestionAmelioration/src/mouseclick.wav");
+        QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/clickSound.wav");
+
     QString NOM=ui->lineEditNomF->text();
     QString PROJET=ui->comboBoxPC->currentText();
     QString FORMATEUR=ui->lineEditFormateur->text();
@@ -979,7 +985,8 @@ void Smart_Factory_2A1::on_pushButtonAjouterF_clicked()
 
 void Smart_Factory_2A1::on_pushButtonRechercheF_clicked()
 {
-    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Khalil SRIDI/gestionAmelioration/src/mouseclick.wav");
+        QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/clickSound.wav");
+
     int critere=0;
     if(ui->checkBoxIDF->isChecked())
         critere=0;
@@ -1056,7 +1063,8 @@ void Smart_Factory_2A1::on_pushButtonExportPDFF_clicked()
 
 void Smart_Factory_2A1::on_pushTrierF_clicked()
 {
-    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Khalil SRIDI/gestionAmelioration/src/mouseclick.wav");
+        QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/clickSound.wav");
+
     ui->tableViewF->setModel(tmp_formation.afficher());
     QString critere;
 
@@ -1220,7 +1228,8 @@ void Smart_Factory_2A1::on_pushButtonModifierF_clicked()
 
 void Smart_Factory_2A1::on_pushButtonSupprimerF_clicked()
 {
-    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Khalil SRIDI/gestionAmelioration/src/mouseclick.wav");
+        QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/clickSound.wav");
+
     QItemSelectionModel *select = ui->tableViewF->selectionModel();
     int idformation =select->selectedRows(0).value(0).data().toInt();
     if(tmp_formation.supprimer(idformation))
