@@ -18,96 +18,95 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page">
-       <widget class="QWidget" name="layoutWidget_3">
-        <property name="geometry">
-         <rect>
-          <x>790</x>
-          <y>340</y>
-          <width>232</width>
-          <height>26</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
-          <widget class="QLabel" name="label_3">
-           <property name="text">
-            <string>Mot De Passe :</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="mdpC">
-           <property name="echoMode">
-            <enum>QLineEdit::Password</enum>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QPushButton" name="quitterP">
-        <property name="geometry">
-         <rect>
-          <x>1130</x>
-          <y>610</y>
-          <width>93</width>
-          <height>28</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Quitter</string>
-        </property>
-       </widget>
-       <widget class="QWidget" name="layoutWidget">
-        <property name="geometry">
-         <rect>
-          <x>820</x>
-          <y>310</y>
-          <width>242</width>
-          <height>26</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <item>
-          <widget class="QLabel" name="label">
-           <property name="text">
-            <string>Nom Utilisateur :</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="nomUC"/>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="layoutWidget_2">
-        <property name="geometry">
-         <rect>
-          <x>970</x>
-          <y>440</y>
-          <width>194</width>
-          <height>30</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_3">
-         <item>
-          <widget class="QPushButton" name="login">
-           <property name="text">
-            <string>LOGIN</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="annulerC">
-           <property name="text">
-            <string>Annuler</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
+       <layout class="QGridLayout" name="gridLayout_14">
+        <item row="0" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayout_34">
+          <item>
+           <widget class="QLabel" name="imgS">
+            <property name="minimumSize">
+             <size>
+              <width>500</width>
+              <height>500</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>test.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_9">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <item>
+               <widget class="QLabel" name="label">
+                <property name="text">
+                 <string>Nom Utilisateur :</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="nomUC"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <item>
+               <widget class="QLabel" name="label_3">
+                <property name="text">
+                 <string>Mot De Passe :</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="mdpC">
+                <property name="echoMode">
+                 <enum>QLineEdit::Password</enum>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <item>
+               <widget class="QPushButton" name="login">
+                <property name="text">
+                 <string>LOGIN</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="annulerC">
+                <property name="text">
+                 <string>Annuler</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="quitterP">
+          <property name="text">
+           <string>Quitter</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="page_2">
        <layout class="QGridLayout" name="gridLayout_13">
@@ -298,7 +297,7 @@
                    </size>
                   </property>
                   <property name="currentIndex">
-                   <number>1</number>
+                   <number>0</number>
                   </property>
                   <property name="usesScrollButtons">
                    <bool>false</bool>
@@ -4112,19 +4111,6 @@ td, th
              <string>Français</string>
             </property>
            </widget>
-           <widget class="QRadioButton" name="radioButtonAR">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>90</y>
-              <width>97</width>
-              <height>22</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>العربية</string>
-            </property>
-           </widget>
           </widget>
          </item>
          <item>
@@ -4169,12 +4155,45 @@ td, th
      <x>0</x>
      <y>0</y>
      <width>1477</width>
-     <height>26</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>quitterP</sender>
+   <signal>clicked()</signal>
+   <receiver>Smart_Factory_2A1</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1396</x>
+     <y>822</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1476</x>
+     <y>798</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>quitter_4</sender>
+   <signal>clicked()</signal>
+   <receiver>Smart_Factory_2A1</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>974</x>
+     <y>827</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>904</x>
+     <y>850</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

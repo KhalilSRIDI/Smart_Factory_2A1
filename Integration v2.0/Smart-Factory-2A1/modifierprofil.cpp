@@ -22,7 +22,7 @@ void modifierProfil::on_buttonBox_2_accepted()
         if (ui->AMDP->text()!="" && ui->CNMDP->text()!="")
         {
             login l;
-            bool test=l.modifierMotDePasse(289,ui->AMDP->text(),ui->NMDP->text());
+            bool test=l.modifierMotDePasse(242,ui->AMDP->text(),ui->NMDP->text());
 
             if (!test)
                 QMessageBox::warning(this,tr("Changement du MDP"),tr("Erreur lors du changement du MDP"));

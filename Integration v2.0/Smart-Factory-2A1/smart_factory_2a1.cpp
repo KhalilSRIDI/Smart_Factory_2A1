@@ -7,8 +7,12 @@ Smart_Factory_2A1::Smart_Factory_2A1(QWidget *parent)
 {
 
     ui->setupUi(this);
+
+
+
     ui->smartFactory->setCurrentIndex(0);
     ui->stackedWidget->setCurrentIndex(0);
+
 
     ui->comboBoxTeamLeader->setModel(tmp_projet.loadTL());
     ui->comboBoxPC->setModel(tmp_formation.loadPC());
@@ -94,7 +98,7 @@ void Smart_Factory_2A1::on_login_clicked()
         ui->nomProfil->setText(authentification.infoSession(authentification.connecter(ui->nomUC->text(),ui->mdpC->text())));
 
         QPixmap outPixmap = QPixmap();
-        outPixmap.loadFromData(authentification.recupererImage(authentification.connecter(ui->nomUC->text(),ui->mdpC->text())),"PNG");
+        outPixmap.loadFromData(authentification.recupererImage(authentification.connecter(ui->nomUC->text(),ui->mdpC->text())),"JPG");
         outPixmap = outPixmap.scaledToWidth(ui->imageProfil->width(),Qt::SmoothTransformation);
         ui->imageProfil->setPixmap(outPixmap);
 
@@ -139,14 +143,15 @@ void Smart_Factory_2A1::on_gestionPersonnelProfil_clicked()
 }
 void Smart_Factory_2A1::on_gestionPersonnel_clicked()
 {
-    QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/clickSound.wav");
+
     ui->stackedWidget_2->setCurrentIndex(0);
     ui->statusbar->showMessage("Gestion Personnel",5000);
 }
 
 void Smart_Factory_2A1::on_gestionProfil_clicked()
 {
-    QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/clickSound.wav");
     ui->stackedWidget_2->setCurrentIndex(1);
     ui->statusbar->showMessage("Gestion Profil",5000);
 }
@@ -157,7 +162,8 @@ void Smart_Factory_2A1::on_vAjouterPers_clicked()
     bool verifNom = chaine.exactMatch(ui->nom->text());
     bool verifPrenom = chaine.exactMatch(ui->prenom->text());
 
-    QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/clickSound.wav");
+
     QString cin = ui->cin->text();
     QString nom = ui->nom->text();
     QString prenom = ui->prenom->text();
@@ -198,7 +204,7 @@ void Smart_Factory_2A1::on_vAjouterPers_clicked()
     QString unite = ui->unite->currentText();
     QString fonction = ui->fonction->currentText();
     int salaire = ui->salaire->value();
-    QString filename = QFileDialog::getOpenFileName(this,"Choisir Une Image","","Images(*.png)");
+    QString filename = QFileDialog::getOpenFileName(this,"Choisir Une Image","","Images(*.jpg)");
     if(QString::compare(filename,QString())!=0)
     {
         QImage image;
@@ -233,7 +239,8 @@ void Smart_Factory_2A1::on_vAjouterPers_clicked()
 }
 void Smart_Factory_2A1::on_modifierPers_clicked()
 {
-    QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/clickSound.wav");
+
     if(ui->modifierPers->isChecked())
     {
 
@@ -250,7 +257,8 @@ void Smart_Factory_2A1::on_modifierPers_clicked()
 }
 void Smart_Factory_2A1::on_supprimerPers_clicked()
 {
-    QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/clickSound.wav");
+
     QItemSelectionModel *select = ui->tablePers->selectionModel();
     int matricule =select->selectedRows(0).value(0).data().toInt();
     if(tmpPersonnels.supprimer(matricule))
@@ -265,7 +273,8 @@ void Smart_Factory_2A1::on_vAjouterPro_clicked()
     bool verifNU = nomUtilisateur.exactMatch(ui->nomUP->text());
 
 
-    QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/clickSound.wav");
+
     int matricule = ui->matriculeP->text().toInt();
     QString nomUP = ui->nomUP->text();
     QString email = ui->email->text();;
@@ -284,7 +293,8 @@ void Smart_Factory_2A1::on_vAjouterPro_clicked()
 }
 void Smart_Factory_2A1::on_modifierPro_clicked()
 {
-    QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/clickSound.wav");
+
     if(ui->modifierPro->isChecked())
     {
         ui->tablePro->setModel(tmpProfils.modifier());
@@ -300,7 +310,8 @@ void Smart_Factory_2A1::on_modifierPro_clicked()
 }
 void Smart_Factory_2A1::on_supprimerPro_clicked()
 {
-    QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/clickSound.wav");
+
     QItemSelectionModel *select = ui->tablePro->selectionModel();
     int id =select->selectedRows(0).value(0).data().toInt();
     if(tmpProfils.supprimer(id))
@@ -353,19 +364,22 @@ void Smart_Factory_2A1::exporter(QTableView *table)
 }
 void Smart_Factory_2A1::on_exportExcel_clicked()
 {
-    QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/clickSound.wav");
+
     exporter(ui->tablePers);
     ui->statusbar->showMessage("Export De Tableau Personnel ",5000);
 }
 void Smart_Factory_2A1::on_exportExcelP_clicked()
 {
-    QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/clickSound.wav");
+
     exporter(ui->tablePro);
     ui->statusbar->showMessage("Export De Tableau Profil ",5000);
 }
 void Smart_Factory_2A1::on_trier_clicked()
 {
-    QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/clickSound.wav");
+
     if(ui->matT->isChecked())
     {
         ui->tablePro->setModel(tmpProfils.trier("matricule",ui->AD->currentText()));
@@ -384,7 +398,8 @@ void Smart_Factory_2A1::on_trier_clicked()
 }
 void Smart_Factory_2A1::on_trierM_clicked()
 {
-    QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/clickSound.wav");
+
     int check=0;
     QString cD="";
     QString cU="";
@@ -461,7 +476,8 @@ void Smart_Factory_2A1::on_fonctionCh_currentIndexChanged(int index)
 }
 void Smart_Factory_2A1::on_chercherDate_clicked()
 {
-    QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/clickSound.wav");
+
     QDate date1 = ui->dateCh1->date();
     QDate date2 = ui->dateCh2->date();
     if(tmpPersonnels.chercher(date1,date2) != nullptr)
@@ -474,7 +490,8 @@ void Smart_Factory_2A1::on_chercherDate_clicked()
 }
 void Smart_Factory_2A1::on_chercherTripleC_clicked()
 {
-    QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/clickSound.wav");
+
     QString sexe;
     if(ui->masculinCh->isChecked())
         sexe =ui->masculinCh->text();
@@ -498,7 +515,8 @@ void Smart_Factory_2A1::on_chercherTripleC_clicked()
 }
 void Smart_Factory_2A1::on_trierS_clicked()
 {
-    QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/clickSound.wav");
+
     if(ui->matTP->isChecked())
     {
         ui->tablePers->setModel(tmpPersonnels.trier("matricule",ui->AD_3->currentText()));
@@ -529,7 +547,8 @@ void Smart_Factory_2A1::on_trierS_clicked()
 void Smart_Factory_2A1::on_reduire_clicked()
 {
     static int turn=1;
-    QSound::play("C:/Users/DELL/Documents/GitHub/Smart_Factory_2A1/Safouene Jebali/gestionPersonnelProfil/clickSound.wav");
+    QSound::play("E:/User/Khalil/ESPRIT/2ème année/Git/Smart_Factory_2A1/Integration v2.0/Smart-Factory-2A1/clickSound.wav");
+
     if (turn==1)
     {
         reduireAnimation->start();
@@ -566,7 +585,7 @@ void Smart_Factory_2A1::on_gestionAmeliorations_clicked()
 
 void Smart_Factory_2A1::on_gestionStock_clicked()
 {
-    ui->smartFactory->setCurrentIndex(5);
+    ui->smartFactory->setCurrentIndex(6);
 }
 
 void Smart_Factory_2A1::on_gestionAchats_clicked()
@@ -576,7 +595,7 @@ void Smart_Factory_2A1::on_gestionAchats_clicked()
 
 void Smart_Factory_2A1::on_gestionVentes_clicked()
 {
-    ui->smartFactory->setCurrentIndex(4);
+    ui->smartFactory->setCurrentIndex(6);
 }
 
 void Smart_Factory_2A1::on_gestionEquipements_clicked()
@@ -1911,6 +1930,12 @@ void Smart_Factory_2A1::on_pushButton_2_clicked()
     if(ui->radioButtonEN->isChecked())
     {
         translator->load(QDir::currentPath().append("/smart_factory_2a1_en"));
+        qApp->installTranslator(translator);
+        ui->retranslateUi(this);
+    }
+    else if(ui->radioButtonFR->isChecked())
+    {
+        translator->load(QDir::currentPath().append("/smart_factory_2a1_fr"));
         qApp->installTranslator(translator);
         ui->retranslateUi(this);
     }

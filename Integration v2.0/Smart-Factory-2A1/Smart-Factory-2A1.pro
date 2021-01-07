@@ -71,7 +71,7 @@ FORMS += \
     statistique2.ui \
     statistiques.ui
 
-TRANSLATIONS = smart_factory_2a1_en.ts
+TRANSLATIONS = smart_factory_2a1_en.ts smart_factory_2a1_fr.ts
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
