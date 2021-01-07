@@ -83,3 +83,12 @@ int login::hash(QString motDePasse)
     std::hash<std::string> hash;
     return hash(motDePasse.toStdString());
 }
+bool login::modifierMotDePasse(int matricule,QString ancienMdp,QString nouveauMdp)
+{
+    QSqlQuery qry;
+    qry.prepare("UPDATE profils SET mdp=:nouveauMdp WHERE (matricule=:matricule AND mdp=:ancienMdp)");
+    qry.bindValue(":matricule",matricule);
+    qry.bindValue(":ancienMdp",this->hash(ancienMdp));
+    qry.bindValue(":nouveauMdp",this->hash(nouveauMdp));
+    return qry.exec();
+}

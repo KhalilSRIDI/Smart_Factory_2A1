@@ -12,6 +12,7 @@ public:
     QString infoSession(int);
     QByteArray recupererImage(int);
     int hash(QString);
+        bool modifierMotDePasse(int,QString,QString );
 
 };
 

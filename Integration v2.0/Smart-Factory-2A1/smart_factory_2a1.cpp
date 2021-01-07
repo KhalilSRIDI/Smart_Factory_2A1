@@ -89,6 +89,7 @@ void Smart_Factory_2A1::on_login_clicked()
 {
     if(authentification.connecter(ui->nomUC->text(),ui->mdpC->text())!=0)
     {
+        //ui->matMP.setText(authentification.connecter(ui->nomUC->text(),ui->mdpC->text()));
         ui->stackedWidget->setCurrentIndex(1);
         ui->nomProfil->setText(authentification.infoSession(authentification.connecter(ui->nomUC->text(),ui->mdpC->text())));
 
@@ -1854,6 +1855,9 @@ void Smart_Factory_2A1::on_pushButtonOptions_clicked()
 
 void Smart_Factory_2A1::on_pushButtonModifieProfil_clicked()
 {
+    modifierProfil modifierProfil;
+    modifierProfil.setModal(true);
+    modifierProfil.exec();
 
 }
 

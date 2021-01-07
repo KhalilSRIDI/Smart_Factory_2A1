@@ -1,5 +1,6 @@
 #ifndef SMART_FACTORY_2A1_H
 #define SMART_FACTORY_2A1_H
+#include "modifierprofil.h"
 #include "connexionsql.h"
 #include "smtp.h"
 #include "login.h"
