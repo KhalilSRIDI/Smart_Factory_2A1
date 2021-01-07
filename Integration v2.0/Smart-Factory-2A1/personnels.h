@@ -64,6 +64,8 @@ public:
     int calculerSE(QString,QString);
     int calculerSF(QString,QString);
 
+    QSqlQueryModel *rechercher_rfid(QString);
+
 private:
 
 };

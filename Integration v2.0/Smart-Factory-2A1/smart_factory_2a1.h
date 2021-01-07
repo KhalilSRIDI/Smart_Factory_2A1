@@ -19,7 +19,7 @@
 #include "arduinoobstacle.h"
 #include <QMainWindow>
 #include <QStatusBar>
-#include<QSound>
+#include <QSound>
 #include <QFileDialog>
 #include <QTableView>
 #include <QItemSelectionModel>
@@ -30,6 +30,7 @@
 #include <QPropertyAnimation>
 #include <QRegularExpression>
 #include <QDir>
+#include <QTranslator>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Smart_Factory_2A1; }
@@ -74,28 +75,13 @@ private slots:
     void on_fonctionCh_currentIndexChanged(int index);
     void on_chercherTripleC_clicked();
 
-
-
     void on_reduire_clicked();
 
     void on_statistiques_clicked();
 
     void on_Afficher1Pers_clicked();
 
-
-
-
-
-
-
-
-
-
     void on_gestionAmeliorations_clicked();
-
-
-
-
 
     void on_gestionStock_clicked();
 
@@ -192,6 +178,15 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_convoquer_clicked();
+
+    void on_avertir_clicked();
+
+    void on_envoyerMail_clicked();
+    void update_label();
+
+    void on_pushButtonAccepter_clicked();
+
 private:
     Ui::Smart_Factory_2A1 *ui;
     login authentification;
@@ -209,6 +204,10 @@ private:
     formation tmp_formation;
     materiel etmp;
     maintenance mtmp;
+    QTranslator *translator=new QTranslator;
+    QByteArray data;
+    Arduino A;
+    QString uid;
 
 };
 #endif // SMART_FACTORY_2A1_H

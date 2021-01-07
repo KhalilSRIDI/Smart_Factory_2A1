@@ -18,7 +18,7 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page">
        <widget class="QWidget" name="layoutWidget_3">
@@ -260,7 +260,7 @@
         <item row="0" column="1">
          <widget class="QStackedWidget" name="smartFactory">
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="page_4">
            <layout class="QGridLayout" name="gridLayout_7">
@@ -285,7 +285,7 @@
                <enum>QFrame::WinPanel</enum>
               </property>
               <property name="currentIndex">
-               <number>1</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="gestionPers">
                <layout class="QGridLayout" name="gridLayout">
@@ -298,7 +298,7 @@
                    </size>
                   </property>
                   <property name="currentIndex">
-                   <number>0</number>
+                   <number>2</number>
                   </property>
                   <property name="usesScrollButtons">
                    <bool>false</bool>
@@ -1649,6 +1649,13 @@
                       </item>
                       <item>
                        <layout class="QHBoxLayout" name="horizontalLayout_20">
+                        <item>
+                         <widget class="QPushButton" name="pushButtonAccepter">
+                          <property name="text">
+                           <string>Accepter</string>
+                          </property>
+                         </widget>
+                        </item>
                         <item>
                          <widget class="QPushButton" name="convoquer">
                           <property name="text">
@@ -4079,7 +4086,7 @@ td, th
            <property name="title">
             <string>Language</string>
            </property>
-           <widget class="QRadioButton" name="radioButton_3">
+           <widget class="QRadioButton" name="radioButtonEN">
             <property name="geometry">
              <rect>
               <x>10</x>
@@ -4092,7 +4099,7 @@ td, th
              <string>English</string>
             </property>
            </widget>
-           <widget class="QRadioButton" name="radioButton_4">
+           <widget class="QRadioButton" name="radioButtonFR">
             <property name="geometry">
              <rect>
               <x>10</x>
@@ -4105,7 +4112,7 @@ td, th
              <string>Français</string>
             </property>
            </widget>
-           <widget class="QRadioButton" name="radioButton_5">
+           <widget class="QRadioButton" name="radioButtonAR">
             <property name="geometry">
              <rect>
               <x>10</x>

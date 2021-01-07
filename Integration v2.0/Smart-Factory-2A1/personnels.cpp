@@ -343,4 +343,12 @@ int personnels::calculerSF(QString sexe,QString fonction)
     return total;
 }
 
+QSqlQueryModel *personnels::rechercher_rfid(QString uid)
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("select * from personnels where code_RFID like'"+uid+"%'")  ;
+    return model;
+
+
+}
 

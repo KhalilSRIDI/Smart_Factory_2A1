@@ -4,6 +4,7 @@ Arduino::Arduino()
 {
 
 }
+
 int Arduino::connect_arduino()
 {
     foreach(const QSerialPortInfo &serial_port_info, QSerialPortInfo::availablePorts())
@@ -54,11 +55,11 @@ QByteArray Arduino:: read_from_arduino()
    }
 }
 
-int Arduino::write_to_arduino(QByteArray d)
+int Arduino::write_to_arduino(const char * msg)
 {
     if (serial->isWritable())
     {
-        serial->write(d);
+        serial->write(msg);
     }
     else
         qDebug() << "Couldn't write to serial!";

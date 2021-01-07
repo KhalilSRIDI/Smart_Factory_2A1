@@ -5,6 +5,7 @@ Smart_Factory_2A1::Smart_Factory_2A1(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Smart_Factory_2A1)
 {
+
     ui->setupUi(this);
     ui->smartFactory->setCurrentIndex(0);
     ui->stackedWidget->setCurrentIndex(0);
@@ -63,7 +64,18 @@ Smart_Factory_2A1::Smart_Factory_2A1(QWidget *parent)
     ui->gestionEquipements->setDisabled(1);
     ui->gestionAmeliorations->setDisabled(1);
 
-    //controle de saisie nom utilisatuer profil
+    int ret=A.connect_arduino(); // lancer la connexion à arduino
+    switch(ret){
+    case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+        break;
+    case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+        break;
+    case(-1):qDebug() << "arduino is not available";
+        break;
+    }
+
+    QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
+
 
 }
 
@@ -1853,20 +1865,20 @@ void Smart_Factory_2A1::on_radioButtonNuit_toggled(bool checked)
 
 
 
-       QList<QPushButton *> butts = this->findChildren<QPushButton *>();
+    QList<QPushButton *> butts = this->findChildren<QPushButton *>();
 
-       for (int i=0; i<butts.size();i++)
-       {
-           butts.at(i)->setStyleSheet("QPushButton { background-color: #444444; }");
-       }
+    for (int i=0; i<butts.size();i++)
+    {
+        butts.at(i)->setStyleSheet("QPushButton { background-color: #444444; }");
+    }
 
 
-       QList<QTabWidget *> tabs = this->findChildren<QTabWidget *>();
+    QList<QTabWidget *> tabs = this->findChildren<QTabWidget *>();
 
-       for (int i=0; i<tabs.size();i++)
-       {
-           tabs.at(i)->setStyleSheet("QTabBar::tab { background-color: rgb(68, 68, 68);}");
-       }
+    for (int i=0; i<tabs.size();i++)
+    {
+        tabs.at(i)->setStyleSheet("QTabBar::tab { background-color: rgb(68, 68, 68);}");
+    }
 
 }
 
@@ -1875,22 +1887,101 @@ void Smart_Factory_2A1::on_radioButtonJour_toggled(bool checked)
     this->setStyleSheet("font: 8pt \"Pacifico\";");
 
 
-       QList<QPushButton *> butts = this->findChildren<QPushButton *>();
+    QList<QPushButton *> butts = this->findChildren<QPushButton *>();
 
-       for (int i=0; i<butts.size();i++)
-       {
-           butts.at(i)->setStyleSheet("QPushButton { background-color: grey; }");
-       }
-       QList<QTabWidget *> tabs = this->findChildren<QTabWidget *>();
+    for (int i=0; i<butts.size();i++)
+    {
+        butts.at(i)->setStyleSheet("QPushButton { background-color: grey; }");
+    }
+    QList<QTabWidget *> tabs = this->findChildren<QTabWidget *>();
 
-       for (int i=0; i<tabs.size();i++)
-       {
-           tabs.at(i)->setStyleSheet("QTabBar::tab { background-color: grey;}");
-       }
+    for (int i=0; i<tabs.size();i++)
+    {
+        tabs.at(i)->setStyleSheet("QTabBar::tab { background-color: grey;}");
+    }
 
 }
 
 void Smart_Factory_2A1::on_pushButton_2_clicked()
 {
-     ui->stackedWidget->setCurrentIndex(1);
+    if(ui->radioButtonEN->isChecked())
+    {
+        translator->load(QDir::currentPath().append("/smart_factory_2a1_en"));
+        qApp->installTranslator(translator);
+        ui->retranslateUi(this);
+    }
+
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void Smart_Factory_2A1::update_label()
+{
+    qDebug() <<"a=" << data;
+    data =A.read_from_arduino();
+
+    if (data!="#")
+    {
+
+        uid+=data;
+
+        //qDebug() << uid;
+
+    }
+    else {
+        int pos = uid.lastIndexOf(QChar('/'));
+        qDebug() << "uid="<< uid.left(pos);
+        //qDebug()  << uid;
+
+        ui->tablePointagePers->setModel(tmpPersonnels.rechercher_rfid(uid));
+        uid="";
+        //qDebug() << uid;
+
+    }
+}
+
+void Smart_Factory_2A1::on_pushButtonAccepter_clicked()
+{
+    QItemSelectionModel *select=ui->tablePointagePers->selectionModel();
+    QString nom= select->selectedRows(2).value(0).data().toString();
+    QString prenom= select->selectedRows(3).value(0).data().toString();
+    QString msg="";
+    msg= tr("Bonjour,")+nom+" "+prenom;
+
+    const char * p= msg.toStdString().c_str();
+
+    A.write_to_arduino(p);
+}
+
+void Smart_Factory_2A1::on_avertir_clicked()
+{
+    QItemSelectionModel *select=ui->tablePointagePers->selectionModel();
+    QString nbAver= select->selectedRows(19).value(0).data().toString();
+    QString msg="";
+    msg= tr("Vous etes en retard,")+tr("ceci est votre ")+nbAver+tr("avertissement");
+
+    const char * p= msg.toStdString().c_str();
+
+    A.write_to_arduino(p);
+}
+
+void Smart_Factory_2A1::on_convoquer_clicked()
+{
+    QItemSelectionModel *select=ui->tablePointagePers->selectionModel();
+    QString nom= select->selectedRows(2).value(0).data().toString();
+    QString prenom= select->selectedRows(3).value(0).data().toString();
+    QString msg="";
+    msg= tr("Bonjour,")+nom+" "+prenom+tr("veuillez vous diriger vers la direction des ressources humaines");
+
+    const char * p= msg.toStdString().c_str();
+
+    A.write_to_arduino(p);
+}
+
+void Smart_Factory_2A1::on_envoyerMail_clicked()
+{
+    QItemSelectionModel *select = ui->tablePers->selectionModel();
+    QString email =select->selectedRows(4).value(0).data().toString();
+    QDialog *d=new Dialog(email,"","",this);
+    d->show();
+    d->exec();
 }
